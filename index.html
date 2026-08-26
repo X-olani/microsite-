@@ -4959,21 +4959,12 @@
         const nextVideo = slides[current].querySelector("video");
         if (nextVideo) {
           nextVideo.currentTime = 0;
-          // Never play (with or without sound) while the popup itself isn't
-          // open — otherwise every gallery's background timer would keep
-          // cycling behind the scenes and its video could play unseen/unheard.
+          // Never play while the popup itself isn't open — otherwise every
+          // gallery's background timer would keep cycling behind the scenes.
           if (isGalleryVisible()) {
-            nextVideo.muted = false;
-            const playAttempt = nextVideo.play();
-            if (playAttempt && typeof playAttempt.catch === "function") {
-              playAttempt.catch(() => {
-                // Browser blocked autoplay-with-sound (usually only happens when
-                // this slide is reached automatically rather than by a click) —
-                // fall back to a muted autoplay so the video still plays.
-                nextVideo.muted = true;
-                nextVideo.play().catch(() => { });
-              });
-            }
+            // Always start muted — the visitor taps the video to turn sound on.
+            nextVideo.muted = true;
+            nextVideo.play().catch(() => { });
           }
         }
         if (dotsWrap) {
