@@ -2837,6 +2837,49 @@
       height: 100%;
       object-fit: cover;
       display: block;
+      cursor: pointer;
+    }
+
+    .gallery-video-mute-icon {
+      position: absolute;
+      right: 18px;
+      bottom: 18px;
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      background: rgba(22, 22, 22, 0.55);
+      backdrop-filter: blur(4px);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      pointer-events: none;
+      opacity: 0;
+      transition: opacity 0.35s ease;
+      z-index: 3;
+    }
+
+    .gallery-video-mute-icon.visible {
+      opacity: 1;
+    }
+
+    .gallery-video-mute-icon::before {
+      content: "";
+      width: 18px;
+      height: 18px;
+      background: #fff;
+      -webkit-mask-size: contain;
+      mask-size: contain;
+      -webkit-mask-repeat: no-repeat;
+      mask-repeat: no-repeat;
+      -webkit-mask-position: center;
+      mask-position: center;
+      -webkit-mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M3 10v4h4l5 5V5L7 10H3z'/%3E%3Cpath d='M16.5 12c0-1.77-.77-3.29-2-4.24v8.48c1.23-.95 2-2.47 2-4.24z'/%3E%3Cpath d='M14.5 3.23v2.06c2.89 1.02 5 3.71 5 6.71s-2.11 5.69-5 6.71v2.06c4.01-1.06 7-4.72 7-8.77s-2.99-7.71-7-8.77z'/%3E%3C/svg%3E");
+      mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M3 10v4h4l5 5V5L7 10H3z'/%3E%3Cpath d='M16.5 12c0-1.77-.77-3.29-2-4.24v8.48c1.23-.95 2-2.47 2-4.24z'/%3E%3Cpath d='M14.5 3.23v2.06c2.89 1.02 5 3.71 5 6.71s-2.11 5.69-5 6.71v2.06c4.01-1.06 7-4.72 7-8.77s-2.99-7.71-7-8.77z'/%3E%3C/svg%3E");
+    }
+
+    .gallery-video-mute-icon.is-muted::before {
+      -webkit-mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M3 10v4h4l5 5V5L7 10H3z'/%3E%3Cpath d='M19 12l2.16-2.16-1.41-1.41L17.59 10.6 15.42 8.44 14 9.86 16.17 12 14 14.13l1.41 1.42 2.18-2.17 2.16 2.16 1.41-1.41z'/%3E%3C/svg%3E");
+      mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M3 10v4h4l5 5V5L7 10H3z'/%3E%3Cpath d='M19 12l2.16-2.16-1.41-1.41L17.59 10.6 15.42 8.44 14 9.86 16.17 12 14 14.13l1.41 1.42 2.18-2.17 2.16 2.16 1.41-1.41z'/%3E%3C/svg%3E");
     }
 
     .popup-slide-gallery .popup-slide.active {
@@ -3488,10 +3531,11 @@
               ">The Shimansky Diamond Journey
             Story</div>
           <div class="popup-slide" data-caption="Shimansky">
-            <video playsinline preload="none"
+            <video class="gallery-video" playsinline preload="none"
               poster="https://drive.google.com/thumbnail?id=1XjihRrC7PLtV7x6t6F0E9V9coupwWeKu&sz=s1800">
               <source src="./videos/Shimansky_Diamonds.mp4" type="video/mp4" />
             </video>
+            <div class="gallery-video-mute-icon" aria-hidden="true"></div>
           </div>
 
           <div class="popup-gallery-controls">
@@ -3721,10 +3765,11 @@
 
           <!-- VIDEO SLIDE — drop the real file in /videos/ and it will play automatically at the end of the gallery -->
           <div class="popup-slide" data-caption="Watch The Rockwell Experience">
-            <video playsinline preload="none"
+            <video class="gallery-video" playsinline preload="none"
               poster="https://drive.google.com/thumbnail?id=1XjihRrC7PLtV7x6t6F0E9V9coupwWeKu&sz=s1800">
               <source src="./videos/rockwell_tour_full_width.mp4" type="video/mp4" />
             </video>
+            <div class="gallery-video-mute-icon" aria-hidden="true"></div>
           </div>
 
           <div class="popup-slide-caption"></div>
@@ -3960,10 +4005,11 @@
 
           <!-- VIDEO SLIDE — drop the real file in /videos/ and it will play automatically at the end of the gallery -->
           <div class="popup-slide" data-caption="Watch The Museum Experience">
-            <video playsinline preload="none"
+            <video class="gallery-video" playsinline preload="none"
               poster="https://drive.google.com/thumbnail?id=1nARnhQg0DvvM5OF1ZzuyAz0cOONIoeTJ&sz=s1800">
               <source src="./videos/CTDM_full_width.mp4" type="video/mp4" />
             </video>
+            <div class="gallery-video-mute-icon" aria-hidden="true"></div>
           </div>
 
           <div class="popup-slide-caption"></div>
@@ -4166,10 +4212,11 @@
 
           <!-- VIDEO SLIDE — drop the real file in /videos/ and it will  play automatically at the end of the gallery -->
           <div class="popup-slide" data-caption="WatchThe Shopping Experience">
-            <video playsinline preload="none"
+            <video class="gallery-video" playsinline preload="none"
               poster="https://drive.google.com/thumbnail?id=1xZ-VpYoeiDxFMLdQhMSBBWSbYkJSy54U&sz=s1800">
               <source src="./videos/shopping_full_width.mp4" type="video/mp4" />
             </video>
+            <div class="gallery-video-mute-icon" aria-hidden="true"></div>
           </div>
 
           <div class="popup-slide-caption"></div>
@@ -4981,6 +5028,37 @@
       };
     });
 
+    // Tap or click a gallery-ending video to toggle its sound on/off.
+    document.querySelectorAll(".gallery-video").forEach((video) => {
+      const icon = video.parentElement.querySelector(
+        ".gallery-video-mute-icon"
+      );
+
+      function syncIcon() {
+        if (!icon) return;
+        icon.classList.toggle("is-muted", video.muted);
+        icon.classList.add("visible");
+        clearTimeout(icon._hideTimer);
+        icon._hideTimer = setTimeout(() => {
+          icon.classList.remove("visible");
+        }, 1400);
+      }
+
+      video.addEventListener("click", (e) => {
+        e.stopPropagation();
+        video.muted = !video.muted;
+        if (!video.muted) {
+          // A direct tap/click is a genuine user gesture, so sound is always
+          // allowed here — even if an earlier autoplay attempt had to fall
+          // back to muted.
+          video.play().catch(() => { });
+        }
+        syncIcon();
+      });
+
+      video.addEventListener("play", syncIcon);
+      video.addEventListener("volumechange", syncIcon);
+    });
 
   </script>
 </body>
