@@ -520,6 +520,19 @@
       max-width: 820px;
     }
 
+    #m-shopping .pill-row {
+      flex-wrap: nowrap;
+      overflow-x: auto;
+      max-width: 100%;
+      padding-bottom: 0.3rem;
+      scrollbar-width: thin;
+    }
+
+    #m-shopping .pill-row .pill-button {
+      flex: 0 0 auto;
+      white-space: nowrap;
+    }
+
     .pill {
       font-size: 0.6rem;
       letter-spacing: 0.15em;
@@ -2188,6 +2201,20 @@
       background-color: #fff !important;
       border: 1px solid rgba(183, 155, 98, 0.18) !important;
       box-shadow: none !important;
+    }
+
+    /* Exclusive Diamond Cuts (My Girl/Brilliant 10) and Ayanda Tanzanite
+       popups: remove the card and image border lines, keep everything else.
+       Placed after the rules above so it wins the cascade. */
+    .modal .exclusive-cut-card,
+    .modal .tanzanite-card,
+    .modal .exclusive-cut-image,
+    .modal .tanzanite-card-media {
+      border: 0 !important;
+    }
+
+    .modal .tanzanite-card-copy {
+      border-top: 0 !important;
     }
 
     .modal .modal-grid,
@@ -4176,7 +4203,7 @@
               "></div>
 
           <div class="popup-slide active" data-caption="Iconic Jewellery Designs" style="
-                background-image: url(&quot;https://drive.google.com/thumbnail?id=1e5TwZBD_bR4voTvOu_SzgkCxKKoal21-&sz=s1800&quot;);
+                background-image: url(&quot;https://drive.google.com/thumbnail?id=1kPTAm8efXuBH5vnV6Q6GEw4izNe_nDJX&sz=s1800&quot;);
               "></div>
 
           <div class="popup-slide" data-caption="Styled To Perfection" style="
