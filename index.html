@@ -175,6 +175,59 @@
       padding: 1rem;
     }
 
+    .video-testimonial-grid {
+      display: flex;
+      gap: 1.2rem;
+      margin-top: 1.2rem;
+      flex-wrap: wrap;
+      justify-content: center;
+      max-width: 760px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .video-testimonial-card {
+      flex: 1 1 200px;
+      max-width: 240px;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .testimonial-video-frame {
+      position: relative;
+      width: 100%;
+      aspect-ratio: 9 / 16;
+      border-radius: 6px;
+      overflow: hidden;
+      background: var(--charcoal2);
+      box-shadow: 0 12px 28px rgba(0, 0, 0, 0.18);
+    }
+
+    .testimonial-video-frame video {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    .video-testimonial-name {
+      margin-top: 0.7rem;
+      text-align: center;
+      font-size: 0.86rem;
+      font-weight: 600;
+      color: var(--charcoal);
+      letter-spacing: 0.02em;
+    }
+
+    .video-testimonial-role {
+      text-align: center;
+      font-size: 0.72rem;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      color: var(--soft-gold);
+      margin-top: 0.15rem;
+    }
+
     /* handwriting font */
     .italianno-regular {
       font-family: "Allura", Arial, sans-serif;
@@ -190,9 +243,9 @@
       inset: 0;
       z-index: 1;
       background: linear-gradient(to top,
-          rgba(22, 22, 22, 0.9) 0%,
-          rgba(22, 22, 22, 0.48) 42%,
-          rgba(22, 22, 22, 0.1) 100%);
+          rgba(22, 22, 22, 0.66) 0%,
+          rgba(22, 22, 22, 0.32) 42%,
+          rgba(22, 22, 22, 0.05) 100%);
     }
 
     #s0 {
@@ -3434,7 +3487,12 @@
                 padding: 1.5rem;
               ">The Shimansky Diamond Journey
             Story</div>
-
+          <div class="popup-slide" data-caption="Shimansky">
+            <video playsinline preload="none"
+              poster="https://drive.google.com/thumbnail?id=1XjihRrC7PLtV7x6t6F0E9V9coupwWeKu&sz=s1800">
+              <source src="./videos/Shimansky_Diamonds_Video.mp4" type="video/mp4" />
+            </video>
+          </div>
 
           <div class="popup-gallery-controls">
             <button class="popup-gallery-btn popup-prev" type="button" aria-label="Previous image">
@@ -3508,36 +3566,35 @@
           <h3 class="btn-g-link">Responsibility That Matters</h3>
         </a>
         <p>
-          If you're a conscientious buyer who cares about where the things you
-          own truly come from, a diamond should be no different. Beyond the
-          well-known issue of conflict diamonds, the wider diamond trade can
-          still carry the weight of exploitation, unfair labour and
-          environmental harm long before a stone ever reaches a jeweller's
-          counter. The industry has responded with one of the strongest
-          self-regulatory systems in the world, the Kimberley Process,
-          established in 2003 to ensure diamonds are traded fairly and
-          transparently at every step of the supply chain.
+          Every Shimansky diamond is traded, sourced and certified with the
+          same care we put into cutting it. In short, here's what that means:
         </p>
-        <br />
-        <p>
-          But conflict-free is only part of the story. The real question is
-          one of origin and provenance, knowing not just who sold you a
-          diamond, but which mine it came from and how the people there were
-          treated. Few jewellers can trace a stone that far back. Shimansky
-          can, because we are one of the rare few licensed to buy rough
-          diamonds directly from the mine. Once a month, our team travels to
-          well-known South African diamond fields to hand-select rough
-          stones, chosen for the very qualities that will one day make them a
-          Shimansky diamond.
-        </p>
-        <br />
-        <p>
-          Every Shimansky diamond is accompanied by an Ethical Compliance
-          certificate, backed by a 100% conflict-free guarantee, so an
-          engagement ring, or any diamond bearing our name, can be given with
-          a clear conscience. In accordance with the Kimberley Process, every
-          invoice carries our written assurance:
-        </p>
+        <ul>
+          <li>
+            <strong>Kimberley Process compliant</strong> &mdash; every diamond
+            is traded fairly and transparently, and guaranteed conflict-free.
+          </li>
+          <li>
+            <strong>Sourced directly from the mine</strong> &mdash; Shimansky
+            is one of the rare few jewellers licensed to buy rough diamonds
+            straight from well-known South African diamond fields.
+          </li>
+          <li>
+            <strong>Ethical Compliance certificate</strong> &mdash; every
+            diamond is accompanied by our written guarantee of conflict-free
+            origin, in accordance with the Kimberley Process.
+          </li>
+          <li>
+            <strong>GIA certified</strong> &mdash; independently graded by the
+            Gemological Institute of America for cut, colour, clarity and
+            carat weight.
+          </li>
+          <li>
+            <strong>Community impact</strong> &mdash; supporting the people
+            and economies behind every stone, from mine to finger, cut and
+            polished in-house in Cape Town.
+          </li>
+        </ul>
         <p style="font-style: italic; padding-left: 1rem; border-left: 2px solid var(--soft-gold); margin: 1rem 0;">
           "The gemstones herein invoiced have been purchased from legitimate
           sources not involved in funding conflict and in compliance with
@@ -3546,31 +3603,54 @@
           written guarantees provided by the suppliers of these gemstones."
         </p>
 
-
         <div class="ethical-compliance-image" s>
 
         </div>
+      </div>
 
+      <div class="modal-section">
+        <h3>Testimonials</h3>
         <p>
-          All Shimansky diamonds are also independently graded by the
-          Gemological Institute of America (GIA), the world's foremost
-          authority on diamond grading and certification. Every stone is
-          accompanied by its GIA certificate, giving you complete assurance
-          of its cut, colour, clarity and carat weight, alongside our own
-          Ethical Compliance guarantee.
+          Hear directly from the people who know the Shimansky experience
+          best &mdash; our team, our trade partners, and our guests.
         </p>
-        <p>
-          Diamonds mined and traded ethically do more than reach a finger
-          with a clear conscience, they sustain the communities and
-          economies built around them. Over 10 million people worldwide are
-          employed across diamond mining, polishing, distribution and
-          retail, with the industry shaping livelihoods across South Africa,
-          Namibia, Botswana, Angola and Canada alike. Shimansky is proud to
-          source, cut and polish our own diamonds in Cape Town, the very
-          stones that go on to become the heroes of our jewellery designs. We
-          always know exactly where our diamonds come from, and how the
-          people around them are treated.
-        </p>
+        <div class="video-testimonial-grid">
+          <div class="video-testimonial-card">
+            <div class="testimonial-video-frame">
+              <!-- TESTIMONIAL VIDEO — drop the real file in /videos/ -->
+              <video controls playsinline preload="none"
+                poster="https://drive.google.com/thumbnail?id=1JUhKn6E4zInU1jcjRnll2PUzB_esZqzM&sz=s1800">
+                <source src="./videos/Aidan.mp4" type="video/mp4" />
+              </video>
+            </div>
+            <div class="video-testimonial-name">Aidan</div>
+            <div class="video-testimonial-role">Shimansky Team</div>
+          </div>
+
+          <div class="video-testimonial-card">
+            <div class="testimonial-video-frame">
+              <!-- TESTIMONIAL VIDEO — drop the real file in /videos/ -->
+              <video controls playsinline preload="none"
+                poster="https://drive.google.com/thumbnail?id=1JUhKn6E4zInU1jcjRnll2PUzB_esZqzM&sz=s1800">
+                <source src="./videos/Patrick.mov" type="video/mp4" />
+              </video>
+            </div>
+            <div class="video-testimonial-name">Patrick</div>
+            <div class="video-testimonial-role">Trips 4 Africa</div>
+          </div>
+
+          <div class="video-testimonial-card">
+            <div class="testimonial-video-frame">
+              <!-- TESTIMONIAL VIDEO — drop the real file in /videos/ -->
+              <video controls playsinline preload="none"
+                poster="https://drive.google.com/thumbnail?id=1JUhKn6E4zInU1jcjRnll2PUzB_esZqzM&sz=s1800">
+                <source src="./videos/Riano.mov" type="video/mp4" />
+              </video>
+            </div>
+            <div class="video-testimonial-name">Riano</div>
+            <div class="video-testimonial-role">Guest Relations Manager</div>
+          </div>
+        </div>
       </div>
 
     </div>
@@ -3641,9 +3721,9 @@
 
           <!-- VIDEO SLIDE — drop the real file in /videos/ and it will play automatically at the end of the gallery -->
           <div class="popup-slide" data-caption="Watch The Rockwell Experience">
-            <video muted playsinline preload="none"
+            <video playsinline preload="none"
               poster="https://drive.google.com/thumbnail?id=1XjihRrC7PLtV7x6t6F0E9V9coupwWeKu&sz=s1800">
-              <source src="./videos/rockwell_experience.mp4" type="video/mp4" />
+              <source src="./videos/rockwell_tour_full_width.mp4" type="video/mp4" />
             </video>
           </div>
 
@@ -3785,7 +3865,7 @@
         </ul>
       </div>
       <div class="modal-section">
-        <h3>Additional Experiences & Hours</h3>
+        <h3>Additional Information</h3>
         <ul>
           <li>
             Groups larger than 35 receive a lucky draw pendant on the tour.
@@ -3880,9 +3960,9 @@
 
           <!-- VIDEO SLIDE — drop the real file in /videos/ and it will play automatically at the end of the gallery -->
           <div class="popup-slide" data-caption="Watch The Museum Experience">
-            <video muted playsinline preload="none"
+            <video playsinline preload="none"
               poster="https://drive.google.com/thumbnail?id=1nARnhQg0DvvM5OF1ZzuyAz0cOONIoeTJ&sz=s1800">
-              <source src="./videos/ctdm_experience.mp4" type="video/mp4" />
+              <source src="./videos/CTDM_full_width.mp4" type="video/mp4" />
             </video>
           </div>
 
@@ -3952,7 +4032,7 @@
         </div>
       </div>
       <div class="modal-section">
-        <h3>Diamond Cutting and Polishing Factory</h3>
+        <h3>Diamond Cutting &amp; Polishing Factory</h3>
         <p>
           The art of polishing and shaping diamonds is a precise and exact
           science, requiring years of experience to master. Witness first-hand
@@ -3965,7 +4045,7 @@
         </p>
       </div>
       <div class="modal-section">
-        <h3>Shimansky Jewellery Manufacturing Workshop</h3>
+        <h3>Manufacturing Workshop</h3>
         <p>
           Watch as master craftsmen hand-make stunning jewellery creations and
           see some of the methods used to achieve Shimansky’s signature
@@ -3974,9 +4054,7 @@
       </div>
 
       <div class="modal-section">
-        <h3>
-          A Luxury Showroom - Your jewellery. Your moment. Your Shimansky.
-        </h3>
+        <h3>Luxury Showroom</h3>
         <ul>
           <li>45-minute guided tour.</li>
           <li>Bookings are essential.</li>
@@ -3990,7 +4068,7 @@
         </ul>
       </div>
       <div class="modal-section">
-        <h3>Practical Information</h3>
+        <h3>Information</h3>
         <ul>
           <li>
             Luxurious complimentary transfers from Cape Town accommodation
@@ -4050,9 +4128,7 @@
           <div class="popup-slide" data-caption="Exclusive Diamond Cuts" style="
                 background-image: url(&quot;https://drive.google.com/thumbnail?id=1aQnQqeBkOShEkxlVVK7JvRTwcHwb4Aup&sz=s1800&quot;);
               "></div>
-          <div class="popup-slide" data-caption="Ayanda, The Queen Of Tanzanite" style="
-                background-image: url(&quot;https://drive.google.com/thumbnail?id=1Zm0cMAJhJ-nhUaJTk0Z2aFf7YolhrkBW&sz=s1800&quot;);
-              "></div>
+
           <div class="popup-slide active" data-caption="Iconic Jewellery Designs" style="
                 background-image: url(&quot;https://drive.google.com/thumbnail?id=1e5TwZBD_bR4voTvOu_SzgkCxKKoal21-&sz=s1800&quot;);
               "></div>
@@ -4090,9 +4166,9 @@
 
           <!-- VIDEO SLIDE — drop the real file in /videos/ and it will  play automatically at the end of the gallery -->
           <div class="popup-slide" data-caption="WatchThe Shopping Experience">
-            <video muted playsinline preload="none"
+            <video playsinline preload="none"
               poster="https://drive.google.com/thumbnail?id=1xZ-VpYoeiDxFMLdQhMSBBWSbYkJSy54U&sz=s1800">
-              <source src="./videos/shopping_experience.mp4" type="video/mp4" />
+              <source src="./videos/Shimansky_shopping_full_width.mp4" type="video/mp4" />
             </video>
           </div>
 
@@ -4432,7 +4508,7 @@
                   "></div>
 
               <div class="modal-image-card exclusive-cut-image" style="
-                    background-image: url(&quot;https://drive.google.com/thumbnail?id=1i5MYtBEnOKVgXQojSgGnib6BuHSZbbFU&sz=s1800&quot;);
+                    background-image: url(&quot;https://drive.google.com/thumbnail?id=1mFatHrGnlpzCwbvd_3e9sCfTkyKd4h14&sz=s1800&quot;);
                   "></div>
             </div>
             <p>
@@ -4745,6 +4821,10 @@
           modal.classList.remove("open");
           document.body.style.overflow = "";
           updateModalScrollHint(modal);
+          modal.querySelectorAll("video").forEach((v) => {
+            v.pause();
+            v.currentTime = 0;
+          });
         }
       });
     });
@@ -4755,10 +4835,26 @@
           .forEach((m) => {
             m.classList.remove("open");
             updateModalScrollHint(m);
+            m.querySelectorAll("video").forEach((v) => {
+              v.pause();
+              v.currentTime = 0;
+            });
           });
         document.body.style.overflow = "";
       }
     });
+
+    // Only one testimonial video plays at a time
+    document.addEventListener(
+      "play",
+      (e) => {
+        if (!e.target.matches(".testimonial-video-frame video")) return;
+        document.querySelectorAll(".testimonial-video-frame video").forEach((v) => {
+          if (v !== e.target && !v.paused) v.pause();
+        });
+      },
+      true
+    );
 
     // Popup image slideshow galleries
     document.querySelectorAll(".popup-slide-gallery").forEach((gallery) => {
@@ -4769,6 +4865,11 @@
       const caption = gallery.querySelector(".popup-slide-caption");
       let current = 0;
       let timer = null;
+
+      function isGalleryVisible() {
+        const modal = gallery.closest(".modal");
+        return !modal || modal.classList.contains("open");
+      }
 
       function show(index) {
         if (!slides.length) return;
@@ -4784,7 +4885,22 @@
         const nextVideo = slides[current].querySelector("video");
         if (nextVideo) {
           nextVideo.currentTime = 0;
-          nextVideo.play().catch(() => { });
+          // Never play (with or without sound) while the popup itself isn't
+          // open — otherwise every gallery's background timer would keep
+          // cycling behind the scenes and its video could play unseen/unheard.
+          if (isGalleryVisible()) {
+            nextVideo.muted = false;
+            const playAttempt = nextVideo.play();
+            if (playAttempt && typeof playAttempt.catch === "function") {
+              playAttempt.catch(() => {
+                // Browser blocked autoplay-with-sound (usually only happens when
+                // this slide is reached automatically rather than by a click) —
+                // fall back to a muted autoplay so the video still plays.
+                nextVideo.muted = true;
+                nextVideo.play().catch(() => { });
+              });
+            }
+          }
         }
         if (dotsWrap) {
           dotsWrap
