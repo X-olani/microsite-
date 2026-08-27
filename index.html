@@ -1501,9 +1501,18 @@
       margin-top: 1.4rem;
     }
 
+    #m-rockwell .testimonial-grid,
+    #m-museum .testimonial-grid {
+      grid-template-columns: repeat(3, 1fr);
+    }
+
     .testimonial-card {
       text-align: center;
       padding: 1rem 0.8rem;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      height: 100%;
     }
 
     .testimonial-stars {
@@ -1531,7 +1540,8 @@
       color: var(--charcoal);
       font-style: italic;
       font-weight: 500;
-      margin-top: 1rem;
+      margin-top: auto;
+      padding-top: 1rem;
     }
 
     .testimonial-name::before {
@@ -2215,6 +2225,13 @@
 
     .modal .tanzanite-card-copy {
       border-top: 0 !important;
+    }
+
+    /* Testimonial cards (Rockwell, CTDM): remove the border lines, keep the
+       cards otherwise unstyled so the quotes read as plain content. */
+    .modal .testimonial-card {
+      border: 0 !important;
+      padding: 1rem 0.8rem !important;
     }
 
     .modal .modal-grid,
@@ -3960,6 +3977,61 @@
           </li>
           <li>Stores are closed on 25 December.</li>
         </ul>
+        <div class="modal-section testimonial-section">
+          <div class="testimonial-heading-wrap">
+            <span class="testimonial-eyebrow">Guest Reviews</span>
+            <h3>What Our Guests Say</h3>
+          </div>
+          <div class="testimonial-grid">
+            <div class="testimonial-card">
+              <div class="testimonial-stars">★★★★★</div>
+              <p class="testimonial-quote">
+                From the moment we stepped into Shimansky, we were treated to
+                a truly world-class experience. They went above and beyond to
+                make our visit unforgettable. Their professionalism, warmth,
+                and deep knowledge made the entire process seamless and
+                enjoyable.
+                <br /><br />
+                It's rare to find such genuine service and passion for
+                excellence — we felt valued, listened to, and well taken care
+                of throughout. Thank you to the entire team for making our
+                time at Shimansky so special. Highly recommended!
+              </p>
+              <div class="testimonial-name">Jennifer</div>
+            </div>
+            <div class="testimonial-card">
+              <div class="testimonial-stars">★★★★★</div>
+              <p class="testimonial-quote">
+                Absolutely unforgettable experience at Shimansky! From the
+                moment we walked in, the service was top-tier — welcoming,
+                knowledgeable, and attentive.
+                <br /><br />
+                The diamonds were stunning, but what really made it special
+                was how they took the time to explain the craftsmanship and
+                history behind each piece. If you're looking to make a memory
+                or treat someone special, this is the place to do it in Cape
+                Town. Highly recommend!
+              </p>
+              <div class="testimonial-name">Jalen</div>
+            </div>
+            <div class="testimonial-card">
+              <div class="testimonial-stars">★★★★★</div>
+              <p class="testimonial-quote">
+                A fascinating journey into South African jewellery making!
+                Our visit to the jewellery production site was truly
+                unforgettable. We had the chance to see the entire creative
+                process up close, from the careful selection of gemstones to
+                the crafting of the final pieces, all executed with
+                remarkable precision and attention to detail.
+                <br /><br />
+                Highly recommended to anyone visiting South Africa and
+                looking for an experience that combines craftsmanship,
+                beauty, and culture!
+              </p>
+              <div class="testimonial-name">Rossella</div>
+            </div>
+          </div>
+        </div>
         <div class="modal-section museum-tripadvisor-section">
           <h3>Tripadvisor Travellers’ Choice Award 2026</h3>
           <p>Recognised among the top 10% of attractions worldwide</p>
@@ -4159,6 +4231,60 @@
             Factory: Monday to Thursday, 09:00 – 16:00. Friday, 09:00 – 15:00.
           </li>
         </ul>
+      </div>
+      <div class="modal-section testimonial-section">
+        <div class="testimonial-heading-wrap">
+          <span class="testimonial-eyebrow">Guest Reviews</span>
+          <h3>What Our Guests Say</h3>
+        </div>
+        <div class="testimonial-grid">
+
+          <div class="testimonial-card">
+            <div class="testimonial-stars">★★★★★</div>
+            <p class="testimonial-quote">
+              What a wonderful & educational time we had at Shimansky.
+              Hearing about the history of diamonds, seeing the workshop, and
+              viewing the stunning pieces in the showroom was sheer delight.
+              Our tour guide was an excellent host and made us feel very
+              comfortable. Thank you for an unforgettable experience!
+            </p>
+            <div class="testimonial-name">Heather</div>
+          </div>
+          <div class="testimonial-card">
+            <div class="testimonial-stars">★★★★★</div>
+            <p class="testimonial-quote">
+              I visited one of the most beautiful museums that takes you into
+              the world of diamonds and the history of diamonds in South
+              Africa. You can also see some rare pieces that are only found
+              in South Africa. I highly recommend visiting it, if you are a
+              diamond lover.
+            </p>
+            <div class="testimonial-name">Sara</div>
+          </div>
+
+          <div class="testimonial-card">
+            <div class="testimonial-stars">★★★★★</div>
+            <p class="testimonial-quote">
+              Great experience from start to finish! I was welcomed and
+              signed in by a very friendly receptionist and waited only a few
+              minutes before the tour began.
+              <br /><br />
+              The guide was fantastic — knowledgeable, engaging, and eager to
+              answer all my questions. He wove South Africa's diamond history
+              into the tour, starting with the 1867 discovery of the Eureka
+              diamond along the Orange River and the 1869 Star of South
+              Africa find that sparked the country's first diamond rush.
+              <br /><br />
+              The museum's exhibits include a timeline of major finds (like
+              the 1905 Cullinan diamond) and exquisite replicas that really
+              put their sheer size into perspective. I especially enjoyed the
+              section on early Kimberley mine life and the examples of the
+              different cutting techniques. Enjoyable experience and a
+              fascinating history on diamonds in South Africa.
+            </p>
+            <div class="testimonial-name">Lev</div>
+          </div>
+        </div>
       </div>
       <div class="modal-section museum-tripadvisor-section">
         <h3>TripAdvisor Travellers’ Choice 2026</h3>
