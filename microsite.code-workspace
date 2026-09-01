@@ -1,0 +1,12 @@
+{
+	"folders": [
+		{
+			"path": "../microsite"
+		},
+		{
+			"name": "microsite-",
+			"path": "."
+		}
+	],
+	"settings": {}
+}
