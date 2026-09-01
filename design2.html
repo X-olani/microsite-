@@ -1,0 +1,4818 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="robots" content="noindex">
+    <title>Shimansky — The Diamond Journey · Cape Town</title>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Montserrat:wght@200;300;400;500&display=swap"
+        rel="stylesheet" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Petit+Formal+Script&display=swap" rel="stylesheet" />
+
+    <link href="https://fonts.googleapis.com/css2?family=Allura&display=swap" rel="stylesheet" />
+    <style>
+        *,
+        *::before,
+        *::after {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --ivory: #f8f6f1;
+            --warm-sand: #d9d2c3;
+            --soft-gold: #b79b62;
+            --gold-light: #d4bc8e;
+            --charcoal: #1e1e1e;
+            --charcoal2: #161616;
+            --white: #fff;
+            --transition: 620ms cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        a {
+            text-decoration: none !important;
+        }
+
+        html {
+            scroll-behavior: smooth;
+            scroll-snap-type: y mandatory;
+        }
+
+        body {
+            font-family: "Helvetica", "Arial", "sans-serif";
+            background: var(--charcoal);
+            color: var(--ivory);
+            overflow-x: hidden;
+        }
+
+        nav {
+            position: fixed;
+            top: 0;
+
+            left: 0;
+            right: 0;
+            z-index: 200;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 1.15rem 2.8rem;
+            background: rgba(255, 255, 255, 0.96);
+            backdrop-filter: blur(14px);
+            border-bottom: 1px solid rgba(183, 155, 98, 0.18);
+            box-shadow: 0 8px 30px rgba(30, 30, 30, 0.05);
+        }
+
+        .nav-logo {
+            font-family: "Helvetica", "Arial", "sans-serif";
+            font-size: 1rem;
+            font-weight: 300;
+            letter-spacing: 0.35em;
+            color: var(--charcoal);
+            text-transform: uppercase;
+        }
+
+        .nav-right {
+            display: flex;
+            align-items: center;
+            gap: 1.6rem;
+        }
+
+        .nav-dots {
+            display: flex;
+            gap: 8px;
+            align-items: center;
+        }
+
+        .nav-dot {
+            width: 5px;
+            height: 5px;
+            border-radius: 50%;
+            border: 1px solid rgba(30, 30, 30, 0.28);
+            cursor: pointer;
+            transition: var(--transition);
+            background: transparent;
+        }
+
+        .nav-dot.active {
+            background: var(--soft-gold);
+            border-color: var(--soft-gold);
+            transform: scale(1.5);
+        }
+
+        section {
+            position: relative;
+            width: 100%;
+            height: 100vh;
+            scroll-snap-align: start;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+        }
+
+        .slide-bg {
+            position: absolute;
+            inset: 0;
+            z-index: 0;
+        }
+
+        .slide-bg .slide {
+            position: absolute;
+            inset: 0;
+            background-size: cover;
+            background-position: center;
+            opacity: 0;
+            transition: opacity 1s ease;
+        }
+
+        .slide-bg .slide.active {
+            opacity: 1;
+        }
+
+        .ethical-compliance-image {
+            width: 40%;
+            aspect-ratio: 3 / 4;
+            margin: 1rem auto 1.5rem;
+            border: 1px dashed rgba(183, 155, 98, 0.55);
+            background: rgba(183, 155, 98, 0.06);
+            background-image: url(https://drive.google.com/thumbnail?id=1QsrKuJ_MaIfRG8zTpn-f960Uj3Yaijr_&sz=s1800);
+            background-repeat: round;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: var(--soft-gold);
+            font-size: 0.8rem;
+            letter-spacing: 0.06em;
+            text-transform: uppercase;
+            padding: 1rem;
+        }
+
+        .video-testimonial-grid {
+            display: flex;
+            gap: 1.2rem;
+            margin-top: 1.2rem;
+            flex-wrap: wrap;
+            justify-content: center;
+            max-width: 760px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .video-testimonial-card {
+            flex: 1 1 200px;
+
+            display: flex;
+            flex-direction: column;
+            height: 400px;
+        }
+
+        .testimonial-video-frame {
+            position: relative;
+            width: 100%;
+            aspect-ratio: 9 / 16;
+            border-radius: 6px;
+            overflow: hidden;
+            background: var(--charcoal2);
+            box-shadow: 0 12px 28px rgba(0, 0, 0, 0.18);
+        }
+
+        .testimonial-video-frame video {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+
+        /* handwriting font */
+
+        /* retained single-page style, softened slightly so text remains readable*/
+        .slide-bg::after {
+            content: "";
+            position: absolute;
+            inset: 0;
+            z-index: 1;
+            background: linear-gradient(to top,
+                    rgba(22, 22, 22, 0.66) 0%,
+                    rgba(22, 22, 22, 0.32) 42%,
+                    rgba(22, 22, 22, 0.05) 100%);
+        }
+
+        #s0 {
+            justify-content: flex-end;
+            align-items: flex-start;
+        }
+
+        #s0 .content {
+            text-align: left;
+            padding-bottom: 3.5rem;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+        }
+
+        #s0 .exp-title {
+            font-size: clamp(2.8rem, 6.5vw, 5rem);
+            font-weight: 500;
+            max-width: 800px;
+            text-align: left;
+        }
+
+        #s0 .gold-rule {
+            margin: 0 0 1rem;
+        }
+
+        #s0 .exp-desc {
+            text-align: left;
+            max-width: 560px;
+        }
+
+        #s0 .btn-row {
+            justify-content: flex-start;
+            margin-bottom: 20px;
+        }
+
+        .photo-nav {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            z-index: 10;
+            display: flex;
+            width: 100%;
+            justify-content: space-between;
+            padding: 0 1.8rem;
+            pointer-events: none;
+        }
+
+        .photo-btn {
+            pointer-events: all;
+            background: rgba(217, 210, 195, 0.1);
+            border: 1px solid rgba(217, 210, 195, 0.3);
+            color: var(--warm-sand);
+            width: 48px;
+            height: 48px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            font-size: 1.1rem;
+            transition: var(--transition);
+            backdrop-filter: blur(6px);
+        }
+
+        .photo-btn:hover {
+            background: rgba(183, 155, 98, 0.22);
+            border-color: var(--soft-gold);
+            color: var(--gold-light);
+        }
+
+        .section-nav-arrow {
+            position: absolute;
+            left: 50%;
+            bottom: 1.4rem;
+            transform: translateX(-50%);
+            z-index: 12;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 1px solid rgba(183, 155, 98, 0.38);
+            background: rgba(248, 246, 241, 0.12);
+            color: var(--ivory);
+            backdrop-filter: blur(8px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.24);
+            transition: var(--transition);
+            font-size: 1rem;
+            pointer-events: all;
+        }
+
+        .section-nav-arrow:hover {
+            background: rgba(183, 155, 98, 0.28);
+            border-color: var(--soft-gold);
+            color: var(--gold-light);
+            transform: translateX(-50%) scale(1.04);
+        }
+
+        @media (max-width: 768px) {
+            .section-nav-arrow {
+                width: 36px;
+                height: 36px;
+                font-size: 0.95rem;
+                bottom: 1rem;
+            }
+
+            .ethical-compliance-image {
+                width: 80%;
+            }
+        }
+
+        /* dots slider */
+        .photo-dots {
+            position: absolute;
+            bottom: 12rem;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 10;
+            display: flex;
+            gap: 7px;
+            align-items: center;
+        }
+
+        /* drop dots down on screen */
+        @media (max-width: 768px) {
+            .photo-dots {
+                position: fixed;
+                bottom: 16px;
+                left: 50%;
+                transform: translateX(-50%);
+                z-index: 10;
+            }
+
+            .photo-dots {
+                bottom: 10.5rem;
+            }
+
+            .video-testimonial-card {
+                height: 200px;
+            }
+        }
+
+        .photo-dot {
+            width: 4px;
+            height: 4px;
+            border-radius: 2px;
+            background: rgba(217, 210, 195, 0.3);
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .photo-dot.active {
+            background: var(--soft-gold);
+            width: 22px;
+        }
+
+        .photo-counter {
+            position: absolute;
+            top: 5.5rem;
+            right: 2.4rem;
+            z-index: 10;
+            font-size: 0.65rem;
+            letter-spacing: 0.18em;
+            color: rgba(183, 155, 98, 0.7);
+        }
+
+        .content {
+            position: relative;
+            z-index: 5;
+            padding: 2.4rem clamp(1rem, 4vw, 2.8rem) 3.5rem;
+            width: min(1040px, 100%);
+            max-width: calc(100vw - 1rem);
+        }
+
+        .exp-tag {
+            display: inline-block;
+            font-size: 0.63rem;
+            font-weight: 600;
+            letter-spacing: 0.28em;
+            text-transform: uppercase;
+            color: #f7e8bd;
+            border: 1px solid rgba(183, 155, 98, 0.55);
+            padding: 0.38rem 0.95rem;
+            margin-bottom: 0.9rem;
+            background: rgba(22, 22, 22, 0.4);
+            box-shadow: 0 4px 14px rgba(0, 0, 0, 0.24);
+            backdrop-filter: blur(6px);
+        }
+
+        .exp-title {
+            font-family: "Helvetica", Arial, sans-serif;
+            font-size: clamp(2rem, 4.5vw, 3.55rem);
+            font-weight: 500;
+            line-height: 1.02;
+            color: var(--ivory);
+            margin-bottom: 0.6rem;
+            max-width: 640px;
+            text-shadow: 0 1px 18px rgba(0, 0, 0, 0.28);
+        }
+
+        .exp-title em {
+            font-style: italic;
+            color: var(--gold-light);
+        }
+
+        .exp-meta {
+            display: flex;
+            gap: 1.2rem;
+            flex-wrap: wrap;
+            margin-bottom: 1rem;
+            max-width: 860px;
+        }
+
+        .exp-meta span {
+            font-size: 0.68rem;
+            letter-spacing: 0.1em;
+            color: #000000;
+            font-weight: 400;
+            text-transform: uppercase;
+            display: flex;
+            align-items: center;
+            gap: 0.4rem;
+            text-shadow: none;
+        }
+
+        .exp-meta .sep {
+            width: 3px;
+            height: 3px;
+            background: var(--soft-gold);
+            border-radius: 50%;
+            display: inline-block;
+            margin-top: 0.5rem;
+        }
+
+        .content .exp-desc {
+            color: var(--ivory);
+        }
+
+        .exp-desc {
+            font-size: 0.82rem;
+            line-height: 1.85;
+            color: var(--charcoal2);
+            max-width: 620px;
+            margin-bottom: 1.15rem;
+            font-weight: 300;
+            text-shadow: 0 1px 12px rgba(0, 0, 0, 0.16);
+        }
+
+        .gold-rule {
+            width: 48px;
+            height: 1px;
+            background: var(--soft-gold);
+            margin-bottom: 1rem;
+        }
+
+        .exp-number {
+            font-family: "Helvetica", Arial, sans-serif;
+            font-size: 6rem;
+            font-weight: 300;
+            color: rgba(183, 155, 98, 0.08);
+            position: absolute;
+            right: 2.5rem;
+            bottom: 2.5rem;
+            letter-spacing: -0.03em;
+            line-height: 1;
+            z-index: 4;
+        }
+
+        .pill-row {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.6rem;
+            margin-bottom: 1.2rem;
+            max-width: 820px;
+        }
+
+        #m-shopping .pill-row {
+            flex-wrap: nowrap;
+            overflow-x: auto;
+            max-width: 100%;
+            padding-bottom: 0.3rem;
+            scrollbar-width: thin;
+        }
+
+        #m-shopping .pill-row .pill-button {
+            flex: 0 0 auto;
+            white-space: nowrap;
+        }
+
+        .pill {
+            font-size: 0.6rem;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            padding: 0.28rem 0.8rem;
+            border-radius: 2px;
+        }
+
+        .pill-in {
+            background: rgba(183, 155, 98, 0.14);
+            color: var(--gold-light);
+            border: 1px solid rgba(183, 155, 98, 0.3);
+        }
+
+        .pill-add {
+            background: rgba(22, 22, 22, 0.16);
+            color: var(--warm-sand);
+            border: 1px solid rgba(183, 183, 164, 0.25);
+        }
+
+        /* ================================
+       CLICKABLE SHOPPING BLOCK CSS START
+       Makes the Shopping Experience pill blocks open popups like Read More.
+       ================================ */
+        .pill-button {
+            font-family: "Helvetica", Arial, sans-serif;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .pill-button:hover {
+            background: var(--soft-gold);
+            color: var(--charcoal);
+            border-color: var(--soft-gold);
+            transform: translateY(-1px);
+        }
+
+        .pill-button:focus {
+            outline: 1px solid var(--gold-light);
+            outline-offset: 3px;
+        }
+
+        /* ================================
+       CLICKABLE SHOPPING BLOCK CSS END
+       ================================ */
+
+        /* ================================
+      the giving back  images  css
+       Displays two Foundation/community visuals side by side.
+       ================================ */
+        .commit-community-gallery {
+            width: 100%;
+
+            display: flex;
+            grid-template-columns: 1fr 1fr;
+            gap: 0.75rem;
+            margin: 1.25rem 0 1.1rem;
+            height: 288px;
+        }
+
+        .commit-community-gallery .commit-community-image {
+            margin: 0;
+            min-height: 220px;
+            max-width: none;
+        }
+
+        .commit-community-image.image-two {
+            background-image:
+                linear-gradient(to top,
+                    rgba(22, 22, 22, 0.42),
+                    rgba(22, 22, 22, 0.04)),
+                url("https://drive.google.com/thumbnail?id=1QaxxN2NK1q2TuKGIWGBKHRg--fgW8oy6&sz=s1800");
+        }
+
+        .commit-community-image.image-three {
+            background-image:
+                linear-gradient(to top,
+                    rgba(22, 22, 22, 0.42),
+                    rgba(22, 22, 22, 0.04)),
+                url("https://drive.google.com/thumbnail?id=1p1v1inuEBE_0YiEvzrUdo570uyu0nDtt&sz=s1800");
+        }
+
+        @media (max-width: 768px) {
+            .commit-community-gallery {
+                grid-template-columns: 1fr;
+                flex-wrap: wrap;
+                height: auto;
+            }
+
+            .commit-community-gallery .commit-community-image {
+                min-height: 180px;
+            }
+        }
+
+        /* ================================
+       tripadvisor 
+       Used inside the Clock Tower location card in the Rockwell Read More popup.
+       ================================ */
+        .location-tripadvisor-badge-wrap {
+            margin: 0.9rem 0 0.8rem;
+            padding: 0.85rem;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 1.4rem;
+            flex-wrap: wrap;
+        }
+
+        .location-tripadvisor-badge {
+            display: block;
+            width: min(220px, 100%);
+            height: auto;
+            object-fit: contain;
+        }
+
+        .location-tripadvisor-badge-ctdm {
+            display: block;
+            width: min(220px, 100%);
+            height: auto;
+            object-fit: contain;
+        }
+
+        .tripadvisor-badge-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 0.4rem;
+            width: 20%;
+        }
+
+        .tripadvisor-badge-caption {
+            font-size: 0.68rem;
+            letter-spacing: 0.06em;
+            text-transform: uppercase;
+            color: var(--soft-gold);
+            text-align: center;
+        }
+
+        .tripadvisor-award-row {
+            display: flex;
+            align-items: center;
+            gap: 1.5rem;
+            text-align: left;
+            max-width: 520px;
+            margin: 0 auto;
+        }
+
+        .tripadvisor-award-row+.tripadvisor-award-row {
+            margin-top: 1.5rem;
+        }
+
+        .tripadvisor-award-row .tripadvisor-badge-item {
+            width: auto;
+            flex: 0 0 auto;
+        }
+
+        .tripadvisor-award-row .location-tripadvisor-badge,
+        .tripadvisor-award-row .location-tripadvisor-badge-ctdm {
+            width: 160px;
+        }
+
+        .tripadvisor-award-quote {
+            flex: 1 1 auto;
+            min-width: 0;
+            font-size: 0.82rem;
+            line-height: 1.65;
+            color: rgba(30, 30, 30, 0.72);
+            margin: 0;
+        }
+
+        @media (max-width: 600px) {
+            .tripadvisor-award-row {
+                flex-direction: column;
+                text-align: center;
+                gap: 0.6rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .location-tripadvisor-badge-ctdm {
+                width: min(190px, 54%);
+            }
+
+            .location-tripadvisor-badge {
+                width: min(190px, 24%);
+            }
+        }
+
+        /* ================================
+       TRIPADVISOR BADGE CSS END
+       ================================ */
+        /* ================================
+       MUSEUM TRIPADVISOR POPUP CSS START
+       ================================ */
+        .museum-tripadvisor-section {
+            text-align: center;
+
+            margin: 0.85rem 0 1rem;
+            padding: 1.2rem;
+        }
+
+        .museum-tripadvisor-section h3 {
+            margin-bottom: 0.3rem;
+        }
+
+        /* ================================
+       MUSEUM TRIPADVISOR POPUP CSS END
+       ================================ */
+
+        .btn-row {
+            display: flex;
+            gap: 0.9rem;
+            flex-wrap: wrap;
+        }
+
+        .btn-g,
+        .read-more {
+            font-family: "Helvetica", Arial, sans-serif;
+            font-size: 0.68rem;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            padding: 0.85rem 1.8rem;
+            cursor: pointer;
+            transition: var(--transition);
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .read-more {
+            color: var(--charcoal);
+            background: var(--soft-gold);
+            border: none;
+        }
+
+        .read-more:hover {
+            background: var(--gold-light);
+        }
+
+        .btn-g {
+            color: var(--warm-sand);
+            background: transparent;
+            border: 1px solid rgba(217, 210, 195, 0.3);
+        }
+
+        .btn-g:hover {
+            border-color: var(--soft-gold);
+            color: var(--gold-light);
+        }
+
+        /* Shopping Experience visual cards */
+
+        /* Commitment / Giving Back split block */
+
+        .commit-panel {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            padding: 5rem 4rem;
+            background: var(--ivory);
+        }
+
+        .commit-panel.dark {
+            background: var(--charcoal);
+        }
+
+        .commit-eyebrow {
+            font-size: 0.58rem;
+            letter-spacing: 0.28em;
+            text-transform: uppercase;
+            color: var(--soft-gold);
+            margin-bottom: 1rem;
+        }
+
+        .commit-title {
+            font-family: "Helvetica", Arial, sans-serif;
+            font-size: clamp(2.2rem, 4vw, 3.6rem);
+            font-weight: 300;
+            line-height: 1.05;
+            color: var(--charcoal);
+            margin-bottom: 1.1rem;
+        }
+
+        .commit-title em {
+            font-style: italic;
+            color: var(--soft-gold);
+        }
+
+        .commit-panel.dark .commit-title {
+            color: var(--ivory);
+        }
+
+        .commit-panel.dark .commit-title em {
+            color: var(--gold-light);
+        }
+
+        .commit-text {
+            font-size: 0.84rem;
+            line-height: 1.95;
+            color: rgba(30, 30, 30, 0.66);
+            font-weight: 300;
+            margin-bottom: 1rem;
+            max-width: 1000px;
+            text-shadow: none;
+        }
+
+        .commit-panel.dark .commit-text {
+            color: rgba(248, 246, 241, 0.66);
+        }
+
+        /* Location cards inside Rockwell read-more popup */
+
+        .location-link {
+            color: var(--soft-gold);
+            font-size: 0.84rem;
+        }
+
+        /* Community image inside Giving Back block */
+        .commit-community-image {
+            width: 100%;
+            max-width: 560px;
+            min-height: 210px;
+            margin: 1.25rem 0 1.1rem;
+            background-image:
+                linear-gradient(to top,
+                    rgba(22, 22, 22, 0.42),
+                    rgba(22, 22, 22, 0.04)),
+
+                url("https://drive.google.com/thumbnail?id=1Nqno_97q0gsNrSAKs3btP79lIqFk2nJO&sz=s1800");
+            background-size: cover;
+            background-position: center;
+            border: 1px solid rgba(183, 155, 98, 0.2);
+            box-shadow: 0 18px 50px rgba(30, 30, 30, 0.08);
+        }
+
+        .commit-image-note {
+            font-size: 0.58rem;
+            letter-spacing: 0.16em;
+            text-transform: uppercase;
+            color: var(--soft-gold);
+            margin-bottom: 0.6rem;
+        }
+
+        @media (max-width: 900px) {
+
+            .commit-community-image {
+                min-height: 180px;
+            }
+        }
+
+        /* ================================
+       STORE / MY AFRICA FOUNDATION CSS START
+       Used inside the Shopping Experience Read More popup.
+       ================================ */
+
+        /* ================================
+       STORE / MY AFRICA FOUNDATION CSS END
+       ================================ */
+
+        @media (max-width: 768px) {
+
+            .commit-panel {
+                padding: 4rem 1.25rem;
+            }
+
+            .commit-panel.dark {
+                min-height: 50vh;
+            }
+        }
+
+        /* Modal / Read More */
+        .modal {
+            position: fixed;
+            inset: 0;
+            background: rgba(18, 18, 18, 0.72);
+            z-index: 999;
+            display: none;
+            align-items: center;
+            justify-content: center;
+            padding: 1.5rem;
+            backdrop-filter: blur(7px);
+        }
+
+        .modal.open {
+            display: flex;
+        }
+
+        .modal-card {
+            width: min(980px, 100%);
+            max-height: 86vh;
+            overflow: auto;
+            background: var(--ivory);
+            color: var(--charcoal);
+            border: 1px solid rgba(183, 155, 98, 0.24);
+            box-shadow: 0 32px 90px rgba(0, 0, 0, 0.32);
+            position: relative;
+            padding: 2.2rem;
+            scroll-behavior: smooth;
+        }
+
+        .modal-scroll-hint {
+            position: sticky;
+            bottom: 0.65rem;
+            margin-top: 0.8rem;
+            margin-left: auto;
+            margin-right: auto;
+            width: 38px;
+            height: 38px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: rgba(18, 18, 18, 0.92);
+            color: var(--ivory);
+            border: 1px solid rgba(183, 155, 98, 0.42);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+            font-size: 1rem;
+            pointer-events: none;
+            opacity: 0;
+            transition: opacity 240ms ease, transform 240ms ease;
+            animation: modal-scroll-bounce 1.4s ease-in-out infinite;
+        }
+
+        .modal-scroll-hint.visible {
+            opacity: 1;
+        }
+
+        @keyframes modal-scroll-bounce {
+
+            0%,
+            100% {
+                transform: translateY(0);
+            }
+
+            50% {
+                transform: translateY(4px);
+            }
+        }
+
+        .modal-scroll-top {
+            position: sticky;
+            bottom: 0.65rem;
+            margin-top: 0.8rem;
+            margin-left: auto;
+            margin-right: auto;
+            width: 38px;
+            height: 38px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: rgba(18, 18, 18, 0.92);
+            color: var(--ivory);
+            border: 1px solid rgba(183, 155, 98, 0.42);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+            font-size: 1rem;
+            cursor: pointer;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 240ms ease, transform 240ms ease, background 240ms ease, border-color 240ms ease;
+            animation: modal-scroll-bounce-up 1.4s ease-in-out infinite;
+        }
+
+        .modal-scroll-top.visible {
+            opacity: 1;
+            pointer-events: all;
+        }
+
+        .modal-scroll-top:hover {
+            background: var(--soft-gold);
+            border-color: var(--soft-gold);
+        }
+
+        /* Remove scroll hint arrows in the Iconic Jewellery Designs and Exclusive Diamond Cuts popups */
+        #m-iconic-jewellery .modal-scroll-hint,
+        #m-iconic-jewellery .modal-scroll-top,
+        #m-my-girl .modal-scroll-hint,
+        #m-my-girl .modal-scroll-top {
+            display: none !important;
+        }
+
+        @keyframes modal-scroll-bounce-up {
+
+            0%,
+            100% {
+                transform: translateY(0);
+            }
+
+            50% {
+                transform: translateY(-4px);
+            }
+        }
+
+        .modal-close {
+            position: sticky;
+            top: 0;
+            margin-left: auto;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 38px;
+            height: 38px;
+            border: 1px solid rgba(30, 30, 30, 0.12);
+            background: #fff;
+            color: var(--charcoal);
+            cursor: pointer;
+            font-size: 1rem;
+            z-index: 2;
+        }
+
+        .modal-title {
+            font-family: "Helvetica", Arial, sans-serif;
+            font-size: clamp(2rem, 3.5vw, 3.2rem);
+            font-weight: 300;
+            line-height: 1.08;
+            margin-bottom: 1.1rem;
+            color: var(--charcoal);
+            border-bottom: 1px solid rgba(183, 155, 98, 0.18);
+            padding-bottom: 1rem;
+        }
+
+        .modal-title em {
+            font-style: italic;
+            color: var(--soft-gold);
+        }
+
+        .modal-section {
+            padding: 1rem 0;
+            border-top: 1px solid rgba(30, 30, 30, 0.1);
+        }
+
+        .modal-section:first-of-type {
+            border-top: none;
+        }
+
+        .modal-section h3 {
+            font-family: "Helvetica", Arial, sans-serif;
+            font-size: 1.55rem;
+            font-weight: 300;
+            margin-bottom: 0.45rem;
+            color: var(--charcoal);
+        }
+
+        .modal-section h4 {
+            font-size: 0.68rem;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            color: var(--soft-gold);
+            margin: 0.9rem 0 0.35rem;
+            font-weight: 500;
+        }
+
+        .modal-section p,
+        .modal-section li {
+            font-size: 0.84rem;
+            line-height: 1.8;
+            color: rgba(30, 30, 30, 0.68);
+            font-weight: 300;
+        }
+
+        .modal-section ul {
+            padding-left: 1rem;
+            margin: 0.5rem 0;
+        }
+
+        .modal-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1rem;
+            margin-top: 0.75rem;
+        }
+
+        .modal-item {
+            border: 1px solid rgba(30, 30, 30, 0.1);
+            padding: 1rem;
+            background: #fff;
+        }
+
+        .modal-image-card {
+            position: relative;
+            min-height: 210px;
+            overflow: hidden;
+            background-size: cover;
+            background-position: center;
+            border: 1px solid rgba(30, 30, 30, 0.1);
+        }
+
+        .modal-image-card::after {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(to top,
+                    rgba(22, 22, 22, 0.72),
+                    rgba(22, 22, 22, 0.18) 56%,
+                    rgba(22, 22, 22, 0));
+        }
+
+        .modal-image-copy {
+            position: absolute;
+            left: 1rem;
+            right: 1rem;
+            bottom: 1rem;
+            z-index: 2;
+        }
+
+        .modal-image-label {
+            display: block;
+            font-size: 0.58rem;
+            letter-spacing: 0.18em;
+            text-transform: uppercase;
+            color: var(--gold-light);
+            margin-bottom: 0.25rem;
+        }
+
+        .modal-image-title {
+            font-family: "Helvetica", Arial, sans-serif;
+            font-size: 1.45rem;
+            font-weight: 300;
+            line-height: 1.05;
+            color: #fff;
+            text-shadow: 0 2px 12px rgba(0, 0, 0, 0.25);
+        }
+
+        .modal-price {
+            font-size: 0.7rem;
+            letter-spacing: 0.14em;
+            text-transform: uppercase;
+            color: #8a7144;
+            background: rgba(183, 155, 98, 0.09);
+            display: inline-block;
+            padding: 0.45rem 0.65rem;
+            margin: 0.35rem 0 0.75rem;
+        }
+
+        /* ================================
+       TANZANITE POPUP GALLERY CSS START
+       Curated layout for the Ayanda® Tanzanite popup.
+       Keeps original three images and adds new Tanzanite visuals without awkward cropping.
+       ================================ */
+        .tanzanite-popup-intro {
+            max-width: 760px;
+            margin-bottom: 1rem;
+        }
+
+        .tanzanite-gallery-title {
+            font-family: "Helvetica", Arial, sans-serif;
+            font-size: 1.45rem;
+            font-weight: 300;
+            color: var(--charcoal);
+            margin: 1.2rem 0 0.75rem;
+        }
+
+        .tanzanite-feature-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1rem;
+            margin: 1rem 0 1.5rem;
+        }
+
+        .tanzanite-added-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1rem;
+            margin: 1rem 0 1.5rem;
+        }
+
+        .tanzanite-card {
+            background: #fff;
+            border: 1px solid rgba(30, 30, 30, 0.1);
+            box-shadow: 0 18px 45px rgba(30, 30, 30, 0.06);
+            overflow: hidden;
+        }
+
+        .tanzanite-card-media {
+            position: relative;
+            width: 100%;
+            aspect-ratio: 4 / 3;
+            background: #fff;
+            overflow: hidden;
+        }
+
+        .tanzanite-card-media.tall {
+            aspect-ratio: 3 / 4;
+        }
+
+        .tanzanite-card-media img {
+            width: 100%;
+            height: 100%;
+            display: block;
+        }
+
+        .tanzanite-card-media img.contain {
+            object-fit: contain;
+            padding: 0.45rem;
+            background: #fff;
+        }
+
+        .tanzanite-card-media img.cover {
+            object-fit: cover;
+        }
+
+        .tanzanite-card-copy {
+            padding: 0.9rem 1rem 1rem;
+            background: #fff;
+        }
+
+        .tanzanite-card-label {
+            display: block;
+            font-size: 0.56rem;
+            letter-spacing: 0.18em;
+            text-transform: uppercase;
+            color: var(--soft-gold);
+            margin-bottom: 0.35rem;
+        }
+
+        .tanzanite-card-title {
+            font-family: "Helvetica", Arial, sans-serif;
+            font-size: 1.25rem;
+            font-weight: 300;
+            line-height: 1.1;
+            color: var(--charcoal);
+        }
+
+        .tanzanite-note-card {
+            border: 1px solid rgba(183, 155, 98, 0.18);
+            background: rgba(183, 155, 98, 0.06);
+            padding: 1rem;
+            margin-top: 0.75rem;
+        }
+
+        @media (max-width: 900px) {
+
+            .tanzanite-feature-grid,
+            .tanzanite-added-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 640px) {
+
+            .tanzanite-feature-grid,
+            .tanzanite-added-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .tanzanite-card-media,
+            .tanzanite-card-media.tall {
+                aspect-ratio: 4 / 3;
+            }
+        }
+
+        /* ================================
+       TANZANITE POPUP GALLERY CSS END
+       ================================ */
+
+        /* ================================
+   TESTIMONIAL CSS START
+   ================================ */
+
+        .testimonial-section {
+            margin-top: 2rem;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(183, 155, 98, 0.22);
+        }
+
+        .testimonial-heading-wrap {
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+
+        .testimonial-eyebrow {
+            display: inline-block;
+            font-size: 0.72rem;
+            letter-spacing: 0.42em;
+            text-transform: uppercase;
+            color: var(--charcoal);
+            margin-bottom: 0.8rem;
+        }
+
+        .testimonial-section h3 {
+            font-family: "Helvetica", Arial, sans-serif;
+            font-size: 2rem;
+            font-weight: 300;
+            color: var(--charcoal);
+            margin-bottom: 0.45rem;
+        }
+
+        .testimonial-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1.4rem;
+            margin-top: 1.4rem;
+        }
+
+        #m-rockwell .testimonial-grid,
+        #m-museum .testimonial-grid {
+            grid-template-columns: repeat(3, 1fr);
+        }
+
+        .testimonial-card {
+            text-align: center;
+            padding: 1rem 0.8rem;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            height: 100%;
+        }
+
+        .testimonial-stars {
+            display: inline-block;
+            background: #000;
+            color: var(--soft-gold);
+            font-size: 0.86rem;
+            letter-spacing: 0.16em;
+            padding: 0.55rem 1.1rem;
+            margin-bottom: 1.4rem;
+            line-height: 1;
+        }
+
+        .testimonial-quote {
+            font-size: 0.76rem;
+            line-height: 1.8;
+            color: rgba(30, 30, 30, 0.74);
+            margin-bottom: 1rem;
+            font-weight: 300;
+        }
+
+        .testimonial-name {
+            font-size: 0.68rem;
+            letter-spacing: 0.08em;
+            color: var(--charcoal);
+            font-style: italic;
+            font-weight: 500;
+            margin-top: auto;
+            padding-top: 1rem;
+        }
+
+        .testimonial-name::before {
+            content: "— ";
+        }
+
+        .testimonial-quote.is-clamped {
+            display: -webkit-box;
+            -webkit-line-clamp: 4;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+        }
+
+        .testimonial-quote.is-clamped.expanded {
+            display: block;
+            -webkit-line-clamp: unset;
+            overflow: visible;
+        }
+
+        .testimonial-read-more {
+            display: inline-block;
+            margin: -0.4rem 0 0.6rem;
+            font-size: 0.68rem;
+            letter-spacing: 0.06em;
+            text-transform: uppercase;
+            color: var(--soft-gold);
+            background: none;
+            border: none;
+            padding: 0;
+            cursor: pointer;
+            text-decoration: underline;
+            text-underline-offset: 2px;
+        }
+
+        @media (max-width: 1100px) {
+            .testimonial-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 1.8rem;
+            }
+        }
+
+        @media (max-width: 700px) {
+            .testimonial-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .testimonial-heading-wrap {
+                text-align: left;
+            }
+
+            .testimonial-card {
+                text-align: left;
+            }
+
+            .testimonial-stars {
+                margin-bottom: 1rem;
+            }
+        }
+
+        /* ================================
+   TESTIMONIAL CSS END
+   ================================ */
+
+        @media (max-width: 768px) {
+            nav {
+                padding: 1rem 1.2rem;
+            }
+
+            .nav-logo {
+                font-size: 0.72rem;
+                letter-spacing: 0.24em;
+            }
+
+            .content {
+                padding: 1.2rem 1.2rem 2.7rem;
+            }
+
+            .exp-title {
+                font-size: 2rem;
+            }
+
+            .exp-number {
+                font-size: 3.5rem;
+                bottom: 1.5rem;
+                right: 1.2rem;
+            }
+
+            .photo-nav {
+                padding: 0 0.8rem;
+            }
+
+            .photo-btn {
+                width: 38px;
+                height: 38px;
+                font-size: 0.9rem;
+            }
+
+            .exp-meta {
+                gap: 0.65rem;
+            }
+
+            .exp-meta .sep {
+                display: none;
+            }
+
+            .modal-card {
+                padding: 1.25rem;
+            }
+
+            .modal-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .modal-image-card {
+                min-height: 180px;
+            }
+
+            /* photo-dots bottom: duplicate removed */
+        }
+
+        /* ================================
+       REQUESTED LAYOUT UPDATES START
+       ================================ */
+
+        /* Main-page slideshow arrows — styled to match the popup galleries. */
+        .photo-nav {
+            display: flex !important;
+            left: 1rem;
+            right: 1rem;
+            top: 50%;
+            width: auto;
+            padding: 0;
+            transform: translateY(-50%);
+            z-index: 12;
+            justify-content: space-between;
+            pointer-events: none;
+        }
+
+        .photo-btn {
+            pointer-events: all;
+            width: 46px;
+            height: 46px;
+            border-radius: 50%;
+            border: 1px solid rgba(248, 246, 241, 0.52);
+            background: rgba(22, 22, 22, 0.34);
+            color: rgba(248, 246, 241, 0.92);
+            cursor: pointer;
+            backdrop-filter: blur(7px);
+            -webkit-backdrop-filter: blur(7px);
+            transition: var(--transition);
+            font-size: 1.16rem;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.16);
+        }
+
+        .photo-btn:hover {
+            background: rgba(183, 155, 98, 0.52);
+            border-color: rgba(212, 188, 142, 0.78);
+            color: var(--white);
+            transform: scale(1.04);
+        }
+
+        @media (max-width: 768px) {
+            .photo-nav {
+                left: 0.7rem;
+                right: 0.7rem;
+                padding: 0;
+            }
+
+            .photo-btn {
+                width: 40px;
+                height: 40px;
+                font-size: 1rem;
+            }
+        }
+
+        /* Make standard Read More buttons feel lighter, like underlined text. */
+        .btn-row .read-more:not(.pill-button) {
+            background: transparent !important;
+            color: var(--gold-light) !important;
+            border: 0 !important;
+            border-bottom: 1px solid rgba(212, 188, 142, 0.75) !important;
+            padding: 0.28rem 0 !important;
+            line-height: 1.1;
+            box-shadow: none !important;
+        }
+
+        .btn-row .read-more:not(.pill-button):hover {
+            color: var(--ivory) !important;
+            border-bottom-color: var(--ivory) !important;
+            background: transparent !important;
+        }
+
+        /* Keep clickable Shopping Experience pill blocks looking like pills, not underlined links. */
+        .pill-row .read-more.pill-button {
+            padding: 0.28rem 0.8rem !important;
+            border-radius: 2px;
+            text-decoration: none !important;
+            border-bottom: 0 !important;
+        }
+
+        /* Top-right slide CTA placement. */
+
+        /* Iconic Jewellery popup: each image sits directly with its own copy block. */
+        .iconic-paired-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+
+        .iconic-paired-card {
+            display: grid;
+            grid-template-rows: 230px auto;
+            border: 1px solid rgba(30, 30, 30, 0.1);
+            background: #fff;
+        }
+
+        .iconic-paired-image {
+            min-height: 230px;
+            border: 0;
+        }
+
+        .iconic-paired-copy {
+            border: 0;
+            border-top: 1px solid rgba(30, 30, 30, 0.08);
+            min-height: 230px;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+        }
+
+        /* Align the Giving Back / Sustainability buttons to the same visual position. */
+
+        @media (max-width: 900px) {
+            .iconic-paired-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .iconic-paired-card {
+                grid-template-rows: 210px auto;
+            }
+
+            .iconic-paired-copy {
+                min-height: auto;
+            }
+        }
+
+        /* ================================
+       FINAL VISUAL REFINEMENTS START
+       ================================ */
+
+        /* Iconic Jewellery Designs: remove wording from over the ring images. */
+        .iconic-paired-image::after {
+            display: none !important;
+        }
+
+        .iconic-paired-image .modal-image-copy {
+            display: none !important;
+        }
+
+        .iconic-paired-image {
+            background-color: #fff;
+            background-size: cover;
+            background-position: center;
+        }
+
+        /* Exclusive Diamond Cuts: keep My Girl and Brilliant 10 parallel, with text below the images. */
+        .exclusive-cuts-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1.2rem;
+            margin-top: 1rem;
+            align-items: stretch;
+        }
+
+        .exclusive-cut-card {
+            border: 1px solid rgba(30, 30, 30, 0.1);
+            background: #fff;
+            padding: 1rem;
+            display: flex;
+            flex-direction: column;
+            gap: 0.9rem;
+        }
+
+        .exclusive-cut-card h3 {
+            margin-bottom: 0;
+        }
+
+        .exclusive-cut-card h3 em {
+            color: var(--soft-gold);
+        }
+
+        .exclusive-cut-images {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 0.75rem;
+        }
+
+        .exclusive-cut-image {
+            min-height: 220px;
+            background-color: #fff;
+            background-size: cover;
+            background-position: center;
+        }
+
+        .exclusive-cut-image::after,
+        .exclusive-cut-image .modal-image-copy {
+            display: none !important;
+        }
+
+        /* Tanzanite Pieces & Story Visuals: match the same image proportions as the other Tanzanite cards. */
+        .tanzanite-added-grid .tanzanite-card-media,
+        .tanzanite-added-grid .tanzanite-card-media.tall {
+            aspect-ratio: 4 / 3 !important;
+        }
+
+        /* #s0 .content padding: consolidated into base rule */
+
+        @media (max-width: 900px) {
+            .exclusive-cuts-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 640px) {
+            .exclusive-cut-images {
+                grid-template-columns: 1fr;
+            }
+
+            .exclusive-cut-image {
+                min-height: 190px;
+            }
+        }
+
+        /* ================================
+       FINAL VISUAL REFINEMENTS END
+       ================================ */
+
+        /* ================================
+       REQUESTED LAYOUT UPDATES END
+       ================================ */
+
+        /* ================================
+       11 JUNE CONSISTENCY UPDATES START
+       ================================ */
+
+        /* .slide-bg .slide bg-position: superseded by center 26% below */
+
+        .pill-row .read-more.pill-button,
+        .pill-row a .pill-button {
+            background: transparent !important;
+            color: var(--gold-light) !important;
+            border: 0 !important;
+            border-bottom: 1px solid rgba(212, 188, 142, 0.75) !important;
+            border-radius: 0 !important;
+            padding: 0.28rem 0 !important;
+            box-shadow: none !important;
+            line-height: 1.15 !important;
+            text-decoration: none !important;
+            transform: none !important;
+            font-weight: bold;
+
+        }
+
+        .pill-row .read-more.pill-button:hover,
+        .pill-row a .pill-button:hover {
+            color: var(--charcoal2) !important;
+            border-bottom-color: var(--charcoal2) !important;
+            background: transparent !important;
+            transform: none !important;
+        }
+
+        .pill-row .pill:not(.pill-button) {
+
+            color: var(--soft-gold) !important;
+            border: 1px solid rgba(212, 188, 142, 0.55) !important;
+            font-size: 12px !important;
+        }
+
+        .pill-row .pill-add:not(.pill-button) {
+            background: rgba(183, 155, 98, 0.28) !important;
+            color: var(--ivory) !important;
+            border-color: rgba(212, 188, 142, 0.55) !important;
+        }
+
+        /* Keep the top-right Book This Experience CTA in its current button style. */
+
+        /* modal-title border/padding: consolidated into base rule */
+
+        .modal-section {
+            padding: 1.15rem 0 !important;
+            border-top: 1px solid rgba(30, 30, 30, 0.1) !important;
+        }
+
+        .modal-section:first-of-type {
+            border-top: none !important;
+        }
+
+        .modal-grid,
+        .exclusive-cuts-grid,
+        .iconic-paired-grid,
+        .tanzanite-feature-grid,
+        .tanzanite-added-grid,
+        .testimonial-grid {
+            gap: 1rem !important;
+        }
+
+        .modal-item,
+        .exclusive-cut-card,
+        .iconic-paired-card,
+        .tanzanite-card,
+        .testimonial-card {
+            background: #fff !important;
+            border: 1px solid rgba(30, 30, 30, 0.1) !important;
+            box-shadow: 0 16px 42px rgba(30, 30, 30, 0.05) !important;
+        }
+
+        .testimonial-card {
+            padding: 1rem !important;
+        }
+
+        .modal-image-card,
+        .exclusive-cut-image,
+        .iconic-paired-image {
+            min-height: 220px;
+            background-position: center !important;
+            background-size: cover !important;
+            background-color: #fff !important;
+        }
+
+        /* Keep image wording off the image area where image cards have copy below. */
+        .iconic-paired-image::after,
+        .exclusive-cut-image::after {
+            display: none !important;
+        }
+
+        .iconic-paired-image .modal-image-copy,
+        .exclusive-cut-image .modal-image-copy {
+            display: none !important;
+        }
+
+        /* Match Tanzanite story visuals to the same proportions as the highlight cards. */
+        .tanzanite-added-grid .tanzanite-card-media,
+        .tanzanite-added-grid .tanzanite-card-media.tall,
+        .tanzanite-feature-grid .tanzanite-card-media {
+            aspect-ratio: 4 / 3 !important;
+        }
+
+        @media (max-width: 768px) {
+            .slide-bg .slide {
+                background-position: center 28% !important;
+            }
+        }
+
+        /* Ayanda® popup: Tanzanite Quality should read as plain content, not a shaded block. */
+        .tanzanite-note-card {
+            background: transparent !important;
+            border: 0 !important;
+            box-shadow: none !important;
+            padding: 0 !important;
+            margin-top: 1rem !important;
+        }
+
+        /* Giving Back CTA: match the lighter clickable Read More style. */
+
+        /* .content width/padding: consolidated into base rule */
+
+        /* #s0 .content max-width: consolidated into base rule */
+
+        #s0 .exp-title {
+            font-size: clamp(2.35rem, 5.4vw, 4.45rem) !important;
+            max-width: min(760px, calc(100vw - 2rem)) !important;
+            overflow-wrap: normal !important;
+        }
+
+        .exp-title,
+        .exp-desc,
+        .exp-meta,
+        .pill-row,
+        .btn-row {
+            max-width: min(100%, 820px) !important;
+        }
+
+        @media (max-width: 980px) {
+            #s0 .exp-title {
+                font-size: clamp(2rem, 8vw, 3.6rem) !important;
+            }
+
+            .exp-title {
+                font-size: clamp(1.8rem, 7vw, 3rem) !important;
+            }
+
+            .content {
+                padding-bottom: 2.2rem !important;
+            }
+        }
+
+        @media (max-width: 640px) {
+
+            #s0 .exp-title,
+            .exp-title {
+                font-size: clamp(1.75rem, 9vw, 2.75rem) !important;
+            }
+
+            .exp-desc {
+                font-size: 0.78rem !important;
+                line-height: 1.7 !important;
+            }
+        }
+
+        /* Keep slide imagery slightly lower so the top is less likely to be cut off on zoomed screens. */
+        .slide-bg .slide {
+            background-position: center 26% !important;
+        }
+
+        @media (max-width: 768px) {
+            .slide-bg .slide {
+                background-position: center 22% !important;
+            }
+        }
+
+        /* ================================
+       11 JUNE CLIENT QUICK FIXES END
+       ================================ */
+
+        /* ================================
+       POPUP ONE-COLOUR CONSISTENCY UPDATE START
+       Keeps all popup pages on one warm ivory colour system with charcoal text
+       and soft gold accents. No copy/content changes.
+       ================================ */
+
+        .modal-close {
+            background: var(--ivory) !important;
+            color: var(--charcoal) !important;
+            border: 1px solid rgba(183, 155, 98, 0.25) !important;
+        }
+
+        .modal-title,
+        .modal-section h3,
+        .modal-section p,
+        .modal-section li,
+        .testimonial-quote,
+        .testimonial-name,
+        .tanzanite-card-title {
+            color: var(--charcoal) !important;
+        }
+
+        .modal-title em,
+        .modal-section h4,
+        .modal-price,
+        .location-link,
+        .tanzanite-card-label,
+        .testimonial-eyebrow,
+        .testimonial-stars,
+        .exclusive-cut-card h3 em {
+            color: var(--soft-gold) !important;
+        }
+
+        .modal-title {
+            border-bottom: 1px solid rgba(183, 155, 98, 0.22) !important;
+        }
+
+        .modal-section {
+            background: transparent !important;
+            border-top: 1px solid rgba(183, 155, 98, 0.18) !important;
+        }
+
+        .modal-section:first-of-type {
+            border-top: none !important;
+        }
+
+        /* Make all popup text/card areas feel like one visual system, not mixed white/gold blocks. */
+        .modal .modal-item,
+        .modal .exclusive-cut-card,
+        .modal .iconic-paired-card,
+        .modal .tanzanite-card,
+        .modal .testimonial-card,
+        .modal .museum-tripadvisor-section,
+        .modal .location-tripadvisor-badge-wrap,
+        .modal .tanzanite-note-card {
+            background: transparent !important;
+            border: 1px solid rgba(183, 155, 98, 0.18) !important;
+            box-shadow: none !important;
+        }
+
+        .modal .modal-item,
+        .modal .exclusive-cut-card,
+        .modal .iconic-paired-card,
+        .modal .testimonial-card,
+        .modal .tanzanite-note-card {
+            padding: 1rem !important;
+        }
+
+        .modal .tanzanite-card {
+            overflow: hidden;
+        }
+
+        .modal .tanzanite-card-copy,
+        .modal .iconic-paired-copy {
+            background: transparent !important;
+            border-top: 1px solid rgba(183, 155, 98, 0.16) !important;
+        }
+
+        .modal .modal-price {
+
+            border: 1px solid rgba(183, 155, 98, 0.22) !important;
+            padding: 0.45rem 0.65rem !important;
+            font-size: 12px !important;
+        }
+
+        .modal .testimonial-stars {
+            background: transparent !important;
+            border: 1px solid rgba(183, 155, 98, 0.28) !important;
+            color: var(--soft-gold) !important;
+        }
+
+        .modal .location-link {
+            background: transparent !important;
+            color: var(--soft-gold) !important;
+            border: 0 !important;
+            border-bottom: 1px solid rgba(183, 155, 98, 0.55) !important;
+            padding: 0.25rem 0 !important;
+            text-decoration: none !important;
+        }
+
+        .modal .location-link:hover {
+            color: var(--charcoal) !important;
+            border-bottom-color: var(--charcoal) !important;
+        }
+
+        /* Keep image areas clean, while text areas remain on ivory. */
+        .modal .modal-image-card,
+        .modal .exclusive-cut-image,
+        .modal .iconic-paired-image,
+        .modal .tanzanite-card-media {
+            background-color: #fff !important;
+            border: 1px solid rgba(183, 155, 98, 0.18) !important;
+            box-shadow: none !important;
+        }
+
+        /* Exclusive Diamond Cuts (My Girl/Brilliant 10) and Ayanda Tanzanite
+       popups: remove the card and image border lines, keep everything else.
+       Placed after the rules above so it wins the cascade. */
+        .modal .exclusive-cut-card,
+        .modal .tanzanite-card,
+        .modal .exclusive-cut-image,
+        .modal .tanzanite-card-media {
+            border: 0 !important;
+        }
+
+        .modal .tanzanite-card-copy {
+            border-top: 0 !important;
+        }
+
+        /* Testimonial cards (Rockwell, CTDM): remove the border lines, keep the
+       cards otherwise unstyled so the quotes read as plain content. */
+        .modal .testimonial-card {
+            border: 0 !important;
+            padding: 1rem 0.8rem !important;
+        }
+
+        .modal .modal-grid,
+        .modal .exclusive-cuts-grid,
+        .modal .iconic-paired-grid,
+        .modal .tanzanite-feature-grid,
+        .modal .tanzanite-added-grid,
+        .modal .testimonial-grid {
+            gap: 1rem !important;
+        }
+
+        /* ================================
+       POPUP ONE-COLOUR CONSISTENCY UPDATE END
+       ================================ */
+
+        /* ================================
+       POPUP BORDER CLEANUP START
+       Removes extra inner border lines from Iconic Jewellery and Tripadvisor blocks.
+       ================================ */
+
+        /* Iconic Jewellery Designs: keep the layout clean by removing inner card lines. */
+        .modal .iconic-paired-card,
+        .modal .iconic-paired-copy,
+        .modal .iconic-paired-image,
+        .modal .iconic-paired-image.modal-image-card {
+            border: 0 !important;
+            box-shadow: none !important;
+        }
+
+        .modal .iconic-paired-copy {
+            border-top: 0 !important;
+            padding: 0.85rem 0 0 !important;
+        }
+
+        .modal .iconic-paired-card {
+            background: transparent !important;
+            padding: 0 !important;
+        }
+
+        /* Tripadvisor sections: remove all visible borders and divider lines. */
+        .modal .museum-tripadvisor-section,
+        .modal .location-tripadvisor-badge-wrap,
+        .modal-section.museum-tripadvisor-section {
+            border: 0 !important;
+            border-top: 0 !important;
+            border-bottom: 0 !important;
+            box-shadow: none !important;
+            background: transparent !important;
+        }
+
+        .modal .museum-tripadvisor-section {
+            padding: 1rem 0 !important;
+        }
+
+        .modal .location-tripadvisor-badge-wrap {
+            padding: 0.75rem 0 0 !important;
+        }
+
+        /* ================================
+       POPUP BORDER CLEANUP END
+       ================================ */
+
+        /* ================================
+       MOBILE PHOTO DOTS FIX START
+       Keeps dots at the bottom of each slide on mobile without fixing every slide's dots to the viewport.
+       ================================ */
+        @media (max-width: 768px) {
+            body>section .photo-dots {
+                position: absolute !important;
+                bottom: 16px !important;
+                left: 50% !important;
+                transform: translateX(-50%) !important;
+                z-index: 15 !important;
+                display: flex !important;
+            }
+        }
+
+        /* added a video */
+
+        /* ================================
+       CLIENT TYPOGRAPHY + GIVING BACK REFINEMENT START
+       Modern clean headings, no italic heading styling, and a stronger split Giving Back layout.
+       ================================ */
+
+        :root {
+            --heading-font: "Montserrat", "Helvetica", Arial, sans-serif;
+            --body-font: "Montserrat", "Helvetica", Arial, sans-serif;
+        }
+
+        body,
+        button,
+        a,
+        p,
+        li,
+        span {
+            font-family: var(--body-font);
+        }
+
+        .nav-logo,
+        .exp-tag,
+        .exp-title,
+        .modal-title,
+        .modal-section h3,
+        .modal-section h4,
+        .commit-eyebrow,
+        .commit-title,
+        .tanzanite-gallery-title,
+        .tanzanite-card-title,
+        .testimonial-section h3,
+        .btn-g,
+        .read-more {
+            font-family: var(--heading-font) !important;
+        }
+
+        .exp-title,
+        .modal-title,
+        .commit-title {
+            text-transform: uppercase;
+            letter-spacing: 0.105em;
+            font-style: normal !important;
+            font-weight: 300 !important;
+        }
+
+        .exp-title em,
+        .modal-title em,
+        .commit-title em,
+        .exclusive-cut-card h3 em {
+            font-style: normal !important;
+            color: var(--gold-light);
+        }
+
+        .modal-title em,
+        .commit-title em {
+            color: var(--soft-gold);
+        }
+
+        /* exp-title line-height: consolidated into base */
+
+        /* modal-title line-height: same as base, removed */
+
+        /* commit-title line-height: consolidated into base */
+
+        .exp-desc,
+        .commit-text,
+        .modal-section p,
+        .modal-section li {
+            letter-spacing: 0.015em;
+        }
+
+        /* Giving Back: make the section feel like part of the luxury journey. */
+
+        @keyframes foundationFade {
+            0% {
+                opacity: 0;
+                transform: scale(1.02);
+            }
+
+            7% {
+                opacity: 1;
+            }
+
+            32% {
+                opacity: 1;
+            }
+
+            39% {
+                opacity: 0;
+                transform: scale(1.08);
+            }
+
+            100% {
+                opacity: 0;
+                transform: scale(1.08);
+            }
+        }
+
+        @media (max-width: 768px) {
+
+            .exp-title,
+            .modal-title,
+            .commit-title {
+                letter-spacing: 0.085em;
+            }
+
+            .content {
+                padding-bottom: 5.5rem !important;
+                transform: translateY(-1.25rem);
+            }
+
+            .photo-dots {
+                bottom: 4.4rem !important;
+            }
+
+            .btn-row {
+                margin-bottom: 0.7rem;
+            }
+        }
+
+        /* ================================
+       CLIENT TYPOGRAPHY + GIVING BACK REFINEMENT END
+       ================================ */
+
+        /* ================================
+       HERO VIDEO + SHOPPING FOUNDATION UPDATE START
+       ================================ */
+
+        #s0 .photo-dots {
+            display: none !important;
+        }
+
+        .shopping-foundation-wrap {
+            margin-top: 1.2rem;
+            padding-top: 1.6rem !important;
+            border-top: 1px solid rgba(183, 155, 98, 0.22) !important;
+        }
+
+        .shopping-foundation-embed {
+            background: transparent !important;
+            color: var(--charcoal);
+        }
+
+        .shopping-foundation-embed .commit-panel {
+            display: grid !important;
+            grid-template-columns: minmax(0, 0.9fr) minmax(300px, 1.1fr);
+            grid-template-areas:
+                "eyebrow gallery"
+                "title gallery"
+                "text1 gallery"
+                "note gallery"
+                "text2 gallery"
+                "cta gallery";
+            column-gap: clamp(1.4rem, 4vw, 3rem);
+            row-gap: 0.75rem;
+            align-items: center;
+            padding: 0 !important;
+            background: transparent !important;
+        }
+
+        .shopping-foundation-embed .commit-eyebrow {
+            grid-area: eyebrow;
+            letter-spacing: 0.3em;
+            color: var(--soft-gold);
+            margin-bottom: 0.2rem;
+        }
+
+        .shopping-foundation-embed .commit-title {
+            grid-area: title;
+            color: var(--charcoal) !important;
+            margin-bottom: 0.4rem;
+        }
+
+        .shopping-foundation-embed .commit-text {
+            color: rgba(30, 30, 30, 0.72) !important;
+            max-width: 620px;
+            margin-bottom: 0 !important;
+            text-shadow: none !important;
+        }
+
+        .shopping-foundation-embed .commit-text:nth-of-type(1) {
+            grid-area: text1;
+        }
+
+        .shopping-foundation-embed .commit-text:nth-of-type(2) {
+            grid-area: text2;
+        }
+
+        .shopping-foundation-embed .commit-image-note {
+            grid-area: note;
+            margin: 0.2rem 0 0.35rem !important;
+            letter-spacing: 0.2em;
+            color: var(--soft-gold);
+        }
+
+        .shopping-foundation-embed .commit-community-gallery {
+            grid-area: gallery;
+            position: relative;
+            display: block !important;
+            width: 100%;
+            height: min(52vh, 460px) !important;
+            min-height: 320px;
+            margin: 0 !important;
+            overflow: hidden;
+            border: 1px solid rgba(183, 155, 98, 0.22);
+            box-shadow: 0 22px 60px rgba(30, 30, 30, 0.12);
+            background: var(--charcoal);
+        }
+
+        .shopping-foundation-embed .commit-community-gallery::after {
+            content: "";
+            position: absolute;
+            inset: 0;
+            z-index: 2;
+            pointer-events: none;
+            background: linear-gradient(to top,
+                    rgba(22, 22, 22, 0.34),
+                    rgba(22, 22, 22, 0.02) 52%);
+        }
+
+        .shopping-foundation-embed .commit-community-image {
+            position: absolute;
+            inset: 0;
+            width: 100% !important;
+            height: 100% !important;
+            min-height: 0 !important;
+            max-width: none !important;
+            margin: 0 !important;
+            border: 0 !important;
+            box-shadow: none !important;
+            background-size: cover !important;
+            background-position: center !important;
+            opacity: 0;
+            animation: foundationFade 15s infinite;
+        }
+
+        .shopping-foundation-embed .commit-community-image:first-child {
+            animation-delay: 0s;
+        }
+
+        .shopping-foundation-embed .commit-community-image.image-two {
+            animation-delay: 5s;
+        }
+
+        .shopping-foundation-embed .commit-community-image.image-three {
+            animation-delay: 10s;
+        }
+
+        @media (max-width: 900px) {
+            .shopping-foundation-embed .commit-panel {
+                grid-template-columns: 1fr;
+                grid-template-areas:
+                    "eyebrow"
+                    "title"
+                    "text1"
+                    "gallery"
+                    "note"
+                    "text2"
+                    "cta";
+                row-gap: 0.8rem;
+            }
+
+            .shopping-foundation-embed .commit-community-gallery {
+                height: 38svh !important;
+                min-height: 260px;
+                margin: 0.55rem 0 0.25rem !important;
+            }
+        }
+
+        /* ================================
+       HERO VIDEO + SHOPPING FOUNDATION UPDATE END
+       ================================ */
+
+        /* ================================
+       POPUP IMAGE SLIDESHOW UPDATE START
+       Moves the main experience image slideshows into the Read More popups.
+       ================================ */
+
+        #s1 .photo-dots,
+        #s2 .photo-dots,
+        #s3 .photo-dots,
+        #cnt1,
+        #cnt2,
+        #cnt3 {
+            display: none !important;
+        }
+
+        .popup-gallery-section {
+            border-top: none !important;
+            padding-top: 0 !important;
+            margin-bottom: 0.65rem;
+        }
+
+        .popup-slide-gallery {
+            position: relative;
+            width: 100%;
+            height: min(54vh, 628px);
+            min-height: 320px;
+            overflow: hidden;
+            background: var(--charcoal);
+            border: 1px solid rgba(183, 155, 98, 0.22);
+            margin: 0.4rem 0 1.15rem;
+            box-shadow: 0 20px 60px rgba(30, 30, 30, 0.12);
+        }
+
+        .popup-slide-gallery .popup-slide {
+            position: absolute;
+            inset: 0;
+            background-size: cover;
+            background-position: center;
+            opacity: 0;
+            transition: opacity 1s ease;
+        }
+
+        .popup-slide-gallery .popup-slide video {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+            cursor: pointer;
+        }
+
+        .gallery-video-mute-icon {
+            position: absolute;
+            right: 18px;
+            bottom: 18px;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: rgba(22, 22, 22, 0.55);
+            backdrop-filter: blur(4px);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            pointer-events: none;
+            opacity: 0;
+            transition: opacity 0.35s ease;
+            z-index: 3;
+        }
+
+        .gallery-video-mute-icon.visible {
+            opacity: 1;
+        }
+
+        .gallery-video-mute-icon::before {
+            content: "";
+            width: 18px;
+            height: 18px;
+            background: #fff;
+            -webkit-mask-size: contain;
+            mask-size: contain;
+            -webkit-mask-repeat: no-repeat;
+            mask-repeat: no-repeat;
+            -webkit-mask-position: center;
+            mask-position: center;
+            -webkit-mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M3 10v4h4l5 5V5L7 10H3z'/%3E%3Cpath d='M16.5 12c0-1.77-.77-3.29-2-4.24v8.48c1.23-.95 2-2.47 2-4.24z'/%3E%3Cpath d='M14.5 3.23v2.06c2.89 1.02 5 3.71 5 6.71s-2.11 5.69-5 6.71v2.06c4.01-1.06 7-4.72 7-8.77s-2.99-7.71-7-8.77z'/%3E%3C/svg%3E");
+            mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M3 10v4h4l5 5V5L7 10H3z'/%3E%3Cpath d='M16.5 12c0-1.77-.77-3.29-2-4.24v8.48c1.23-.95 2-2.47 2-4.24z'/%3E%3Cpath d='M14.5 3.23v2.06c2.89 1.02 5 3.71 5 6.71s-2.11 5.69-5 6.71v2.06c4.01-1.06 7-4.72 7-8.77s-2.99-7.71-7-8.77z'/%3E%3C/svg%3E");
+        }
+
+        .gallery-video-mute-icon.is-muted::before {
+            -webkit-mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M3 10v4h4l5 5V5L7 10H3z'/%3E%3Cpath d='M19 12l2.16-2.16-1.41-1.41L17.59 10.6 15.42 8.44 14 9.86 16.17 12 14 14.13l1.41 1.42 2.18-2.17 2.16 2.16 1.41-1.41z'/%3E%3C/svg%3E");
+            mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M3 10v4h4l5 5V5L7 10H3z'/%3E%3Cpath d='M19 12l2.16-2.16-1.41-1.41L17.59 10.6 15.42 8.44 14 9.86 16.17 12 14 14.13l1.41 1.42 2.18-2.17 2.16 2.16 1.41-1.41z'/%3E%3C/svg%3E");
+        }
+
+        .popup-slide-gallery .popup-slide.active {
+            opacity: 1;
+        }
+
+        .popup-slide-gallery::after {
+            content: "";
+            position: absolute;
+            inset: 0;
+            z-index: 1;
+            pointer-events: none;
+            background: linear-gradient(to top,
+                    rgba(22, 22, 22, 0.26),
+                    rgba(22, 22, 22, 0.02) 55%);
+        }
+
+        .popup-gallery-controls {
+            position: absolute;
+            left: 1rem;
+            right: 1rem;
+            top: 50%;
+            transform: translateY(-50%);
+            z-index: 3;
+            display: flex;
+            justify-content: space-between;
+            pointer-events: none;
+        }
+
+        .popup-gallery-btn {
+            pointer-events: all;
+            width: 46px;
+            height: 46px;
+            border-radius: 50%;
+            border: 1px solid rgba(248, 246, 241, 0.7);
+            background: rgba(22, 22, 22, 0.62);
+            color: var(--ivory);
+            cursor: pointer;
+            backdrop-filter: blur(8px);
+            transition: var(--transition);
+            font-size: 1.16rem;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.28);
+        }
+
+        .popup-gallery-btn:hover {
+            background: rgba(183, 155, 98, 0.72);
+            border-color: var(--soft-gold);
+            color: var(--white);
+            transform: scale(1.04);
+        }
+
+        .popup-gallery-dots {
+            position: absolute;
+            left: 50%;
+            bottom: 1rem;
+            transform: translateX(-50%);
+            z-index: 3;
+            display: flex;
+            align-items: center;
+            gap: 7px;
+        }
+
+        .popup-gallery-dot {
+            width: 5px;
+            height: 5px;
+            border-radius: 3px;
+            background: rgba(248, 246, 241, 0.42);
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .popup-gallery-dot.active {
+            width: 24px;
+            background: var(--soft-gold);
+        }
+
+        .popup-slide-caption {
+            position: absolute;
+            left: 1rem;
+            right: 1rem;
+            bottom: 2.35rem;
+            z-index: 3;
+            text-align: center;
+            color: var(--ivory);
+            font-size: 0.72rem;
+            letter-spacing: 0.14em;
+            text-transform: uppercase;
+            font-weight: 500;
+            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.55);
+            opacity: 0;
+            transition: opacity 320ms ease;
+            pointer-events: none;
+            display: flex;
+            justify-content: center;
+        }
+
+        .popup-slide-caption span {
+            background: rgba(10, 10, 10, 0.62);
+            border: 1px solid rgba(183, 155, 98, 0.3);
+            padding: 0.5rem 1rem;
+            border-radius: 3px;
+            backdrop-filter: blur(2px);
+            max-width: 100%;
+        }
+
+        .popup-slide-caption.visible {
+            opacity: 1;
+        }
+
+        @media (max-width: 768px) {
+            .popup-slide-caption {
+                font-size: 0.44rem;
+                bottom: 2.1rem;
+            }
+
+            .btn-g {
+                font-size: 0.49rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .popup-slide-gallery {
+                height: 20svh;
+                min-height: 214px;
+            }
+
+            .popup-gallery-controls {
+                left: 0.7rem;
+                right: 0.7rem;
+            }
+        }
+
+        /* ================================
+       POPUP IMAGE SLIDESHOW UPDATE END
+       ================================ */
+
+        /* ================================
+       MAIN SLIDE VIDEO UPDATE START
+       Main experience sections now use background videos instead of image slides.
+       Popup image slideshows remain unchanged.
+       ================================ */
+
+        #s1 .photo-dots,
+        #s1 .photo-counter,
+        #s2 .photo-dots,
+        #s2 .photo-counter,
+        #s3 .photo-dots,
+        #s3 .photo-counter {
+            display: none !important;
+        }
+
+        /* MOBILE BOTTOM CONTENT SPACING UPDATE */
+        @media (max-width: 768px) {
+            section .content {
+                padding-bottom: 1.2rem !important;
+                transform: translateY(-2.4rem) !important;
+            }
+
+            #s0 .content {
+                padding-bottom: 2.6rem !important;
+                transform: translateY(-2.2rem) !important;
+            }
+
+        }
+
+        @media (max-width: 420px) {
+            section .content {
+                padding-bottom: 1rem !important;
+                transform: translateY(-2.75rem) !important;
+            }
+
+            #s0 .content {
+                padding-bottom: 1.2rem !important;
+                transform: translateY(-2.55rem) !important;
+            }
+        }
+
+        /* TOP SLIDE HEADING + SUBTITLE SAFE SPACE — consolidated into base #s0 .content rule above */
+
+        #s0 .hero-main-title {
+            font-size: clamp(2rem, 4.5vw, 3.55rem) !important;
+            max-width: min(900px, calc(100vw - 2rem)) !important;
+            margin-bottom: 0.85rem !important;
+            line-height: 1.02 !important;
+        }
+
+        #s0 .hero-subtitle {
+            font-family: var(--heading-font,
+                    "Montserrat",
+                    "Helvetica",
+                    Arial,
+                    sans-serif);
+            font-size: clamp(0.95rem, 1.75vw, 1.55rem);
+            font-weight: 300;
+            letter-spacing: 0.24em;
+            line-height: 1.2;
+            text-transform: uppercase;
+            color: var(--gold-light);
+            text-shadow: 0 1px 18px rgba(0, 0, 0, 0.32);
+            margin-bottom: 1.1rem;
+        }
+
+        @media (max-width: 768px) {
+            #s0 .content {
+                padding-bottom: 0rem !important;
+                transform: translateY(-2.2rem) !important;
+            }
+
+            #s0 .hero-main-title {
+                font-size: clamp(2rem, 9vw, 3.4rem) !important;
+                max-width: calc(100vw - 2rem) !important;
+            }
+
+            #s0 .hero-subtitle {
+                font-size: 0.78rem;
+                letter-spacing: 0.2em;
+                margin-bottom: 0.9rem;
+            }
+        }
+
+        /* BOOK AN EXPERIENCE — PHONE VIEW TEXT SIZE ONLY */
+        @media (max-width: 600px) {
+
+            #m-book-experience .modal-title,
+            #m-book-rockwell .modal-title,
+            #m-book-museum .modal-title,
+            #m-book-shopping .modal-title {
+                font-size: 1.45rem !important;
+                line-height: 1.12 !important;
+                letter-spacing: 0.08em !important;
+            }
+
+            #m-book-experience .modal-section h3,
+            #m-book-experience h3,
+            #m-book-rockwell .modal-section h3,
+            #m-book-rockwell h3,
+            #m-book-museum .modal-section h3,
+            #m-book-museum h3,
+            #m-book-shopping .modal-section h3,
+            #m-book-shopping h3 {
+                font-size: 0.95rem !important;
+                line-height: 1.25 !important;
+            }
+
+            #m-book-experience .modal-section p,
+            #m-book-experience p,
+            #m-book-rockwell .modal-section p,
+            #m-book-rockwell p,
+            #m-book-museum .modal-section p,
+            #m-book-museum p,
+            #m-book-shopping .modal-section p,
+            #m-book-shopping p {
+                font-size: 0.78rem !important;
+                line-height: 1.45 !important;
+            }
+
+            #m-book-experience iframe,
+            #m-book-rockwell iframe,
+            #m-book-museum iframe,
+            #m-book-shopping iframe {
+                transform: scale(0.9);
+                transform-origin: top center;
+                width: 111.12% !important;
+                margin-left: -5.56% !important;
+            }
+
+            .popup-gallery-btn {
+                width: 30px;
+                height: 30px;
+            }
+        }
+
+        /* HERO FIX FOR EDGE / SHORT DESKTOP SCREENS */
+        @media (max-height: 720px) and (min-width: 769px) {
+            #s0 .content {
+                padding-bottom: 4.5rem !important;
+                transform: translateY(0) !important;
+            }
+
+            #s0 .hero-main-title {
+                font-size: clamp(2.1rem, 5vw, 3.6rem) !important;
+                line-height: 1.04 !important;
+                margin-bottom: 0.6rem !important;
+            }
+
+            #s0 .hero-subtitle {
+                font-size: 0.8rem !important;
+                letter-spacing: 0.18em !important;
+                margin-bottom: 0.75rem !important;
+            }
+
+            #s0 .btn-row {
+                margin-bottom: 0.5rem !important;
+            }
+
+            #s0 .content img {
+                width: 150px !important;
+                margin-top: 0.25rem !important;
+            }
+        }
+
+        .btn-g-link {
+            color: var(--soft-gold) !important;
+        }
+
+        .btn-g-link:hover {
+            color: var(--gold-light) !important;
+        }
+
+        /* ================================
+  show different video on mobile, and keep the desktop video from showing on mobile, without needing to load two videos at the same time on desktop.
+
+       ================================ */
+
+        /* SHOW DIFFERENT VIDEO ON PHONE */
+
+        /* ================================
+       MAIN PAGE GALLERY SLIDES UPDATE
+       Replaces the four main background videos with the existing gallery image slides.
+       ================================ */
+        #s0 .photo-dots,
+        #s1 .photo-dots,
+        #s2 .photo-dots,
+        #s3 .photo-dots {
+            display: flex !important;
+        }
+
+        #s1 .photo-counter,
+        #s2 .photo-counter,
+        #s3 .photo-counter {
+            display: block !important;
+        }
+
+        .hero-gallery-bg,
+        .section-gallery-bg {
+            background: var(--charcoal);
+        }
+
+        @media (max-width: 768px) {
+
+            #s0 .photo-dots,
+            #s1 .photo-dots,
+            #s2 .photo-dots,
+            #s3 .photo-dots {
+                position: absolute !important;
+                bottom: 8.4rem !important;
+                left: 50% !important;
+                transform: translateX(-50%) !important;
+            }
+        }
+
+        /* ================================
+       MAIN PAGE GALLERY SLIDES UPDATE END
+       ================================ */
+    </style>
+</head>
+
+<body>
+    <div id="sitePasswordGate" style="
+        position: fixed;
+        inset: 0;
+        z-index: 99999;
+        background: #0c0c0c;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 1.5rem;
+      ">
+        <form id="sitePasswordForm" style="
+          width: 100%;
+          max-width: 360px;
+          text-align: center;
+          font-family: 'Helvetica', Arial, sans-serif;
+        ">
+            <div style="
+            color: #f8f6f1;
+            font-size: 0.78rem;
+            letter-spacing: 0.28em;
+            text-transform: uppercase;
+            margin-bottom: 1.6rem;
+          ">
+                Shimansky · The Diamond Experience
+            </div>
+            <div style="
+            color: rgba(248, 246, 241, 0.65);
+            font-size: 0.72rem;
+            letter-spacing: 0.08em;
+            margin-bottom: 1.4rem;
+          ">
+                Please enter the password to continue.
+            </div>
+            <input type="password" id="sitePasswordInput" placeholder="Password" autocomplete="off" style="
+            width: 100%;
+            box-sizing: border-box;
+            background: rgba(255, 255, 255, 0.04);
+            border: 1px solid rgba(183, 155, 98, 0.45);
+            color: #f8f6f1;
+            padding: 0.85rem 1rem;
+            font-size: 0.85rem;
+            letter-spacing: 0.05em;
+            text-align: center;
+            border-radius: 3px;
+            margin-bottom: 0.9rem;
+          " />
+            <button type="submit" style="
+            width: 100%;
+            background: transparent;
+            border: 1px solid rgba(183, 155, 98, 0.7);
+            color: #f8f6f1;
+            padding: 0.8rem 1rem;
+            font-size: 0.68rem;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            cursor: pointer;
+            border-radius: 3px;
+            transition: background 200ms ease, color 200ms ease;
+          " onmouseover="this.style.background='#b79b62'; this.style.color='#0c0c0c';"
+                onmouseout="this.style.background='transparent'; this.style.color='#f8f6f1';">
+                Enter
+            </button>
+            <div id="sitePasswordError" style="
+            color: #d98c8c;
+            font-size: 0.68rem;
+            letter-spacing: 0.05em;
+            margin-top: 0.9rem;
+            display: none;
+          ">
+                Incorrect password. Please try again.
+            </div>
+        </form>
+    </div>
+    <script>
+        (function () {
+            var SITE_PASSWORD = "shimansky2026";
+            var gate = document.getElementById("sitePasswordGate");
+            var form = document.getElementById("sitePasswordForm");
+            var input = document.getElementById("sitePasswordInput");
+            var error = document.getElementById("sitePasswordError");
+
+            if (sessionStorage.getItem("shimansky_site_unlocked") === "yes") {
+                gate.style.display = "none";
+            } else {
+                document.body.style.overflow = "hidden";
+            }
+
+            form.addEventListener("submit", function (e) {
+                e.preventDefault();
+                if (input.value === SITE_PASSWORD) {
+                    sessionStorage.setItem("shimansky_site_unlocked", "yes");
+                    gate.style.display = "none";
+                    document.body.style.overflow = "";
+                } else {
+                    error.style.display = "block";
+                    input.value = "";
+                    input.focus();
+                }
+            });
+        })();
+    </script>
+    <nav>
+        <div class="nav-logo">Shimansky · The Diamond Experience</div>
+        <div class="nav-right">
+            <div class="nav-dots" id="navDots"></div>
+        </div>
+    </nav>
+
+    <section id="s0" data-section="0">
+        <div class="slide-bg hero-gallery-bg" id="bg0">
+            <div class="slide active" data-caption="Sourced from the earth"
+                style="background-image: url(&quot;https://drive.google.com/thumbnail?id=1PvNcAK4h5Va8qfgUpRKiB-VcUW2sDr_X&sz=s1800&quot;);">
+            </div>
+            <div class="slide" data-caption="Rough diamonds, hand-selected"
+                style="background-image: url(&quot;https://drive.google.com/thumbnail?id=1xYlwQ7BoAr2C4COJEtQr2ZQB87UWMG4_&sz=s1800&quot;);">
+            </div>
+            <div class="slide" data-caption="Cut and polished to brilliance"
+                style="background-image: url(&quot;https://drive.google.com/thumbnail?id=1Osl_72SJOJJMZKH3KKAFvXoJC5rigXnR&sz=s1800&quot;);">
+            </div>
+            <div class="slide" data-caption="the final inspection"
+                style="background-image: url(&quot;https://drive.google.com/thumbnail?id=1_UDrvL_wBT0PljYOl6828Egs2DGR_qvM&sz=s1800&quot;);">
+            </div>
+            <!--
+            <div class="slide" data-caption="GIA certificate"
+                style="background-image: url(&quot;https://drive.google.com/thumbnail?id=1O4D7RH2FfVL3hO-FIv_Px7RqWDgFERnf&sz=s1800&quot;);">
+            </div>-->
+        </div>
+        <div class="photo-nav">
+            <button class="photo-btn" type="button" aria-label="Previous image" onclick="prev(0)">&lt;</button><button
+                class="photo-btn" type="button" aria-label="Next image" onclick="next(0)">&gt;</button>
+        </div>
+        <a class="section-nav-arrow" href="#s1" aria-label="Go to the next section">↓</a>
+        <div class="photo-dots" id="dots0"></div>
+        <div class="content">
+            <div class="gold-rule"></div>
+            <h1 class="exp-title hero-main-title">
+                The Shimansky<br /><em>Diamond Journey</em>
+            </h1>
+            <div class="hero-subtitle">From Mine to Finger</div>
+            <div class="btn-row">
+                <button class="read-more modal-trigger" data-modal="m-story">Experience</button>
+            </div>
+            <img src="https://drive.google.com/thumbnail?id=19aGvV40ImHyuQYDRrbw37S8dGXdwd-TE&sz=s1800"
+                alt="Yair Shimansky signature" style="
+            width: 220px;
+            max-width: 55vw;
+            opacity: 0.88;
+            display: block;
+            margin-top: 2.5rem;
+          " />
+        </div>
+    </section>
+
+    <section id="s1" data-section="1">
+        <div class="slide-bg section-gallery-bg" id="bg1">
+            <div class="slide active" data-caption="Welcome To The Rockwell"
+                style="background-image: url(&quot;https://drive.google.com/thumbnail?id=11maL8eopxoDrPDFrcReiGrXgXClGI5b6&sz=s1800&quot;);">
+            </div>
+            <div class="slide" data-caption="3.3 BILLION YEARS IN THE MAKING"
+                style="background-image: url(&quot;https://drive.google.com/thumbnail?id=1RlltiWd_rSbrJRaHoDq4Ja77_xXR0CRR&sz=s1800&quot;);">
+            </div>
+            <div class="slide" data-caption="A Private Factory Tour"
+                style="background-image: url(&quot;https://drive.google.com/thumbnail?id=18cw3Q0q4lBXNOinsXEN9SNOSquyCKIuT&sz=s1800&quot;);">
+            </div>
+            <!--
+            <div class="slide" data-caption="Guided By A Master Craftsman"
+                style="background-image: url(&quot;https://drive.google.com/thumbnail?id=1sNXBc4MjiEAbZInnE_nSnAhtOweQBJtH&sz=s1800&quot;);">
+            </div>
+            <div class="slide" data-caption="Hands On The Polishing Wheel"
+                style="background-image: url(&quot;https://drive.google.com/thumbnail?id=1wlxBoRTkjdRpDlS84-FIR3hnAGsVQasj&sz=s1800&quot;);">
+            </div>
+              <div class="slide" data-caption="The Diamond Reveal"
+                style="background-image: url(&quot;https://drive.google.com/thumbnail?id=1kk0ydLYmZLSxn49PgyQRTfzHcAiqJKDH&sz=s1800&quot;);">
+            </div>
+            <div class="slide" data-caption="A Toast To Remember"
+                style="background-image: url(&quot;https://drive.google.com/thumbnail?id=18mSiXUM-EfC1nM9_czBaT8j6QeFJ8eAX&sz=s1800&quot;);">
+            </div>
+
+
+
+
+            <div class="slide" data-caption="Guests Try Their Hand At Polishing"
+                style="background-image: url(&quot;https://drive.google.com/thumbnail?id=1upGK7MnZRGjuiT-EdnDvA1MC5OTrPxQh&sz=s1800&quot;);">
+            </div>-->
+            <div class="slide" data-caption="Your Personalised Certificate"
+                style="background-image: url(&quot;https://drive.google.com/thumbnail?id=132LP1OVqwZiXAXPDPe42AiA_plWKnrPP&sz=s1800&quot;);">
+            </div>
+
+            <div class="slide" data-caption="The Gin Tasting"
+                style="background-image: url(&quot;https://drive.google.com/thumbnail?id=17y0E9jqw1dbqr1PuWqxy64dMQgRyuFBk&sz=s1800&quot;);">
+            </div>
+
+
+
+
+
+
+
+
+
+        </div>
+        <div class="photo-nav">
+            <button class="photo-btn" type="button" aria-label="Previous image" onclick="prev(1)">&lt;</button><button
+                class="photo-btn" type="button" aria-label="Next image" onclick="next(1)">&gt;</button>
+        </div>
+        <a class="section-nav-arrow" href="#s2" aria-label="Go to the next section">↓</a>
+        <div class="photo-dots" id="dots1"></div>
+        <div class="photo-counter" id="cnt1">1 / 5</div>
+        <div class="content">
+            <div class="exp-tag">Experience 01 · By Appointment Only</div>
+            <h2 class="exp-title">The Rockwell<br /><em>Diamond Experience</em></h2>
+
+            <div class="btn-row">
+                <button class="read-more modal-trigger" data-modal="m-rockwell">Experience</button>
+                <button class="btn-g modal-trigger" data-modal="m-book-rockwell">Book This Experience</button>
+            </div>
+        </div>
+        <div class="exp-number">01</div>
+    </section>
+
+    <section id="s2" data-section="2">
+        <div class="slide-bg section-gallery-bg" id="bg2">
+            <div class="slide active" data-caption="Welcome To The Museum"
+                style="background-image: url(&quot;https://drive.google.com/thumbnail?id=1CKW3pM8K5302yQkCdLIcDBKWEzonAPzv&sz=s1800&quot;);">
+            </div>
+            <div class="slide" data-caption="A Journey Through History"
+                style="background-image: url(&quot;https://drive.google.com/thumbnail?id=1z8WKda_0-ANF_qkVtys0q76YoRmAX79r&sz=s1800&quot;);">
+            </div>
+            <div class="slide" data-caption="Diamond Fields Heritage"
+                style="background-image: url(&quot;https://drive.google.com/thumbnail?id=1J1exmCnNdKscJu4TU_oeNUflwmZtFuHP&sz=s1800&quot;);">
+            </div>
+
+            <div class="slide" data-caption="Discover How Diamonds Form"
+                style="background-image: url(&quot;https://drive.google.com/thumbnail?id=1B1E5iDghMu72vA9_tf3286fTX-Cqk5TV&sz=s1800&quot;);">
+            </div><!--
+            <div class="slide" data-caption="Step Into The Mine"
+                style="background-image: url(&quot;https://drive.google.com/thumbnail?id=1N0HH1P4wDVOrrkT-9r8kA2tQtr5ukpXT&sz=s1800&quot;);">
+            </div>
+            <div class="slide" data-caption="Dress As Diamond Diggers"
+                style="background-image: url(&quot;https://drive.google.com/thumbnail?id=1JAJzyNFKp88H-zABJP-eT9YHJyUD8qoc&sz=s1800&quot;);">
+            </div>
+            <div class="slide" data-caption="A Playful Discovery"
+                style="background-image: url(&quot;https://drive.google.com/thumbnail?id=12xmkUwtYSKOhKBrO7YYOZmMhC4n34TEL&sz=s1800&quot;);">
+            </div>
+           
+      
+            <div class="slide" data-caption="From Rough To Brilliant"
+                style="background-image: url(&quot;https://drive.google.com/thumbnail?id=1ko8Qj-AlyVZ3q3zXlRn9zLoOK4tIdt1Y&sz=s1800&quot;);">
+            </div>     
+            <div class="slide" data-caption="Sharing The Moment"
+                style="background-image: url(&quot;https://drive.google.com/thumbnail?id=1XjihRrC7PLtV7x6t6F0E9V9coupwWeKu&sz=s1800&quot;);">
+            </div> -->
+            <div class="slide" data-caption="The Showroom Reveal"
+                style="background-image: url(&quot;https://drive.google.com/thumbnail?id=1nARnhQg0DvvM5OF1ZzuyAz0cOONIoeTJ&sz=s1800&quot;);">
+            </div>
+        </div>
+        <div class="photo-nav">
+            <button class="photo-btn" type="button" aria-label="Previous image" onclick="prev(2)">&lt;</button><button
+                class="photo-btn" type="button" aria-label="Next image" onclick="next(2)">&gt;</button>
+        </div>
+        <a class="section-nav-arrow" href="#s3" aria-label="Go to the next section">↓</a>
+        <div class="photo-dots" id="dots2"></div>
+        <div class="photo-counter" id="cnt2">1 / 4</div>
+        <div class="content">
+            <div class="exp-tag">Experience 02 · Museum, Factory & Showroom</div>
+            <h2 class="exp-title">Cape Town<br /><em>Diamond Museum</em></h2>
+
+            <div class="btn-row">
+                <button class="read-more modal-trigger" data-modal="m-museum">Experience</button>
+                <button class="btn-g modal-trigger" data-modal="m-book-museum">Book This Experience</button>
+            </div>
+        </div>
+        <div class="exp-number">02</div>
+    </section>
+
+    <section id="s3" data-section="3">
+        <div class="slide-bg section-gallery-bg" id="bg3">
+            <div class="slide active" data-caption="Welcome To The Boutique"
+                style="background-image: url(&quot;https://drive.google.com/thumbnail?id=1ZppLlO0CQtA0sQ8vvqU0Iz-BiXflcdqk&sz=s1800&quot;);">
+            </div>
+            <div class="slide" data-caption="A Private Consultation"
+                style="background-image: url(&quot;https://drive.google.com/thumbnail?id=1s4JhOznUIV6E6nEJ7e9oNb-OcZSXRyzZ&sz=s1800&quot;);">
+            </div>
+            <div class="slide" data-caption="Guided By A Jewellery Specialist"
+                style="background-image: url(&quot;https://drive.google.com/thumbnail?id=15-NoJFcb1p0l-UUkeCfpZcFdHemP56oq&sz=s1800&quot;);">
+            </div>
+            <div class="slide" data-caption="Trying On The Perfect Ring"
+                style="background-image: url(&quot;https://drive.google.com/thumbnail?id=1hTi6X4rxaXRLWkcnswg9kxcWnQnruENX&sz=s1800&quot;);">
+            </div>
+            <div class="slide" data-caption="A Closer Look At Diamonds"
+                style="background-image: url(&quot;https://drive.google.com/thumbnail?id=1gPLiGI5SZcpEBaoE0voSvQLGItgj7vm2&sz=s1800&quot;);">
+            </div>
+            <div class="slide" data-caption="Exclusive Diamond Cuts"
+                style="background-image: url(&quot;https://drive.google.com/thumbnail?id=1aQnQqeBkOShEkxlVVK7JvRTwcHwb4Aup&sz=s1800&quot;);">
+            </div>
+            <div class="slide" data-caption="Iconic Jewellery Designs"
+                style="background-image: url(&quot;https://drive.google.com/thumbnail?id=1OvydZbCpjxEDRWN0RC6IB_2pOfPgkcxs&sz=s1800&quot;);">
+            </div>
+            <div class="slide" data-caption="Styled To Perfection"
+                style="background-image: url(&quot;https://drive.google.com/thumbnail?id=19sjh1Z-GtiEo5qIKRwVZhZkVQ_c4-TQK&sz=s1800&quot;);">
+            </div>
+            <div class="slide" data-caption="A Piece Of Shimansky To Take Home"
+                style="background-image: url(&quot;https://drive.google.com/thumbnail?id=1xZ-VpYoeiDxFMLdQhMSBBWSbYkJSy54U&sz=s1800&quot;);">
+            </div>
+        </div>
+        <div class="photo-nav">
+            <button class="photo-btn" type="button" aria-label="Previous image" onclick="prev(3)">&lt;</button><button
+                class="photo-btn" type="button" aria-label="Next image" onclick="next(3)">&gt;</button>
+        </div>
+        <a class="section-nav-arrow" href="#s0" aria-label="Go back to the start">↑</a>
+        <div class="photo-dots" id="dots3"></div>
+        <div class="photo-counter" id="cnt3">1 / 4</div>
+        <div class="content">
+            <div class="exp-tag">Experience 03 · Private Jewellery Discovery</div>
+            <h2 class="exp-title">Shimansky<br /><em>Shopping Experience</em></h2>
+
+            <div class="btn-row">
+                <button class="read-more modal-trigger" data-modal="m-shopping">Experience</button>
+                <button class="btn-g modal-trigger" data-modal="m-book-shopping">Book This Experience</button>
+            </div>
+        </div>
+        <div class="exp-number">03</div>
+    </section>
+    <div class="modal" id="m-story">
+        <div class="modal-card">
+            <button class="modal-close">×</button>
+            <h2 class="modal-title">
+                <em>The Shimansky </em><br />Diamond Journey
+            </h2>
+
+            <div class="modal-section popup-gallery-section">
+                <div class="popup-slide-gallery" data-popup-gallery="story"
+                    aria-label="The Shimansky Diamond Journey Story image slideshow">
+
+
+                    <div class="popup-slide" data-caption="Sourced from the earth" style="
+                background-image: url(&quot;https://drive.google.com/thumbnail?id=1qAO_9TeEEfVeLBnsvEvuMejDYCV738G3&sz=s1800&quot;);
+              "></div>
+
+                    <div class="popup-slide" data-caption="Rough diamonds, hand-selected" style="
+                background-image: url(&quot;https://drive.google.com/thumbnail?id=15wUilGGNKyM8d-iT9_7FhJYTe4CXROak&sz=s1800&quot;);
+              "></div>
+                    <!-- 
+                    <div class="popup-slide" data-caption="Cut and polished to brilliance" style="
+                background-image: url(&quot;https://drive.google.com/thumbnail?id=1Osl_72SJOJJMZKH3KKAFvXoJC5rigXnR&sz=s1800&quot;);
+              "></div>
+            -->
+                    <div class="popup-slide" data-caption="Designed for Brilliance" style="
+                background-image: url(&quot;https://drive.google.com/thumbnail?id=1sEPexwL-LGJODwezQQh0zEVqV-nogLce&sz=s1800&quot;);
+              "></div>
+
+                    <div class="popup-slide" data-caption="Graded by GIA" style="
+                background-image: url(&quot;https://drive.google.com/thumbnail?id=1O4D7RH2FfVL3hO-FIv_Px7RqWDgFERnf&sz=s1800&quot;);
+              "></div>
+
+                    <div class="popup-slide-caption"></div>
+
+                    <div class="popup-slide" data-delay="7000" style="
+                background: #000000;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                color: #f8f6f1;
+                font-size: 1rem;
+                letter-spacing: 0.16em;
+                text-transform: uppercase;
+                font-weight: 500;
+                text-align: center;
+                padding: 1.5rem;
+              ">The Shimansky Diamond Journey
+                        Story</div>
+                    <div class="popup-slide" data-caption="Shimansky">
+                        <video class="gallery-video" playsinline preload="none"
+                            poster="https://drive.google.com/thumbnail?id=1OFoClcZzjcRSue8r6bG57kDTh5w5t770&sz=s1800">
+                            <source src="./videos/Shimansky_Diamonds.mp4" type="video/mp4" />
+                        </video>
+                        <div class="gallery-video-mute-icon" aria-hidden="true"></div>
+                    </div>
+
+                    <div class="popup-gallery-controls">
+                        <button class="popup-gallery-btn popup-prev" type="button" aria-label="Previous image">
+                            &lt;
+                        </button>
+                        <button class="popup-gallery-btn popup-next" type="button" aria-label="Next image">
+                            &gt;
+                        </button>
+                    </div>
+                    <div class="popup-gallery-dots"></div>
+                </div>
+            </div>
+
+            <div class="modal-section">
+                <p>
+                    Welcome to Shimansky, where every diamond's journey — from rough
+                    stone to finished piece — is shaped by nearly three decades of
+                    South African craftsmanship. We look forward to sharing it with
+                    your guests.
+                </p>
+                <p style="margin-top: 0.6rem;">Sincerely yours,</p>
+
+                <img src="https://drive.google.com/thumbnail?id=1JtmpfOQgA6nwI1luMVwBQ_N-fbfc_B2y&sz=s1800"
+                    alt="Yair Shimansky signature"
+                    style="width: 160px; max-width: 40vw; opacity: 0.88; display: block; margin-top: 0.4rem;" />
+            </div>
+            <div class="modal-section">
+                <a href="https://shimansky.com/pages/about-us-our-story">
+                    <h3 class="btn-g-link">The Shimansky Story Since 1991</h3>
+                </a>
+                <p>
+                    The Beginning.
+                    <a class="btn-g-link" href="https://shimansky.com/pages/about-us-our-story">
+                        The Shimansky story</a>
+                    began in 1991, when founder and CEO Yair Shimansky arrived in South
+                    Africa after spending two years in Japan. The time spent in Japan
+                    served not only as a rite of passage into the world of diamonds and
+                    jewellery, but also as a major learning curve. It was here that he
+                    studied the science of light & optics in diamonds and where the
+                    Japanese culture of perfection made a life-long impression on him.
+                    Having learnt the intricacies of diamond qualities and the
+                    importance of cut and proportion, he was armed with a unique
+                    perspective on diamonds.
+                    <br />
+                </p>
+                <br />
+                <p>
+                    Upon his arrival in South Africa, Shimansky started designing and
+                    crafting jewellery which he sold at a craft market for one year
+                    before opening a small outlet in a popular shopping mall. This lead
+                    to the opening of the first Shimansky boutique store in 1994. In
+                    1998 Shimansky decided to travel to the diamond mines in Kimberley,
+                    South Africa, and buy rough diamonds directly from the mines. The
+                    first batch of diamonds was given to a local polisher who polished
+                    the diamonds for weight gain and not to maximize their brilliance.
+                    This is when Shimansky decided to enter the world of diamond cutting
+                    and polishing and setup the first Shimansky diamond polishing
+                    workshop in 1999, unique among jewellers to this day. Shimansky now
+                    is a leading premium jewellery brand .
+                </p>
+            </div>
+            <div class="modal-section">
+                <a href="https://shimansky.com/pages/ethical-sourcing">
+                    <h3 class="btn-g-link">Responsibility That Matters</h3>
+                </a>
+                <p>
+                    Every Shimansky diamond is traded, sourced and certified with the
+                    same care we put into cutting it. In short, here's what that means:
+                </p>
+                <ul>
+                    <li>
+                        <strong>Kimberley Process compliant</strong> &mdash; every diamond
+                        is traded fairly and transparently, and guaranteed conflict-free.
+                    </li>
+                    <li>
+                        <strong>Sourced directly from the mine</strong> &mdash; Shimansky
+                        is one of the rare few jewellers licensed to buy rough diamonds
+                        straight from well-known South African diamond fields.
+                    </li>
+                    <li>
+                        <strong>Ethical Compliance certificate</strong> &mdash; every
+                        diamond is accompanied by our written guarantee of conflict-free
+                        origin, in accordance with the Kimberley Process.
+                    </li>
+                    <li>
+                        <strong>GIA certified</strong> &mdash; independently graded by the
+                        Gemological Institute of America for cut, colour, clarity and
+                        carat weight.
+                    </li>
+                    <li>
+                        <strong>Community impact</strong> &mdash; supporting the people
+                        and economies behind every stone, from mine to finger, cut and
+                        polished in-house in Cape Town.
+                    </li>
+                </ul>
+                <p
+                    style="font-style: italic; padding-left: 1rem; border-left: 2px solid var(--soft-gold); margin: 1rem 0;">
+                    "The gemstones herein invoiced have been purchased from legitimate
+                    sources not involved in funding conflict and in compliance with
+                    United Nations Resolutions. The seller hereby guarantees that these
+                    gemstones are conflict-free, based on personal knowledge and/or
+                    written guarantees provided by the suppliers of these gemstones."
+                </p>
+
+                <div class="ethical-compliance-image" s>
+
+                </div>
+            </div>
+
+            <div class="modal-section">
+                <h3>Testimonials</h3>
+                <p>
+                    Hear directly from the people who know the Shimansky experience
+                    best &mdash; our team, our trade partners, and our guests.
+                </p>
+                <div class="video-testimonial-grid">
+                    <div class="video-testimonial-card">
+                        <div class="testimonial-video-frame">
+                            <video controls playsinline preload="none"
+                                poster="https://drive.google.com/thumbnail?id=1JUhKn6E4zInU1jcjRnll2PUzB_esZqzM&sz=s1800">
+                                <source src="./videos/SHIMANSKY_TESTIMONIALS.mp4" type="video/mp4" />
+                            </video>
+                        </div>
+
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <div class="modal" id="m-rockwell">
+        <div class="modal-card">
+            <button class="modal-close">×</button>
+            <h2 class="modal-title">
+                The Rockwell<br /><em>Diamond Experience</em>
+            </h2>
+
+            <div class="modal-section popup-gallery-section">
+                <div class="popup-slide-gallery" data-popup-gallery="rockwell"
+                    aria-label="Rockwell Diamond Experience image slideshow">
+                    <!-- 
+                <div class="popup-slide" data-caption="Welcome To The Rockwell" style="
+                background-image: url(&quot;https://drive.google.com/thumbnail?id=11maL8eopxoDrPDFrcReiGrXgXClGI5b6&sz=s1800&quot;);
+              "></div>
+                    <div class="popup-slide" data-caption="3.3 BILLION YEARS IN THE MAKING" style="
+                background-image: url(&quot;https://drive.google.com/thumbnail?id=1RlltiWd_rSbrJRaHoDq4Ja77_xXR0CRR&sz=s1800&quot;);
+              "></div>
+                    <div class="popup-slide" data-caption="A Private Factory Tour" style="
+                background-image: url(&quot;https://drive.google.com/thumbnail?id=18cw3Q0q4lBXNOinsXEN9SNOSquyCKIuT&sz=s1800&quot;);
+              "></div>
+
+                    <div class="popup-slide" data-caption="Guided By A Master Craftsman" style="
+                background-image: url(&quot;https://drive.google.com/thumbnail?id=1sNXBc4MjiEAbZInnE_nSnAhtOweQBJtH&sz=s1800&quot;);
+              "></div>
+                    <div class="popup-slide" data-caption="Guests Try Their Hand At Polishing" style="
+                background-image: url(&quot;https://drive.google.com/thumbnail?id=1EDi7WsMTbISxxDwD7xAyl4J7T3KT0RIA&sz=s1800&quot;);
+              "></div>
+              -->
+
+                    <div class="popup-slide" data-caption="Talking You Through the Craft" style="
+                background-image: url(&quot;https://drive.google.com/thumbnail?id=18mSiXUM-EfC1nM9_czBaT8j6QeFJ8eAX&sz=s1800&quot;);
+              "></div>
+                    <div class="popup-slide" data-caption="Hands On The Polishing Wheel" style="
+                background-image: url(&quot;https://drive.google.com/thumbnail?id=1wlxBoRTkjdRpDlS84-FIR3hnAGsVQasj&sz=s1800&quot;);
+              "></div>
+                    <div class="popup-slide active" data-caption="Examined to Perfection" style="
+                background-image: url(&quot;https://drive.google.com/thumbnail?id=1kk0ydLYmZLSxn49PgyQRTfzHcAiqJKDH&sz=s1800&quot;);
+              "></div>
+                    <div class="popup-slide" data-caption="A Rare Diamond, Revealed" style="
+                background-image: url(&quot;https://drive.google.com/thumbnail?id=1upGK7MnZRGjuiT-EdnDvA1MC5OTrPxQh&sz=s1800&sz=s1800&quot;);
+              "></div>
+                    <div class="popup-slide" data-caption="Your Personalised Certificate" style="
+                background-image: url(&quot;https://drive.google.com/thumbnail?id=19EL1s1rgbLpewgBnPp4X2AP9YGPhpngi&sz=s1800&quot;);
+              "></div>
+                    <div class="popup-slide" data-caption="The Gin Tasting" style="
+                background-image: url(&quot;https://drive.google.com/thumbnail?id=1ocScxJurnxzInb7bkhTwQgQHOVn1mTIN&sz=s1800&quot;);
+              "></div>
+                    <div class="popup-slide" data-caption="A Toast To Remember" style="
+                background-image: url(&quot;https://drive.google.com/thumbnail?id=1O08aaOkiZAbZYjsOpsmXOk6I_FBW7KS7&sz=s1800&quot;);
+              "></div>
+
+
+
+
+
+                    <div class="popup-slide" data-delay="7000" style="
+                background: #000000;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                color: #f8f6f1;
+                font-size: 1rem;
+                letter-spacing: 0.16em;
+                text-transform: uppercase;
+                font-weight: 500;
+                text-align: center;
+                padding: 1.5rem;
+              ">The Rockwell Diamond Experience</div>
+                    <div class="popup-slide" data-caption="Watch The Rockwell Experience">
+                        <video class="gallery-video" playsinline preload="none"
+                            poster="https://drive.google.com/thumbnail?id=1OFoClcZzjcRSue8r6bG57kDTh5w5t770&sz=s1800">
+                            <source src="./videos/rockwell_tour_full_width.mp4" type="video/mp4" />
+                        </video>
+                        <div class="gallery-video-mute-icon" aria-hidden="true"></div>
+                    </div>
+
+                    <div class="popup-slide-caption"></div>
+                    <div class="popup-gallery-controls">
+                        <button class="popup-gallery-btn popup-prev" type="button" aria-label="Previous image">
+                            &lt;
+                        </button>
+                        <button class="popup-gallery-btn popup-next" type="button" aria-label="Next image">
+                            &gt;
+                        </button>
+                    </div>
+                    <div class="popup-gallery-dots"></div>
+                </div>
+            </div>
+
+            <div class="exp-meta">
+                <a href="https://maps.app.goo.gl/fV7ErHVHdcqNjuJn8">
+                    <span>📍 Cnr Alfred & Prestwich Street, Greenpoint</span></a><span class="sep"></span><span>⏱
+                    45-minute
+                    tour</span><span class="sep"></span><span>Bus parking allocated outside</span>
+            </div>
+            <p class="exp-desc">
+                An intimate, hands-on encounter unlike any other - guests are invited
+                to step into our working factory and take hold of something
+                extraordinary; to personally polish a diamond in its rough, uncut
+                state. A unique experience connecting guests to one of nature’s most
+                coveted treasures.
+            </p>
+            <div class="pill-row">
+                <span class="pill pill-in">Polish-A-Diamond</span><span class="pill pill-in">Secret chamber</span><span
+                    class="pill pill-in">Factory tour</span><span class="pill pill-in">Gin, whisky or wine
+                    pairing</span><span class="pill pill-in">R1,900 / $100 pp</span>
+            </div>
+            <div class="modal-section">
+                <h3>Polish-A-Diamond Experience</h3>
+                <p>
+                    A hands-on experience where your clients don’t just see a diamond,
+                    they transform one, from rough to finish, guided by a Shimansky
+                    master craftsman.
+                </p>
+                <div class="modal-grid">
+                    <div class="modal-item">
+                        <h4>Step 01, Meet the rough</h4>
+                        <p>
+                            Guests handle a genuine rough diamond, uncut, unpolished,
+                            extraordinary. The journey begins here.
+                        </p>
+                    </div>
+                    <div class="modal-item">
+                        <h4>Step 02, Learn the craft</h4>
+                        <p>
+                            A master craftsman guides guests through the art of cutting and
+                            polishing, the knowledge behind every great diamond.
+                        </p>
+                    </div>
+                    <div class="modal-item">
+                        <h4>Step 03, Hands on the wheel</h4>
+                        <p>
+                            Guests physically work at the polishing wheel, a genuinely rare
+                            experience, available to almost no one in the world.
+                        </p>
+                    </div>
+
+                    <div class="modal-item">
+                        <h4>Step 04, Create something yours</h4>
+                        <p>
+                            For those who wish, a bespoke commission begins. A piece
+                            designed for them, crafted in Cape Town.
+                        </p>
+                    </div>
+                </div>
+                <div class="modal-price">R1,900 per person / $100 per person</div>
+                <ul>
+                    <li>
+                        Includes a 45-minute tour, secret chamber room, 30-minute gin
+                        tasting and 30-minute polishing experience inside the factory.
+                    </li>
+                    <li>
+                        Guests receive a personalised handwritten certificate signed by
+                        CEO Yair Shimansky.
+                    </li>
+                    <li>
+                        An image of their experience is printed on site to take home.
+                    </li>
+                    <li>Recommended maximum of 12 guests, rotated in groups of 4.</li>
+                    <li>
+                        No walk-ins permitted for a private and exclusive experience.
+                    </li>
+                </ul>
+            </div>
+            <div class="modal-section">
+                <h3>The Rockwell Location</h3>
+                <h4>The Shimansky Rockwell Experience, Green Point</h4>
+                <p>
+                    <strong>Location:</strong> Corner of Prestwich &amp; Alfred Street,
+                    Green Point, Cape Town, 8001.
+                </p>
+                <p><strong>WhatsApp Call:</strong> +27 83 509 5811</p>
+                <p>
+                    <strong>Hours:</strong> Monday to Sunday, 10:00 – 19:00, by
+                    appointment only.
+                </p>
+                <p> <strong>Factory Hours:</strong> Mon to Thurs: 09:00 - 16:00 | Friday: 09:00 - 15:00, by
+                    appointment only.</p>
+                <a class="location-link" href="https://maps.app.goo.gl/dK9e91DxZJGFm2Dn8" target="_blank"
+                    rel="noopener">📍 Open
+                    in Google Maps</a>
+            </div>
+
+            <div class="modal-section">
+                <h3>The Rockwell Diamond Experience Tour</h3>
+                <div class="modal-price">Tour: Complimentary, by appointment &nbsp;|&nbsp; Gin, Whisky &amp; Wine
+                    Pairing:
+                    R500pp / $30pp</div>
+                <p>
+                    Join us for a complimentary 45-minute guided tour through our
+                    Rockwell showroom and factory - no charge, by appointment only. For
+                    guests who'd like to elevate the experience, we offer an optional
+                    South African gin, whisky or wine pairing for R500 per person,
+                    curated with some of the country's finest distillers and wine
+                    estates.
+                </p>
+                <ul>
+                    <li>
+                        Workshop, witness the craftsmanship of the skilled team as you
+                        tour the factory.
+                    </li>
+                    <li>
+                        Showroom, the largest jewellery showroom in Africa - gin, whisky
+                        and wine pairing available as an optional add-on.
+                    </li>
+                    <li>
+                        Secret Room, see replicas of renowned diamonds and gain insight
+                        into the mining process.
+                    </li>
+                    <li>
+                        45-minute tour, by appointment only, 45 guests maximum, larger
+                        groups separated accordingly.
+                    </li>
+                    <li>Offered in various languages, with bus parking available.</li>
+                </ul>
+            </div>
+            <div class="modal-section">
+                <h3>Additional Information</h3>
+                <ul>
+                    <li>
+                        Groups larger than 35 receive a lucky draw pendant on the tour.
+                    </li>
+                    <li>
+                        Specially tailored diamond surprise activities by pre-arrangement.
+                    </li>
+                    <li>Voucher options available with logo or personalised name.</li>
+                    <li>Unique gift-with-purchase offer: Southern Cross pendant.</li>
+                    <li>
+                        Operating hours: Monday to Sunday, 10:00 – 19:00, by appointment
+                        only.
+                    </li>
+                    <li>
+                        Factory: Monday to Thursday, 09:00 – 16:00. Friday, 09:00 – 15:00.
+                    </li>
+                    <li>
+                        Polish-A-Diamond: Monday to Thursday, 09:00 – 16:00, last tour
+                        15:00. | Friday, 09:00 – 15:00, last tour 14:00.
+                    </li>
+                    <li>Stores are closed on 25 December.</li>
+                </ul>
+                <div class="modal-section testimonial-section">
+                    <div class="testimonial-heading-wrap">
+                        <span class="testimonial-eyebrow">Guest Reviews</span>
+                        <h3>What Our Guests Say</h3>
+                    </div>
+                    <div class="testimonial-grid">
+                        <div class="testimonial-card">
+                            <div class="testimonial-stars">★★★★★</div>
+                            <p class="testimonial-quote">
+                                From the moment we stepped into Shimansky, we were treated to
+                                a truly world-class experience. They went above and beyond to
+                                make our visit unforgettable. Their professionalism, warmth,
+                                and deep knowledge made the entire process seamless and
+                                enjoyable.
+                                <br /><br />
+                                It's rare to find such genuine service and passion for
+                                excellence - we felt valued, listened to, and well taken care
+                                of throughout. Thank you to the entire team for making our
+                                time at Shimansky so special. Highly recommended!
+                            </p>
+                            <div class="testimonial-name">Jennifer</div>
+                        </div>
+                        <div class="testimonial-card">
+                            <div class="testimonial-stars">★★★★★</div>
+                            <p class="testimonial-quote">
+                                Absolutely unforgettable experience at Shimansky! From the
+                                moment we walked in, the service was top-tier - welcoming,
+                                knowledgeable, and attentive.
+                                <br /><br />
+                                The diamonds were stunning, but what really made it special
+                                was how they took the time to explain the craftsmanship and
+                                history behind each piece. If you're looking to make a memory
+                                or treat someone special, this is the place to do it in Cape
+                                Town. Highly recommend!
+                            </p>
+                            <div class="testimonial-name">Jalen</div>
+                        </div>
+                        <div class="testimonial-card">
+                            <div class="testimonial-stars">★★★★★</div>
+                            <p class="testimonial-quote">
+                                A fascinating journey into South African jewellery making!
+                                Our visit to the jewellery production site was truly
+                                unforgettable. We had the chance to see the entire creative
+                                process up close, from the careful selection of gemstones to
+                                the crafting of the final pieces, all executed with
+                                remarkable precision and attention to detail.
+                                <br /><br />
+                                Highly recommended to anyone visiting South Africa and
+                                looking for an experience that combines craftsmanship,
+                                beauty, and culture!
+                            </p>
+                            <div class="testimonial-name">Rossella</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-section museum-tripadvisor-section">
+                    <h3>Tripadvisor Travellers’ Choice Award 2026</h3>
+                    <div class="location-tripadvisor-badge-wrap" style="flex-direction: column; align-items: center;">
+                        <div class="tripadvisor-award-row">
+                            <div class="tripadvisor-badge-item">
+                                <img class="location-tripadvisor-badge"
+                                    src="https://drive.google.com/thumbnail?id=1RieKx9ZBYPtVXiWQQ0Y1VS-ffeG-zQsP&sz=s1800"
+                                    alt="Tripadvisor Travellers’ Choice 2026 badge" />
+                                <span class="tripadvisor-badge-caption">Travellers’ Choice 2026</span>
+                            </div>
+                            <p class="tripadvisor-award-quote">Recognised among the top 1% of attractions worldwide.</p>
+                        </div>
+                        <div class="tripadvisor-award-row">
+                            <div class="tripadvisor-badge-item">
+                                <img class="location-tripadvisor-badge"
+                                    src="https://drive.google.com/thumbnail?id=1qQzlH3YXUmMTHdFNzKaa7T290vkoFzcq&sz=s1800"
+                                    alt="Tripadvisor Travellers’ Choice Best of the Best 2026 badge" />
+                                <span class="tripadvisor-badge-caption">Best of the Best 2026</span>
+                            </div>
+                            <p class="tripadvisor-award-quote">Millions of Tripadvisor travellers place this winner in
+                                the 10% worldwide.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal" id="m-museum">
+        <div class="modal-card">
+            <button class="modal-close">×</button>
+
+            <h2 class="modal-title">Cape Town<br /><em>Diamond Museum</em></h2>
+
+            <div class="modal-section popup-gallery-section">
+                <div class="popup-slide-gallery" data-popup-gallery="museum"
+                    aria-label="Cape Town Diamond Museum image slideshow">
+                    <!-- 
+                    <div class="popup-slide active" data-caption="Welcome To The Museum" style="
+                background-image: url(&quot;https://drive.google.com/thumbnail?id=1CKW3pM8K5302yQkCdLIcDBKWEzonAPzv&sz=s1800&quot;);
+              "></div>
+                    <div class="popup-slide" data-caption="A Journey Through History" style="
+                background-image: url(&quot;https://drive.google.com/thumbnail?id=1z8WKda_0-ANF_qkVtys0q76YoRmAX79r&sz=s1800&quot;);
+              "></div>
+                    <div class="popup-slide" data-caption="Diamond Fields Heritage" style="
+                background-image: url(&quot;https://drive.google.com/thumbnail?id=1J1exmCnNdKscJu4TU_oeNUflwmZtFuHP&sz=s1800&quot;);
+              "></div>       <div class="popup-slide" data-caption="From Rough To Brilliant" style="
+                background-image: url(&quot;https://drive.google.com/thumbnail?id=1ko8Qj-AlyVZ3q3zXlRn9zLoOK4tIdt1Y&sz=s1800&quot;);
+              "></div>
+
+                
+                    <div class="popup-slide" data-caption="The Showroom Reveal" style="
+                background-image: url(&quot;https://drive.google.com/thumbnail?id=1nARnhQg0DvvM5OF1ZzuyAz0cOONIoeTJ&sz=s1800&quot;);
+              "></div>-->
+
+                    <div class="popup-slide" data-caption="Discover How Diamonds Form" style="
+                background-image: url(&quot;https://drive.google.com/thumbnail?id=1zFZRfmwwcoakHhB76ab9acWY3ADrdN_F&sz=s1800&quot;);
+              "></div>
+                    <div class="popup-slide" data-caption="Step Into The Mine" style="
+                background-image: url(&quot;https://drive.google.com/thumbnail?id=1N0HH1P4wDVOrrkT-9r8kA2tQtr5ukpXT&sz=s1800&quot;);
+              "></div>
+                    <div class="popup-slide" data-caption="Dress As Diamond Diggers" style="
+                background-image: url(&quot;https://drive.google.com/thumbnail?id=1JAJzyNFKp88H-zABJP-eT9YHJyUD8qoc&sz=s1800&quot;);
+              "></div>
+                    <div class="popup-slide" data-caption="A Playful Discovery" style="
+                background-image: url(&quot;https://drive.google.com/thumbnail?id=12xmkUwtYSKOhKBrO7YYOZmMhC4n34TEL&sz=s1800&quot;);
+              "></div>
+                    <div class="popup-slide" data-caption="Sharing The Moment" style="
+                background-image: url(&quot;https://drive.google.com/thumbnail?id=1XjihRrC7PLtV7x6t6F0E9V9coupwWeKu&sz=s1800&quot;);
+              "></div>
+
+
+
+                    <div class="popup-slide" style="
+                background: #000000;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                color: #f8f6f1;
+                font-size: 1rem;
+                letter-spacing: 0.16em;
+                text-transform: uppercase;
+                font-weight: 500;
+                text-align: center;
+                padding: 1.5rem;
+              ">Cape Town Diamond Museum</div>
+                    <div class="popup-slide" data-caption="Watch The Museum Experience">
+                        <video class="gallery-video" playsinline preload="none"
+                            poster="https://drive.google.com/thumbnail?id=1OFoClcZzjcRSue8r6bG57kDTh5w5t770&sz=s1800">
+                            <source src="./videos/CTDM_full_width.mp4" type="video/mp4" />
+                        </video>
+                        <div class="gallery-video-mute-icon" aria-hidden="true"></div>
+                    </div>
+
+                    <div class="popup-slide-caption"></div>
+                    <div class="popup-gallery-controls">
+                        <button class="popup-gallery-btn popup-prev" type="button" aria-label="Previous image">
+                            &lt;
+                        </button>
+                        <button class="popup-gallery-btn popup-next" type="button" aria-label="Next image">
+                            &gt;
+                        </button>
+                    </div>
+                    <div class="popup-gallery-dots"></div>
+                </div>
+            </div>
+
+            <div class="exp-meta">
+                <a class="location-link" href="https://maps.app.goo.gl/Zq5DuSZgAJKSeVeW9"><span>📍 V&A Waterfront Clock
+                        Tower,
+                        Level 1</span></a><span class="sep"></span><span>⏱ 45-minute guided tour</span><span
+                    class="sep"></span><span>Bookings essential</span>
+            </div>
+            <p class="exp-desc">
+                An intimate museum visit into South African diamond heritage, set in
+                the elegant Clock Tower with Table Mountain as its backdrop, including
+                access to the factory and showroom.
+            </p>
+            <div class="pill-row">
+                <span class="pill pill-in">3.3 billion years of history</span><span class="pill pill-in">Diamond
+                    polishing
+                    workshop</span><span class="pill pill-in">R400 waived when pre-booked</span>
+            </div>
+            <div class="modal-section">
+                <h3>Included in the Tour</h3>
+                <p>
+                    The Cape Town Diamond Museum invites guests into a world of rare
+                    beauty, heritage, and craftsmanship. Set in the elegant Clock Tower
+                    at the iconic V&A Waterfront Precinct, with Table Mountain as its
+                    backdrop; this experience is intimate, exclusive, and an elegant
+                    highlight for discerning visitors to Cape Town.
+                </p>
+                <div class="modal-grid">
+                    <div class="modal-item">
+                        <h4>Experience</h4>
+                        <p>
+                            An interactive museum visit: a refined journey into South
+                            African diamonds, from ancient beginnings to exceptional
+                            Shimansky creations.
+                        </p>
+                    </div>
+                    <div class="modal-item">
+                        <h4>Explore</h4>
+                        <p>
+                            Guests explore 3.3 billion years of diamond history and uncover
+                            the legacy of the Kimberley Diamond Rush.
+                        </p>
+                    </div>
+                    <div class="modal-item">
+                        <h4>Discover</h4>
+                        <p>
+                            The mine-to-finger journey firsthand, watching rough diamonds
+                            transformed into handcrafted masterpieces.
+                        </p>
+                    </div>
+                    <div class="modal-item">
+                        <h4>Learn</h4>
+                        <p>What is a diamond, where is it from, and how does it form?</p>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-section">
+                <h3>Diamond Cutting &amp; Polishing Factory</h3>
+                <p>
+                    The art of polishing and shaping diamonds is a precise and exact
+                    science, requiring years of experience to master. Witness first-hand
+                    how skilled diamond cutters transform rough diamonds into exquisite
+                    creations of fire.
+                </p>
+                <p>
+                    Guests also watch master craftsmen hand-make jewellery creations and
+                    see methods used to achieve Shimansky’s signature designs.
+                </p>
+            </div>
+            <div class="modal-section">
+                <h3>Manufacturing Workshop</h3>
+                <p>
+                    Watch as master craftsmen hand-make stunning jewellery creations and
+                    see some of the methods used to achieve Shimansky’s signature
+                    designs.
+                </p>
+            </div>
+
+            <div class="modal-section">
+                <h3>Luxury Showroom</h3>
+                <ul>
+                    <li>45-minute guided tour.</li>
+                    <li>Bookings are essential.</li>
+                    <li>
+                        25 guests maximum, higher capacity groups assisted on request.
+                    </li>
+                    <li>
+                        When booked in advance, the R400 per person entrance fee is
+                        waived.
+                    </li>
+                </ul>
+            </div>
+            <div class="modal-section">
+                <h3>Information</h3>
+                <ul>
+                    <li>
+                        Luxurious complimentary transfers from Cape Town accommodation
+                        available on request.
+                    </li>
+                    <li>
+                        Specially tailored diamond surprise activities by pre-arrangement.
+                    </li>
+                    <li>Optional voucher options with logo or personalised name.</li>
+                    <li>Gift-with-purchase offer: Southern Cross pendant.</li>
+                    <li>
+                        Operating hours: Monday to Sunday, 09:00 – 20:00, last tour 19:15.
+                    </li>
+                    <li>
+                        Factory: Monday to Thursday, 09:00 – 16:00. Friday, 09:00 – 15:00.
+                    </li>
+                </ul>
+            </div>
+            <div class="modal-section testimonial-section">
+                <div class="testimonial-heading-wrap">
+                    <span class="testimonial-eyebrow">Guest Reviews</span>
+                    <h3>What Our Guests Say</h3>
+                </div>
+                <div class="testimonial-grid">
+
+                    <div class="testimonial-card">
+                        <div class="testimonial-stars">★★★★★</div>
+                        <p class="testimonial-quote">
+                            What a wonderful & educational time we had at Shimansky.
+                            Hearing about the history of diamonds, seeing the workshop, and
+                            viewing the stunning pieces in the showroom was sheer delight.
+                            Our tour guide was an excellent host and made us feel very
+                            comfortable. Thank you for an unforgettable experience!
+                        </p>
+                        <div class="testimonial-name">Heather</div>
+                    </div>
+                    <div class="testimonial-card">
+                        <div class="testimonial-stars">★★★★★</div>
+                        <p class="testimonial-quote">
+                            I visited one of the most beautiful museums that takes you into
+                            the world of diamonds and the history of diamonds in South
+                            Africa. You can also see some rare pieces that are only found
+                            in South Africa. I highly recommend visiting it, if you are a
+                            diamond lover.
+                        </p>
+                        <div class="testimonial-name">Sara</div>
+                    </div>
+
+                    <div class="testimonial-card">
+                        <div class="testimonial-stars">★★★★★</div>
+                        <p class="testimonial-quote is-clamped">
+                            Great experience from start to finish! I was welcomed and
+                            signed in by a very friendly receptionist and waited only a few
+                            minutes before the tour began.
+                            <br /><br />
+                            The guide was fantastic — knowledgeable, engaging, and eager to
+                            answer all my questions. He wove South Africa's diamond history
+                            into the tour, starting with the 1867 discovery of the Eureka
+                            diamond along the Orange River and the 1869 Star of South
+                            Africa find that sparked the country's first diamond rush.
+                            <br /><br />
+                            The museum's exhibits include a timeline of major finds (like
+                            the 1905 Cullinan diamond) and exquisite replicas that really
+                            put their sheer size into perspective. I especially enjoyed the
+                            section on early Kimberley mine life and the examples of the
+                            different cutting techniques. Enjoyable experience and a
+                            fascinating history on diamonds in South Africa.
+                        </p>
+                        <button type="button" class="testimonial-read-more">Read more</button>
+                        <div class="testimonial-name">Lev</div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-section museum-tripadvisor-section">
+                <h3>TripAdvisor Travellers’ Choice 2026</h3>
+                <div class="location-tripadvisor-badge-wrap" style="flex-direction: column; align-items: center;">
+                    <div class="tripadvisor-award-row">
+                        <div class="tripadvisor-badge-item">
+                            <img class="location-tripadvisor-badge-ctdm"
+                                src="https://drive.google.com/thumbnail?id=1RieKx9ZBYPtVXiWQQ0Y1VS-ffeG-zQsP&sz=s1800"
+                                alt="Tripadvisor Travellers’ Choice Best of the Best 2026 badge" />
+
+                            <span class="tripadvisor-badge-caption">Best of the Best 2026</span>
+                        </div>
+                        <p class="tripadvisor-award-quote">Recognised among the top 1% of attractions worldwide.</p>
+                    </div>
+                    <div class="tripadvisor-award-row">
+                        <div class="tripadvisor-badge-item">
+                            <img class="location-tripadvisor-badge-ctdm"
+                                src="https://drive.google.com/thumbnail?id=1qQzlH3YXUmMTHdFNzKaa7T290vkoFzcq&sz=s1800"
+                                alt="Tripadvisor Travellers’ Choice 2026 badge" />
+                            <span class="tripadvisor-badge-caption">Travellers’ Choice 2026</span>
+                        </div>
+                        <p class="tripadvisor-award-quote">Millions of Tripadvisor travellers place this winner in the
+                            10% worldwide.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal" id="m-shopping">
+        <div class="modal-card">
+            <button class="modal-close">×</button>
+            <h2 class="modal-title">Shimansky<br /><em>Shopping Experience</em></h2>
+
+            <div class="modal-section popup-gallery-section">
+                <div class="popup-slide-gallery" data-popup-gallery="shopping"
+                    aria-label="Shimansky Shopping Experience image slideshow">
+                    <!--
+                    <div class="popup-slide" data-caption="Welcome To The Boutique" style="
+                background-image: url(&quot;https://drive.google.com/thumbnail?id=1ZppLlO0CQtA0sQ8vvqU0Iz-BiXflcdqk&sz=s1800&quot;);
+              "></div>
+                    <div class="popup-slide" data-caption="A Private Consultation" style="
+                background-image: url(&quot;https://drive.google.com/thumbnail?id=1s4JhOznUIV6E6nEJ7e9oNb-OcZSXRyzZ&sz=s1800&quot;);
+              "></div>
+                    <div class="popup-slide" data-caption="Guided By A Jewellery Specialist" style="
+                background-image: url(&quot;https://drive.google.com/thumbnail?id=15-NoJFcb1p0l-UUkeCfpZcFdHemP56oq&sz=s1800&quot;);
+              "></div>
+                    <div class="popup-slide" data-caption="Trying On The Perfect Ring" style="
+                background-image: url(&quot;https://drive.google.com/thumbnail?id=1hTi6X4rxaXRLWkcnswg9kxcWnQnruENX&sz=s1800&quot;);
+              "></div>
+                    <div class="popup-slide" data-caption="A Closer Look At Diamonds" style="
+                background-image: url(&quot;https://drive.google.com/thumbnail?id=1gPLiGI5SZcpEBaoE0voSvQLGItgj7vm2&sz=s1800&quot;);
+              "></div>
+                    <div class="popup-slide" data-caption="Exclusive Diamond Cuts" style="
+                background-image: url(&quot;https://drive.google.com/thumbnail?id=1aQnQqeBkOShEkxlVVK7JvRTwcHwb4Aup&sz=s1800&quot;);
+              "></div>
+
+                    <div class="popup-slide active" data-caption="Iconic Jewellery Designs" style="
+                background-image: url(&quot;https://drive.google.com/thumbnail?id=1kPTAm8efXuBH5vnV6Q6GEw4izNe_nDJX&sz=s1800&quot;);
+              "></div>
+
+                    <div class="popup-slide" data-caption="Styled To Perfection" style="
+                background-image: url(&quot;https://drive.google.com/thumbnail?id=19sjh1Z-GtiEo5qIKRwVZhZkVQ_c4-TQK&sz=s1800&quot;);
+              "></div>
+
+                    <div class="popup-slide" data-caption="A Piece Of Shimansky To Take Home" style="
+                background-image: url(&quot;https://drive.google.com/thumbnail?id=1xZ-VpYoeiDxFMLdQhMSBBWSbYkJSy54U&sz=s1800&quot;);
+              "></div>  -->
+
+                    <div class="popup-slide" data-delay="7000" style="
+                background: #000000;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                color: #f8f6f1;
+                font-size: 1rem;
+                letter-spacing: 0.16em;
+                text-transform: uppercase;
+                font-weight: 500;
+                text-align: center;
+                padding: 1.5rem;
+              ">Shimansky Shopping Experience</div>
+                    <div class="popup-slide" data-caption="WatchThe Shopping Experience">
+                        <video class="gallery-video" playsinline preload="none"
+                            poster="https://drive.google.com/thumbnail?id=1OFoClcZzjcRSue8r6bG57kDTh5w5t770&sz=s1800">
+                            <source src="./videos/Shimansky_Panther_Ring.mp4" type="video/mp4" />
+                        </video>
+                        <div class="gallery-video-mute-icon" aria-hidden="true"></div>
+                    </div>
+
+                    <div class="popup-slide-caption"></div>
+                    <div class="popup-gallery-controls">
+                        <button class="popup-gallery-btn popup-prev" type="button" aria-label="Previous image">
+                            &lt;
+                        </button>
+                        <button class="popup-gallery-btn popup-next" type="button" aria-label="Next image">
+                            &gt;
+                        </button>
+                    </div>
+                    <div class="popup-gallery-dots"></div>
+                </div>
+            </div>
+
+            <div class="exp-meta">
+                <span>By appointment only</span><span class="sep"></span><span>⏱ 45-minute tour</span><span
+                    class="sep"></span><span>Bus parking allocated outside</span>
+            </div>
+            <div class="exp-meta">
+                <span>Beverage on arrival</span><span class="sep"></span><span>One-on-one consultation</span><span
+                    class="sep"></span><span>09:00–22:00, last visit 21:00</span>
+            </div>
+            <p class="exp-desc">
+                Shopping becomes something else with this luxury private jewellery
+                experience in Cape Town. Guests enjoy South African wine, bespoke
+                designs, tanzanite, iconic jewellery and patented diamond cuts.
+            </p>
+            <div class="pill-row">
+                <button class="pill pill-add pill-button read-more modal-trigger" data-modal="m-iconic-jewellery">
+                    Iconic Jewellery Designs
+                </button>
+                <button class="pill pill-in pill-button read-more modal-trigger" data-modal="m-my-girl">
+                    Exclusive diamond cuts
+                </button>
+                <button class="pill pill-in pill-button read-more modal-trigger" data-modal="m-ayanda">
+                    Ayanda Tanzanite
+                </button>
+
+                <a href="shimansky-gifting-2026.html" class="">
+                    <button class="pill pill-in pill-button read-more">
+                        Corporate Gifting Catalog
+                    </button>
+                </a>
+            </div>
+            <div class="modal-section">
+                <h3>Experience Includes</h3>
+                <ul>
+                    <li>Beverage on arrival.</li>
+                    <li>One-on-one private consultation.</li>
+                    <li>
+                        Guided jewellery discovery with diamonds, tanzanite, iconic
+                        designs and patented diamond cuts.
+                    </li>
+                    <li>Available to pre-book for FIT and small groups.</li>
+                </ul>
+                <p>
+                    Some experiences stay with you long after the trip is over. The
+                    Shimansky Private Shopping Experience is one of them. Guests are
+                    welcomed with South African wine, non-alcoholic beverages and the
+                    best coffee in town, then guided by a dedicated jewellery specialist
+                    for a private, unhurried and uniquely South African consultation.
+                </p>
+            </div>
+
+            <div class="modal-section">
+                <h3>By appointment</h3>
+                <p>
+                    The V&amp;A Waterfront Boutique and Clock Tower showroom are
+                    available by appointment only. Pre-booking is required for private
+                    jewellery consultations, small groups and any tailored experience.
+                </p>
+                <div class="modal-section">
+                    <h4>Shimansky Boutique, V&A Waterfront</h4>
+                    <p>
+                        <strong>Location:</strong> Shop 7228, Upper Level, Victoria Wharf,
+                        V&A Waterfront, Cape Town.
+                    </p>
+                    <p>
+                        <strong>Best for:</strong> Private shopping, one-on-one
+                        consultations, engagement rings, diamonds and iconic jewellery.
+                    </p>
+                    <p>
+                        <strong>Hours:</strong> Monday to Sunday, 09:00 – 22:00, last
+                        visit 21:00.
+                    </p>
+                    <a class="location-link"
+                        href="https://maps.google.com/?q=Shimansky+Victoria+Wharf+V%26A+Waterfront+Cape+Town"
+                        target="_blank" rel="noopener">📍 Open in Google Maps</a>
+                </div>
+                <div class="modal-section">
+                    <h4>Shimansky Diamond Experience, Clock Tower</h4>
+                    <p>
+                        <strong>Location:</strong> V&A Waterfront Clock Tower, Level 1,
+                        Cape Town.
+                    </p>
+                    <p>
+                        <strong>Best for:</strong> Museum visit, diamond heritage, factory
+                        viewing, showroom and jewellery discovery.
+                    </p>
+                    <p>
+                        <strong>Hours:</strong> Monday to Sunday, 09:00 – 20:00, last tour
+                        19:15.
+                    </p>
+                    <p>
+                        <strong>Factory Hours:</strong>
+                        Mon – Thurs: 09:00 to 16:00 | Friday : 09:00 – 12:00
+                    </p>
+                    <a class="location-link" href="https://maps.app.goo.gl/Zq5DuSZgAJKSeVeW9" target="_blank"
+                        rel="noopener">📍
+                        Open in Google Maps</a>
+                </div>
+            </div>
+            <div class="modal-section shopping-foundation-wrap">
+                <div class="shopping-foundation-embed">
+                    <div class="commit-panel">
+                        <div class="commit-eyebrow">The Shimansky Diamond Foundation</div>
+                        <h2 class="commit-title">Giving <em>Back</em></h2>
+                        <p class="commit-text">
+                            The Shimansky Diamond Foundation is a non-profit organisation
+                            focused on providing food and education to women and children in
+                            need, creating better opportunities and contributing to a
+                            brighter tomorrow. We welcome any donations you wish to make,
+                            with no administrative fees. 100% of funds are used for their
+                            intended purpose.
+                        </p>
+                        <div class="commit-community-gallery">
+                            <video class="commit-community-image" autoplay muted loop playsinline
+                                aria-label="Shimansky Foundation giving back"
+                                style="opacity: 1; animation: none; object-fit: cover;">
+                                <source
+                                    src="https://drive.google.com/uc?export=download&id=1Nqno_97q0gsNrSAKs3btP79lIqFk2nJO"
+                                    type="video/mp4" />
+                            </video>
+                        </div>
+                        <div class="commit-image-note">
+                            Community impact · Foundation support
+                        </div>
+                        <p class="commit-text">
+                            If you wish to support our initiatives, please consider
+                            purchasing our “My Africa, My Shimansky” bracelets. All proceeds
+                            go directly to the Shimansky Foundation.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal" id="m-ayanda">
+        <div class="modal-card">
+            <button class="modal-close">×</button>
+            <h2 class="modal-title">
+                Ayanda®<br /><em>The Queen of Tanzanite</em>
+            </h2>
+
+            <div class="modal-section">
+                <p class="tanzanite-popup-intro">
+                    A union of masterful craftsmanship and the finest tanzanite,
+                    beautifully embodied in the Ayanda™ Tanzanite &amp; Diamond
+                    Jewellery Collection.
+                </p>
+
+                <h3 class="tanzanite-gallery-title">Ayanda® Collection Highlights</h3>
+                <div class="tanzanite-feature-grid">
+                    <div class="tanzanite-card">
+                        <div class="tanzanite-card-media">
+                            <img class="cover"
+                                src="https://drive.google.com/thumbnail?id=1k8RgemKec7e7xoPHo91q_cL-OXQSAU32&sz=s1800"
+                                alt="Ayanda Tanzanite jewellery" />
+                        </div>
+                        <div class="tanzanite-card-copy">
+                            <span class="tanzanite-card-label">Ayanda® Tanzanite</span>
+                            <div class="tanzanite-card-title">The Queen of Tanzanite</div>
+                        </div>
+                    </div>
+
+                    <div class="tanzanite-card">
+                        <div class="tanzanite-card-media">
+                            <img class="cover"
+                                src="https://drive.google.com/thumbnail?id=1XvfSRNhxO8kHFelAVC2xGUwQN-cmcir_&sz=s1800"
+                                alt="Tanzanite colour and rarity" />
+                        </div>
+                        <div class="tanzanite-card-copy">
+                            <span class="tanzanite-card-label">Colour &amp; Rarity</span>
+                            <div class="tanzanite-card-title">
+                                Blue, Violet &amp; Red Hues
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="tanzanite-card">
+                        <div class="tanzanite-card-media">
+                            <img class="cover"
+                                src="https://drive.google.com/thumbnail?id=1L1GjNsabVU7NDRGuCHEuST1VmwtlOD4R&sz=s1800"
+                                alt="Tanzanite craftsmanship" />
+                        </div>
+                        <div class="tanzanite-card-copy">
+                            <span class="tanzanite-card-label">Craftsmanship</span>
+                            <div class="tanzanite-card-title">Cut for Colour Quality</div>
+                        </div>
+                    </div>
+                </div>
+
+                <h3 class="tanzanite-gallery-title">
+                    Tanzanite Pieces &amp; Story Visuals
+                </h3>
+                <div class="tanzanite-added-grid">
+                    <div class="tanzanite-card">
+                        <div class="tanzanite-card-media tall">
+                            <img class="contain"
+                                src="https://drive.google.com/thumbnail?id=15TQGqstKLmez2M98C6ACAh6oL-UMib-a&sz=s1800"
+                                alt="Ayanda Tanzanite pendant" />
+                        </div>
+                        <div class="tanzanite-card-copy">
+                            <span class="tanzanite-card-label">Pendant</span>
+                            <div class="tanzanite-card-title">
+                                DANCING TANZANITE PENDANT
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="tanzanite-card">
+                        <div class="tanzanite-card-media tall">
+                            <img class="contain"
+                                src="https://drive.google.com/thumbnail?id=166l2YiuT4usyHLC3BFNw2p3qW2g9x9gR&sz=s1800"
+                                alt="Tanzanite solitaire pendant" />
+                        </div>
+                        <div class="tanzanite-card-copy">
+                            <span class="tanzanite-card-label">Pendant</span>
+                            <div class="tanzanite-card-title">
+                                TANZANITE SOLITAIRE PENDANT
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="tanzanite-card">
+                        <div class="tanzanite-card-media tall">
+                            <img class="contain"
+                                src="https://drive.google.com/thumbnail?id=1c4IqJehLo-MbvPncQ-03nrzCu8JGq_db&sz=s1800"
+                                alt="Tanzanite pendant close-up" />
+                        </div>
+                        <div class="tanzanite-card-copy">
+                            <span class="tanzanite-card-label">Pendant</span>
+                            <div class="tanzanite-card-title">
+                                SOUTHERN CROSS COLLECTION
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="tanzanite-card">
+                        <div class="tanzanite-card-media">
+
+                            <img class="cover"
+                                src="https://drive.google.com/thumbnail?id=1e7Bs243uAy-pFzkGaiBWT6jArJff15NH&sz=s1800"
+                                alt="Loose Tanzanite gemstones" />
+                        </div>
+                        <div class="tanzanite-card-copy">
+                            <span class="tanzanite-card-label">Gemstones</span>
+                            <div class="tanzanite-card-title">
+                                Loose Tanzanite Gemstones
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="tanzanite-card">
+                        <div class="tanzanite-card-media">
+                            <img class="cover"
+                                src="https://drive.google.com/thumbnail?id=1fXT1OLhVviZIyo3-UvfdPlVJ0CCnDt_m&sz=s1800"
+                                alt="Mount Kilimanjaro, Tanzania" />
+                        </div>
+                        <div class="tanzanite-card-copy">
+                            <span class="tanzanite-card-label">Origin</span>
+                            <div class="tanzanite-card-title">Near Mount Kilimanjaro</div>
+                        </div>
+                    </div>
+
+                    <div class="tanzanite-card">
+                        <div class="tanzanite-card-media">
+                            <img class="cover"
+                                src="https://drive.google.com/thumbnail?id=16IumO8-xaE7eAWdmP3-Ujq3CNL4CE1LL&sz=s1800"
+                                alt="Tanzanite jewellery craftsmanship" />
+                        </div>
+                        <div class="tanzanite-card-copy">
+                            <span class="tanzanite-card-label">Craftsmanship</span>
+                            <div class="tanzanite-card-title">Set by Skilled Hands</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="tanzanite-note-card">
+                    <h4>Tanzanite Quality</h4>
+                    <p>
+                        Tanzanite is a rare and captivating gemstone, celebrated for its
+                        extraordinary spectrum of colour, ranging from rich royal blues to
+                        vibrant violet hues that create an unmistakable allure. When
+                        buying tanzanite, the most important factors to consider are
+                        ethical sourcing, cut quality, and colour.
+                    </p>
+                    <ul>
+                        <li>South African orders: 5–7 business days.</li>
+                        <li>Overseas deliveries: 7–14 days.</li>
+                        <li>14-day delivery guaranteed on most orders.</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal" id="m-my-girl">
+        <div class="modal-card">
+            <button class="modal-close">×</button>
+            <h2 class="modal-title">Exclusive Diamond<br /><em>Cuts</em></h2>
+            <div class="modal-section">
+                <div class="exclusive-cuts-grid">
+                    <div class="exclusive-cut-card">
+                        <h3>My Girl®<br /><em>Diamond</em></h3>
+                        <div class="exclusive-cut-images">
+                            <div class="modal-image-card exclusive-cut-image" style="
+                    background-image: url(&quot;https://drive.google.com/thumbnail?id=1X9Zw5RMHkrFjIAj_KfL5_mKRQjVsLCe8&sz=s1800&quot;);
+                  "></div>
+
+                            <div class="modal-image-card exclusive-cut-image" style="
+                    background-image: url(&quot;https://drive.google.com/thumbnail?id=1Fpz2VmalI2RsXscNq4efbZc7av7GGqk7&sz=s1800&quot;);
+                  "></div>
+                        </div>
+                        <p>
+                            Brilliance with every move you make, Shimansky’s My Girl diamond
+                            is the world’s first eight-sided square-cut diamond with a
+                            diamond-shaped table facet, and the first internationally
+                            patented diamond cut to originate from South Africa.
+                        </p>
+                    </div>
+
+                    <div class="exclusive-cut-card">
+                        <h3>Brilliant 10®<br /><em>Diamond</em></h3>
+                        <div class="exclusive-cut-images">
+                            <div class="modal-image-card exclusive-cut-image" style="
+                    background-image: url(&quot;https://drive.google.com/thumbnail?id=1HYbm7yWcn0uRPw_isTGppDUqkPAL2KP2&sz=s1800&quot;);
+                  "></div>
+
+                            <div class="modal-image-card exclusive-cut-image" style="
+                    background-image: url(&quot;https://drive.google.com/thumbnail?id=1mFatHrGnlpzCwbvd_3e9sCfTkyKd4h14&sz=s1800&quot;);
+                  "></div>
+                        </div>
+                        <p>
+                            Born from a dream to create the world’s most brilliant cut
+                            diamond, the Brilliant 10 has been tested to be 25% more
+                            brilliant than any other diamond cut in the world.
+                        </p>
+                        <p>
+                            Shimansky’s signature diamond cuts and jewellery designs are
+                            protected by international copyright laws.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal" id="m-brilliant-10">
+        <div class="modal-card">
+            <button class="modal-close">×</button>
+            <h2 class="modal-title">Tour Operators, Agents & DMC's/asdhadjhadba</h2>
+            <h3>
+                REGISTRATION FORM <br />
+
+                Please complete the information below to get access to Shimansky
+                information.
+            </h3>
+            <div class="modal-section">
+                <div style="width: 100%; height: 500px" data-fillout-id="u35RNZYTvZus"
+                    data-fillout-embed-type="standard" data-fillout-inherit-parameters data-fillout-dynamic-resize
+                    data-fillout-domain="forms.shimansky.com"></div>
+                <script src="https://server.fillout.com/embed/v1/"></script>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal" id="m-book-experience">
+        <div class="modal-card">
+            <button class="modal-close">×</button>
+            <h2 class="modal-title">Tour Operators, Agents & DMC's</h2>
+            <div class="modal-section">
+                <h3 class="">REGISTRATION FORM</h3>
+
+                <h3>
+                    Please complete the information below to get access to Shimansky
+                    information.
+                </h3>
+            </div>
+
+            <div class="modal-section">
+                <div style="width: 100%; height: 500px" data-fillout-id="u35RNZYTvZus"
+                    data-fillout-embed-type="standard" data-fillout-inherit-parameters data-fillout-dynamic-resize
+                    data-fillout-domain="forms.shimansky.com"></div>
+                <script src="https://server.fillout.com/embed/v1/"></script>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal" id="m-book-rockwell">
+        <div class="modal-card">
+            <button class="modal-close">×</button>
+            <h2 class="modal-title">The Rockwell<br /><em>Diamond Experience</em></h2>
+            <div class="modal-section">
+                <h3 class="">BOOKING FORM</h3>
+
+                <h3>
+                    Please complete the information below to book The Rockwell Diamond
+                    Experience.
+                </h3>
+            </div>
+
+            <div class="modal-section">
+                <div style="width: 100%; height: 500px" data-fillout-id="pz6L6s2taSus"
+                    data-fillout-embed-type="standard" data-fillout-inherit-parameters data-fillout-dynamic-resize
+                    data-fillout-domain="forms.shimansky.com"></div>
+                <script src="https://server.fillout.com/embed/v1/"></script>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal" id="m-book-museum">
+        <div class="modal-card">
+            <button class="modal-close">×</button>
+            <h2 class="modal-title">Cape Town<br /><em>Diamond Museum</em></h2>
+            <div class="modal-section">
+                <h3 class="">BOOKING FORM</h3>
+
+                <h3>
+                    Please complete the information below to book the Cape Town
+                    Diamond Museum experience.
+                </h3>
+            </div>
+
+            <div class="modal-section">
+                <div style="width: 100%; height: 500px" data-fillout-id="e4K43oh9Wzus"
+                    data-fillout-embed-type="standard" data-fillout-inherit-parameters data-fillout-dynamic-resize
+                    data-fillout-domain="forms.shimansky.com"></div>
+                <script src="https://server.fillout.com/embed/v1/"></script>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal" id="m-book-shopping">
+        <div class="modal-card">
+            <button class="modal-close">×</button>
+            <h2 class="modal-title">Shimansky<br /><em>Shopping Experience</em></h2>
+            <div class="modal-section">
+                <h3 class="">BOOKING FORM</h3>
+
+                <h3>
+                    Please complete the information below to book the Shimansky
+                    Shopping Experience.
+                </h3>
+            </div>
+
+            <div class="modal-section">
+                <div style="width: 100%; height: 500px" data-fillout-id="w1wbzAs7gGus"
+                    data-fillout-embed-type="standard" data-fillout-inherit-parameters data-fillout-dynamic-resize
+                    data-fillout-domain="forms.shimansky.com"></div>
+                <script src="https://server.fillout.com/embed/v1/"></script>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal" id="m-iconic-jewellery">
+        <div class="modal-card">
+            <button class="modal-close">×</button>
+            <h2 class="modal-title">Iconic Jewellery<br /><em>Designs</em></h2>
+            <div class="modal-section">
+                <div class="iconic-paired-grid">
+                    <div class="iconic-paired-card">
+                        <div class="modal-image-card iconic-paired-image" style="
+                  background-image: url(&quot;https://drive.google.com/thumbnail?id=1yiitAr6V8Qm83H-LPFx1fYvfEG-LTCHh&sz=s1800&quot;);
+                ">
+                            <div class="modal-image-copy">
+                                <span class="modal-image-label">Evolym® Ring</span>
+                                <div class="modal-image-title">My Love, Reimagined</div>
+                            </div>
+                        </div>
+                        <div class="modal-item iconic-paired-copy">
+                            <h4>Evolym® Ring</h4>
+                            <p>
+                                The word “My Love” written in reverse, the Evolym diamond ring
+                                is a reflection of your love and commitment in a truly
+                                breathtaking, innovative design that allows a 360-degree
+                                exposure to light.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="iconic-paired-card">
+                        <div class="modal-image-card iconic-paired-image" style="
+                  background-image: url(&quot;https://drive.google.com/thumbnail?id=1KGxH6yYGK8EbLzDqPBR3Y7q6h__sbXv8&sz=s1800&quot;);
+                ">
+                            <div class="modal-image-copy">
+                                <span class="modal-image-label">Table Mountain Ring</span>
+                                <div class="modal-image-title">
+                                    Cape Town in Jewellery Form
+                                </div>
+                            </div>
+                        </div>
+                        <div class="modal-item iconic-paired-copy">
+                            <h4>Table Mountain Ring</h4>
+                            <p>
+                                The unique Table Mountain Ring is a precious metal and diamond
+                                creation that harnesses the power and presence of the Cape
+                                Town phenomenon that is Table Mountain and transforms it into
+                                a wearable piece of art.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="iconic-paired-card">
+                        <div class="modal-image-card iconic-paired-image" style="
+                  background-image: url(&quot;https://drive.google.com/thumbnail?id=1vDEVrUwuTs3XFvXOxLjkmVznh9Zzv_i6&sz=s1800&quot;);
+                ">
+                            <div class="modal-image-copy">
+                                <span class="modal-image-label">Millennium® Ring</span>
+                                <div class="modal-image-title">A Shimansky Original</div>
+                            </div>
+                        </div>
+                        <div class="modal-item iconic-paired-copy">
+                            <h4>Millennium® Ring</h4>
+                            <p>
+                                The Millennium® ring is an iconic Shimansky original and is
+                                the most sought-after diamond engagement ring in South Africa.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const sections = document.querySelectorAll("section");
+        const navDots = document.getElementById("navDots");
+        sections.forEach((_, i) => {
+            const d = document.createElement("div");
+            d.className = "nav-dot" + (i === 0 ? " active" : "");
+            d.onclick = () => sections[i].scrollIntoView({ behavior: "smooth" });
+            navDots.appendChild(d);
+        });
+        const io = new IntersectionObserver(
+            (entries) => {
+                entries.forEach((e) => {
+                    if (e.isIntersecting) {
+                        const idx = [...sections].indexOf(e.target);
+                        document
+                            .querySelectorAll(".nav-dot")
+                            .forEach((d, i) => d.classList.toggle("active", i === idx));
+                    }
+                });
+            },
+            { threshold: 0.5 },
+        );
+        sections.forEach((s) => io.observe(s));
+        const state = {};
+        sections.forEach((sec, si) => {
+            const bg = document.getElementById("bg" + si);
+            if (!bg) return;
+            const slides = bg.querySelectorAll(".slide");
+            if (!slides.length) return;
+            state[si] = { cur: 0, total: slides.length, timer: null };
+            const de = document.getElementById("dots" + si);
+            if (de)
+                slides.forEach((_, i) => {
+                    const d = document.createElement("div");
+                    d.className = "photo-dot" + (i === 0 ? " active" : "");
+                    d.onclick = () => go(si, i);
+                    de.appendChild(d);
+                });
+            const ce = document.getElementById("cnt" + si);
+            if (ce) ce.textContent = "1 / " + slides.length;
+            if (slides.length > 1)
+                state[si].timer = setInterval(() => next(si), 3200);
+        });
+        function go(si, idx) {
+            const s = state[si];
+            if (!s) return;
+            const bg = document.getElementById("bg" + si);
+            if (!bg) return;
+            const slides = bg.querySelectorAll(".slide");
+            slides[s.cur].classList.remove("active");
+            s.cur = ((idx % s.total) + s.total) % s.total;
+            slides[s.cur].classList.add("active");
+            const de = document.getElementById("dots" + si);
+            if (de)
+                de.querySelectorAll(".photo-dot").forEach((d, i) =>
+                    d.classList.toggle("active", i === s.cur),
+                );
+            const ce = document.getElementById("cnt" + si);
+            if (ce) ce.textContent = s.cur + 1 + " / " + s.total;
+            if (s.timer) {
+                clearInterval(s.timer);
+                s.timer = setInterval(() => next(si), 3200);
+            }
+        }
+        function next(si) {
+            const s = state[si];
+            if (s) go(si, s.cur + 1);
+        }
+        function prev(si) {
+            const s = state[si];
+            if (s) go(si, s.cur - 1);
+        }
+        function updateModalScrollHint(modal) {
+            const card = modal?.querySelector(".modal-card");
+            const hint = card?.querySelector(".modal-scroll-hint");
+            const topBtn = card?.querySelector(".modal-scroll-top");
+            if (!card) return;
+            const canScroll = card.scrollHeight > card.clientHeight + 1;
+            const isOpen = modal.classList.contains("open");
+            const atTop = card.scrollTop < 40;
+            const atBottom = card.scrollTop + card.clientHeight >= card.scrollHeight - 40;
+            if (hint) hint.classList.toggle("visible", isOpen && canScroll && atTop);
+            if (topBtn) topBtn.classList.toggle("visible", isOpen && canScroll && atBottom);
+        }
+
+        document.querySelectorAll(".modal-trigger, .read-more-nav, .read-more[data-modal]").forEach((btn) => {
+            btn.addEventListener("click", () => {
+                const modal = document.getElementById(btn.dataset.modal);
+                if (!modal) return;
+                modal.classList.add("open");
+                document.body.style.overflow = "hidden";
+                updateModalScrollHint(modal);
+                modal.querySelectorAll(".popup-slide-gallery").forEach((gallery) => {
+                    if (typeof gallery._resetGallery === "function") gallery._resetGallery();
+                });
+            });
+        });
+
+        document.querySelectorAll(".modal").forEach((modal) => {
+            const card = modal.querySelector(".modal-card");
+            if (card) {
+                const hint = document.createElement("div");
+                hint.className = "modal-scroll-hint";
+                hint.textContent = "↓";
+                card.appendChild(hint);
+
+                const topBtn = document.createElement("div");
+                topBtn.className = "modal-scroll-top";
+                topBtn.textContent = "↑";
+                topBtn.setAttribute("role", "button");
+                topBtn.setAttribute("aria-label", "Scroll back to top");
+                topBtn.addEventListener("click", () => {
+                    card.scrollTo({ top: 0, behavior: "smooth" });
+                });
+                card.appendChild(topBtn);
+
+                card.addEventListener("scroll", () => updateModalScrollHint(modal), { passive: true });
+            }
+
+            modal.addEventListener("click", (e) => {
+                if (
+                    e.target === modal ||
+                    e.target.classList.contains("modal-close")
+                ) {
+                    modal.classList.remove("open");
+                    document.body.style.overflow = "";
+                    updateModalScrollHint(modal);
+                    modal.querySelectorAll("video").forEach((v) => {
+                        v.pause();
+                        v.currentTime = 0;
+                    });
+                }
+            });
+        });
+        document.addEventListener("keydown", (e) => {
+            if (e.key === "Escape") {
+                document
+                    .querySelectorAll(".modal.open")
+                    .forEach((m) => {
+                        m.classList.remove("open");
+                        updateModalScrollHint(m);
+                        m.querySelectorAll("video").forEach((v) => {
+                            v.pause();
+                            v.currentTime = 0;
+                        });
+                    });
+                document.body.style.overflow = "";
+            }
+        });
+
+        // Only one testimonial video plays at a time
+        document.addEventListener(
+            "play",
+            (e) => {
+                if (!e.target.matches(".testimonial-video-frame video")) return;
+                document.querySelectorAll(".testimonial-video-frame video").forEach((v) => {
+                    if (v !== e.target && !v.paused) v.pause();
+                });
+            },
+            true
+        );
+
+        // Popup image slideshow galleries
+        document.querySelectorAll(".popup-slide-gallery").forEach((gallery) => {
+            const slides = gallery.querySelectorAll(".popup-slide");
+            const dotsWrap = gallery.querySelector(".popup-gallery-dots");
+            const prevBtn = gallery.querySelector(".popup-prev");
+            const nextBtn = gallery.querySelector(".popup-next");
+            const caption = gallery.querySelector(".popup-slide-caption");
+            let current = 0;
+            let timer = null;
+
+            function isGalleryVisible() {
+                const modal = gallery.closest(".modal");
+                return !modal || modal.classList.contains("open");
+            }
+
+            function show(index) {
+                if (!slides.length) return;
+                const prevSlide = slides[current];
+                const prevVideo = prevSlide && prevSlide.querySelector("video");
+                if (prevVideo) {
+                    prevVideo.pause();
+                    prevVideo.currentTime = 0;
+                }
+                prevSlide.classList.remove("active");
+                current = ((index % slides.length) + slides.length) % slides.length;
+                slides[current].classList.add("active");
+                const nextVideo = slides[current].querySelector("video");
+                if (nextVideo) {
+                    nextVideo.currentTime = 0;
+                    // Never play while the popup itself isn't open — otherwise every
+                    // gallery's background timer would keep cycling behind the scenes.
+                    if (isGalleryVisible()) {
+                        // Always start muted — the visitor taps the video to turn sound on.
+                        nextVideo.muted = true;
+                        nextVideo.play().catch(() => { });
+                    }
+                }
+                if (dotsWrap) {
+                    dotsWrap
+                        .querySelectorAll(".popup-gallery-dot")
+                        .forEach((dot, i) => {
+                            dot.classList.toggle("active", i === current);
+                        });
+                }
+                if (caption) {
+                    const text = slides[current].dataset.caption;
+                    if (text) {
+                        caption.innerHTML = "";
+                        const span = document.createElement("span");
+                        span.textContent = text;
+                        caption.appendChild(span);
+                        caption.classList.add("visible");
+                    } else {
+                        caption.classList.remove("visible");
+                    }
+                }
+            }
+
+            function currentDelay() {
+                const active = slides[current];
+                const custom = active && active.dataset.delay;
+                return custom ? parseInt(custom, 10) : 3600;
+            }
+
+            function restart() {
+                if (timer) clearTimeout(timer);
+                if (slides.length <= 1) return;
+                const activeVideo = slides[current].querySelector("video");
+                if (activeVideo) {
+                    // Advance once the video finishes playing, instead of a fixed delay
+                    const onEnded = () => {
+                        activeVideo.removeEventListener("ended", onEnded);
+                        show(current + 1);
+                        restart();
+                    };
+                    activeVideo.addEventListener("ended", onEnded);
+                } else {
+                    timer = setTimeout(() => {
+                        show(current + 1);
+                        restart();
+                    }, currentDelay());
+                }
+            }
+
+            if (dotsWrap) {
+                slides.forEach((_, i) => {
+                    const dot = document.createElement("button");
+                    dot.type = "button";
+                    dot.className = "popup-gallery-dot" + (i === 0 ? " active" : "");
+                    dot.setAttribute("aria-label", "Show image " + (i + 1));
+                    dot.addEventListener("click", () => {
+                        show(i);
+                        restart();
+                    });
+                    dotsWrap.appendChild(dot);
+                });
+            }
+
+            if (prevBtn)
+                prevBtn.addEventListener("click", () => {
+                    show(current - 1);
+                    restart();
+                });
+            if (nextBtn)
+                nextBtn.addEventListener("click", () => {
+                    show(current + 1);
+                    restart();
+                });
+            restart();
+
+            gallery._resetGallery = function () {
+                show(0);
+                restart();
+            };
+        });
+
+        // Tap or click a gallery-ending video to toggle its sound on/off.
+        document.querySelectorAll(".gallery-video").forEach((video) => {
+            const icon = video.parentElement.querySelector(
+                ".gallery-video-mute-icon"
+            );
+
+            function syncIcon() {
+                if (!icon) return;
+                icon.classList.toggle("is-muted", video.muted);
+                icon.classList.add("visible");
+                clearTimeout(icon._hideTimer);
+                icon._hideTimer = setTimeout(() => {
+                    icon.classList.remove("visible");
+                }, 1400);
+            }
+
+            video.addEventListener("click", (e) => {
+                e.stopPropagation();
+                video.muted = !video.muted;
+                if (!video.muted) {
+                    // A direct tap/click is a genuine user gesture, so sound is always
+                    // allowed here — even if an earlier autoplay attempt had to fall
+                    // back to muted.
+                    video.play().catch(() => { });
+                }
+                syncIcon();
+            });
+
+            video.addEventListener("play", syncIcon);
+            video.addEventListener("volumechange", syncIcon);
+        });
+
+        // "Read more" / "Read less" toggle for long testimonial quotes.
+        document.querySelectorAll(".testimonial-read-more").forEach((btn) => {
+            const quote = btn.previousElementSibling;
+            if (!quote || !quote.classList.contains("testimonial-quote")) return;
+            btn.addEventListener("click", () => {
+                const expanded = quote.classList.toggle("expanded");
+                btn.textContent = expanded ? "Read less" : "Read more";
+            });
+        });
+
+    </script>
+</body>
+
+</html>

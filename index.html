@@ -638,20 +638,38 @@
       display: flex;
       align-items: center;
       justify-content: center;
+      gap: 1.4rem;
+      flex-wrap: wrap;
     }
 
     .location-tripadvisor-badge {
       display: block;
-      width: min(220px, 8%);
+      width: min(220px, 100%);
       height: auto;
       object-fit: contain;
     }
 
     .location-tripadvisor-badge-ctdm {
       display: block;
-      width: min(220px, 21%);
+      width: min(220px, 100%);
       height: auto;
       object-fit: contain;
+    }
+
+    .tripadvisor-badge-item {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.4rem;
+      width: 20%;
+    }
+
+    .tripadvisor-badge-caption {
+      font-size: 0.68rem;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: var(--soft-gold);
+      text-align: center;
     }
 
     @media (max-width: 768px) {
@@ -1545,6 +1563,34 @@
 
     .testimonial-name::before {
       content: "— ";
+    }
+
+    .testimonial-quote.is-clamped {
+      display: -webkit-box;
+      -webkit-line-clamp: 4;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+    }
+
+    .testimonial-quote.is-clamped.expanded {
+      display: block;
+      -webkit-line-clamp: unset;
+      overflow: visible;
+    }
+
+    .testimonial-read-more {
+      display: inline-block;
+      margin: -0.4rem 0 0.6rem;
+      font-size: 0.68rem;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: var(--soft-gold);
+      background: none;
+      border: none;
+      padding: 0;
+      cursor: pointer;
+      text-decoration: underline;
+      text-underline-offset: 2px;
     }
 
     @media (max-width: 1100px) {
@@ -3595,23 +3641,16 @@
 
       <div class="modal-section">
         <p>
-          Offer your guests a truly exceptional South African experience with
-          Shimansky’s iconic Diamond Journey. From hand-selected rough
-          diamonds to masterful on-site cutting and polishing in Cape Town,
-          every step offers a rare glimpse into the world of fine
-          craftsmanship, ethical sourcing, and timeless luxury.
+          Welcome to Shimansky, where every diamond's journey — from rough
+          stone to finished piece — is shaped by nearly three decades of
+          South African craftsmanship. We look forward to sharing it with
+          your guests.
         </p>
-        <p>
-          A memorable experience that blends education, exclusivity, and
-          beauty, the kind of attraction travellers love to talk about long
-          after they return home.
-        </p>
-        <br />
-        <p class="">
-          Looking forward to delivering a truly exceptional experience for our
-          guests.
-        </p>
-        <p class="italianno-regular">Sincerely yours, Shimansky</p>
+        <p style="margin-top: 0.6rem;">Sincerely yours,</p>
+
+        <img src="https://drive.google.com/thumbnail?id=1JtmpfOQgA6nwI1luMVwBQ_N-fbfc_B2y&sz=s1800"
+          alt="Yair Shimansky signature"
+          style="width: 160px; max-width: 40vw; opacity: 0.88; display: block; margin-top: 0.4rem;" />
       </div>
       <div class="modal-section">
         <a href="https://shimansky.com/pages/about-us-our-story">
@@ -3756,7 +3795,7 @@
           <div class="popup-slide" data-caption="Welcome To The Rockwell" style="
                 background-image: url(&quot;https://drive.google.com/thumbnail?id=11maL8eopxoDrPDFrcReiGrXgXClGI5b6&sz=s1800&quot;);
               "></div>
-          <div class="popup-slide" data-caption="3.3 Billion Years Of History" style="
+          <div class="popup-slide" data-caption="3.3 BILLION YEARS IN THE MAKING" style="
                 background-image: url(&quot;https://drive.google.com/thumbnail?id=1RlltiWd_rSbrJRaHoDq4Ja77_xXR0CRR&sz=s1800&quot;);
               "></div>
           <div class="popup-slide" data-caption="A Private Factory Tour" style="
@@ -3835,7 +3874,7 @@
           tour</span><span class="sep"></span><span>Bus parking allocated outside</span>
       </div>
       <p class="exp-desc">
-        An intimate, hands-on encounter unlike any other — guests are invited
+        An intimate, hands-on encounter unlike any other - guests are invited
         to step into our working factory and take hold of something
         extraordinary; to personally polish a diamond in its rough, uncut
         state. A unique experience connecting guests to one of nature’s most
@@ -3925,13 +3964,15 @@
 
       <div class="modal-section">
         <h3>The Rockwell Diamond Experience Tour</h3>
-        <div class="modal-price">R 500 per person / $30 person</div>
+        <div class="modal-price">Tour: Complimentary, by appointment &nbsp;|&nbsp; Gin, Whisky &amp; Wine Pairing:
+          R500pp / $30pp</div>
         <p>
-          An unrivalled diamond encounter, elevated with a carefully curated
-          South African pairing of fine gin, whisky, or wine. Our carefully
-          chosen partnerships with South Africa's finest distillers and wine
-          estates ensure that every Diamond Experience is accompanied by a
-          tasting as memorable as the diamonds themselves.
+          Join us for a complimentary 45-minute guided tour through our
+          Rockwell showroom and factory - no charge, by appointment only. For
+          guests who'd like to elevate the experience, we offer an optional
+          South African gin, whisky or wine pairing for R500 per person,
+          curated with some of the country's finest distillers and wine
+          estates.
         </p>
         <ul>
           <li>
@@ -3939,8 +3980,8 @@
             tour the factory.
           </li>
           <li>
-            Showroom, the largest jewellery showroom in Africa, with wine,
-            gin, whisky and chocolate pairings at R500 pp.
+            Showroom, the largest jewellery showroom in Africa - gin, whisky
+            and wine pairing available as an optional add-on.
           </li>
           <li>
             Secret Room, see replicas of renowned diamonds and gain insight
@@ -3993,7 +4034,7 @@
                 enjoyable.
                 <br /><br />
                 It's rare to find such genuine service and passion for
-                excellence — we felt valued, listened to, and well taken care
+                excellence - we felt valued, listened to, and well taken care
                 of throughout. Thank you to the entire team for making our
                 time at Shimansky so special. Highly recommended!
               </p>
@@ -4003,7 +4044,7 @@
               <div class="testimonial-stars">★★★★★</div>
               <p class="testimonial-quote">
                 Absolutely unforgettable experience at Shimansky! From the
-                moment we walked in, the service was top-tier — welcoming,
+                moment we walked in, the service was top-tier - welcoming,
                 knowledgeable, and attentive.
                 <br /><br />
                 The diamonds were stunning, but what really made it special
@@ -4036,9 +4077,18 @@
           <h3>Tripadvisor Travellers’ Choice Award 2026</h3>
           <p>Recognised among the top 1% of attractions worldwide</p>
           <div class="location-tripadvisor-badge-wrap">
-            <img class="location-tripadvisor-badge"
-              src="https://drive.google.com/thumbnail?id=1MgWRdX0hWgoM6SYpMFvpgjyvQCqdmMZg&sz=s1800"
-              alt="Tripadvisor Travellers’ Choice 2026 badge" />
+            <div class="tripadvisor-badge-item">
+              <img class="location-tripadvisor-badge"
+                src="https://drive.google.com/thumbnail?id=1RieKx9ZBYPtVXiWQQ0Y1VS-ffeG-zQsP&sz=s1800"
+                alt="Tripadvisor Travellers’ Choice 2026 badge" />
+              <span class="tripadvisor-badge-caption">Travellers’ Choice 2026</span>
+            </div>
+            <div class="tripadvisor-badge-item">
+              <img class="location-tripadvisor-badge"
+                src="https://drive.google.com/thumbnail?id=1qQzlH3YXUmMTHdFNzKaa7T290vkoFzcq&sz=s1800"
+                alt="Tripadvisor Travellers’ Choice Best of the Best 2026 badge" />
+              <span class="tripadvisor-badge-caption">Best of the Best 2026</span>
+            </div>
           </div>
         </div>
       </div>
@@ -4264,7 +4314,7 @@
 
           <div class="testimonial-card">
             <div class="testimonial-stars">★★★★★</div>
-            <p class="testimonial-quote">
+            <p class="testimonial-quote is-clamped">
               Great experience from start to finish! I was welcomed and
               signed in by a very friendly receptionist and waited only a few
               minutes before the tour began.
@@ -4282,6 +4332,7 @@
               different cutting techniques. Enjoyable experience and a
               fascinating history on diamonds in South Africa.
             </p>
+            <button type="button" class="testimonial-read-more">Read more</button>
             <div class="testimonial-name">Lev</div>
           </div>
         </div>
@@ -4289,13 +4340,21 @@
       <div class="modal-section museum-tripadvisor-section">
         <h3>TripAdvisor Travellers’ Choice 2026</h3>
         <p>
-          Recognition for the Cape Town Diamond Museum / Clock Tower
-          experience.
+          Recognised among the top 1% of attractions worldwide
         </p>
         <div class="location-tripadvisor-badge-wrap">
-          <img class="location-tripadvisor-badge-ctdm"
-            src="https://drive.google.com/thumbnail?id=1U5iUNGER_YK6fnBP4ThahIiUPYNLqcbH&sz=s1800"
-            alt="Tripadvisor Travellers’ Choice 2026 badge" />
+          <div class="tripadvisor-badge-item">
+            <img class="location-tripadvisor-badge-ctdm"
+              src="https://drive.google.com/thumbnail?id=1RieKx9ZBYPtVXiWQQ0Y1VS-ffeG-zQsP&sz=s1800"
+              alt="Tripadvisor Travellers’ Choice Best of the Best 2026 badge" />
+            <span class="tripadvisor-badge-caption">Best of the Best 2026</span>
+          </div>
+          <div class="tripadvisor-badge-item">
+            <img class="location-tripadvisor-badge-ctdm"
+              src="https://drive.google.com/thumbnail?id=1qQzlH3YXUmMTHdFNzKaa7T290vkoFzcq&sz=s1800"
+              alt="Tripadvisor Travellers’ Choice 2026 badge" />
+            <span class="tripadvisor-badge-caption">Travellers’ Choice 2026</span>
+          </div>
         </div>
       </div>
     </div>
@@ -5202,6 +5261,16 @@
 
       video.addEventListener("play", syncIcon);
       video.addEventListener("volumechange", syncIcon);
+    });
+
+    // "Read more" / "Read less" toggle for long testimonial quotes.
+    document.querySelectorAll(".testimonial-read-more").forEach((btn) => {
+      const quote = btn.previousElementSibling;
+      if (!quote || !quote.classList.contains("testimonial-quote")) return;
+      btn.addEventListener("click", () => {
+        const expanded = quote.classList.toggle("expanded");
+        btn.textContent = expanded ? "Read less" : "Read more";
+      });
     });
 
   </script>

@@ -4,7 +4,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Shimansky Gifting 2026</title>
+  <title>Shimansky Gifting 2027</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link
@@ -268,6 +268,7 @@
       display: flex;
       gap: 26px;
       height: 260px;
+      justify-content: center;
     }
 
     .fine-print {
@@ -302,7 +303,7 @@
     }
 
     .trio-mats .frame {
-      flex: 1;
+
       background-size: cover;
       background-position: center;
       box-shadow: 0 2px 20px rgba(0, 0, 0, 0.15);
@@ -325,8 +326,12 @@
       font-weight: 500;
       font-size: 132px;
       letter-spacing: 4px;
-      color: #363636;
-      text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.55), -1px -1px 1px rgba(255, 255, 255, 0.045);
+      color: var(--ivory);
+      text-shadow:
+        1px 1px 0 rgba(0, 0, 0, 0.35),
+        2px 3px 3px rgba(0, 0, 0, 0.4),
+        4px 6px 10px rgba(0, 0, 0, 0.35),
+        -1px -1px 1px rgba(255, 255, 255, 0.25);
       white-space: nowrap;
       user-select: none;
     }
@@ -349,14 +354,14 @@
       margin: 0 auto;
     }
 
-    /* ---------- Embossed cover (light) ---------- */
+    /* ---------- Embossed cover (dark, matches Southern Cross) ---------- */
     .cover-emboss {
       position: absolute;
       inset: 0;
-      background-color: var(--ivory);
+      background-color: var(--charcoal2);
       background-image:
-        radial-gradient(ellipse 620px 420px at 68% 12%, rgba(30, 30, 30, 0.06), transparent 70%),
-        url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.035'/%3E%3C/svg%3E");
+        radial-gradient(ellipse 620px 420px at 68% 12%, rgba(0, 0, 0, 0.5), transparent 70%),
+        url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.05'/%3E%3C/svg%3E");
     }
 
     .cover-emboss-word {
@@ -369,7 +374,11 @@
       font-size: 233px;
       letter-spacing: 6px;
       color: var(--ivory);
-      text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.16), -1px -1px 1px rgba(255, 255, 255, 0.9);
+      text-shadow:
+        1px 1px 0 rgba(0, 0, 0, 0.35),
+        2px 3px 3px rgba(0, 0, 0, 0.4),
+        4px 6px 10px rgba(0, 0, 0, 0.35),
+        -1px -1px 1px rgba(255, 255, 255, 0.25);
       white-space: nowrap;
       user-select: none;
     }
@@ -388,10 +397,16 @@
       letter-spacing: 5px;
     }
 
+    .cover-emboss-caption .year-slant {
+      display: inline-block;
+      transform: skewX(-10deg);
+      letter-spacing: 6px;
+    }
+
     .cover-emboss-caption .sub {
       font-family: 'Cormorant Garamond', 'Lora', Georgia, serif;
       font-style: italic;
-      color: #6b6559;
+      color: var(--warm-sand);
       font-size: 15px;
     }
 
@@ -559,9 +574,7 @@
         padding: 28px;
       }
 
-      .panel-mat .frame {
-        height: 320px;
-      }
+      .panel-mat .frame {}
 
       /* ---- centered intro pages ---- */
       .centered {
@@ -692,9 +705,7 @@
         font-size: 62px;
       }
 
-      .panel-mat .frame {
-        height: 260px;
-      }
+      .panel-mat .frame {}
 
       .panel-text h1 {
         font-size: 24px;
@@ -706,15 +717,15 @@
 <body>
 
   <!-- ============ PAGE 1 — COVER (embossed wordmark) ============ -->
-  <div class="page bg-ivory">
+  <div class="page bg-charcoal2">
     <div class="cover-emboss"></div>
     <div class="cover-emboss-word">SHIMANSKY</div>
     <div class="cover-emboss-caption">
       <div class="caption">Gifting</div>
-      <div class="caption" style="color:var(--charcoal); margin-bottom:22px;">2026</div>
-      <div class="sub">Cape Town &middot; New York</div>
+      <div class="caption"><span class="year-slant">2027</span></div>
+      <div class="sub" style="margin-top:22px;">Iconic by Design</div>
     </div>
-    <div class="pagefoot" style="color:#a39d8e;">
+    <div class="pagefoot" style="color:var(--warm-sand);">
       <span>SHIMANSKY</span><span>01</span>
     </div>
   </div>
@@ -767,7 +778,8 @@
       </div>
       <div class="panel panel-mat">
 
-        <div class="frame" style="background:linear-gradient(135deg, rgba(183,155,98,0.25), rgba(183,155,98,0.08));">
+        <div class="frame"
+          style="width:95%; background:linear-gradient(135deg, rgba(183,155,98,0.25), rgba(183,155,98,0.08));">
           <img src="https://drive.google.com/thumbnail?id=1uCKLPQsMqfFwcBmoIgDTZLUlmJE23YbZ&sz=s1800"
             alt="Shimansky Our Story" style="width:100%; height:100%; object-fit:cover;" />
         </div>
@@ -790,7 +802,7 @@
         for a layered look, or add them to gifts for your loved ones.
       </p>
     </div>
-    <div class="trio-mats">
+    <div class="trio-mats" style="top: 400px; bottom: auto;">
       <div class="frame" style="background:linear-gradient(135deg, rgba(183,155,98,0.25), rgba(183,155,98,0.08));">
 
         <img src="https://drive.google.com/thumbnail?id=1ZIQu7lx-i8VAfCfbuy1c7iUxwNsXxjmz&sz=s1800" alt="My Africa"
@@ -832,7 +844,7 @@
         presence of the African continent.
       </p>
     </div>
-    <div class="trio-mats" style="height:220px;">
+    <div class="trio-mats" style="top: 400px; bottom: auto;">
       <div class="frame" style="background:linear-gradient(135deg, rgba(183,155,98,0.25), rgba(183,155,98,0.08));">
 
         <img src="https://drive.google.com/thumbnail?id=1jCjVNEdfMj9_29AJc1seyIbvqBVoq9yG&sz=s1800" alt="My Africa Pin"
@@ -987,7 +999,7 @@
         guaranteeing the best quality tanzanite in the world.
       </p>
     </div>
-    <div class="trio-mats" style="height:240px;">
+    <div class="trio-mats" style="top: 400px; bottom: auto;">
       <div class="frame" style="background:linear-gradient(135deg, rgba(183,155,98,0.25), rgba(183,155,98,0.08));">
 
         <img src="https://drive.google.com/thumbnail?id=1kHgnCYXqa6cAplRNY0dkMkLEj_SdHma_&sz=s1800"
@@ -1089,7 +1101,7 @@
   <!-- ============ PAGE 14 — SOUTHERN CROSS TANZANITE PENDANT (spread, photo left) ============ -->
   <div class="page bg-charcoal">
     <div class="spread">
-      <div class="panel panel-mat on-dark-mat">
+      <div class="panel panel-mat">
         <div class="frame" style="background:linear-gradient(135deg, rgba(183,155,98,0.25), rgba(183,155,98,0.08));">
 
           <img src="https://drive.google.com/thumbnail?id=1k-1w6yXtFsXY43P5FaeYCas2QILwXizM&sz=s1800"
@@ -1115,21 +1127,21 @@
   </div>
 
   <!-- ============ PAGE 15 — CONTACT US =========== -->
-  <div class="page bg-ivory">
+  <div class="page bg-charcoal">
     <div class="spread">
       <div class="panel panel-text" style="padding-left:100px;">
-        <div class="monogram" style="margin-bottom:22px; color:var(--charcoal);">S</div>
-        <span class="eyebrow on-light">Get In Touch</span>
-        <h1 class="display" style="color:var(--charcoal); margin-top:18px;">Contact Us</h1>
+        <div class="monogram" style="margin-bottom:22px; color:var(--soft-gold);">S</div>
+        <span class="eyebrow on-dark">Get In Touch</span>
+        <h1 class="display" style="margin-top:18px;">Contact Us</h1>
         <div class="hairline"></div>
         <div class="contact-rows">
-          <div class="name" style="color:var(--charcoal);">Kelly Ann Low</div>
+          <div class="name">Kelly Ann Low</div>
           <div class="role">Inbound Marketing Director</div>
-          <div class="line">+27 (79) 274 3530</div>
-          <div class="line">tours@shimansky.com</div>
+          <div class="line" style="color:var(--warm-sand);">+27 (79) 274 3530</div>
+          <div class="line" style="color:var(--warm-sand);">tours@shimansky.com</div>
           <div class="divider"></div>
-          <div class="line">+27 (71) 302 1070</div>
-          <div class="line">kelly@shimansky.com</div>
+          <div class="line" style="color:var(--warm-sand);">+27 (71) 302 1070</div>
+          <div class="line" style="color:var(--warm-sand);">kelly@shimansky.com</div>
         </div>
       </div>
       <div class="panel panel-mat">
@@ -1139,7 +1151,7 @@
         </div>
       </div>
     </div>
-    <div class="pagefoot" style="color:#a39d8e;">
+    <div class="pagefoot" style="color:var(--warm-sand);">
       <span>SHIMANSKY</span><span>15</span>
     </div>
   </div>

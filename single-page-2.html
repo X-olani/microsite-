@@ -1,0 +1,1228 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shimansky — The Diamond Journey · Cape Town</title>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400;1,600&family=Montserrat:wght@200;300;400;500&display=swap"
+        rel="stylesheet">
+    <style>
+        *,
+        *::before,
+        *::after {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --white: #ffffff;
+            --ivory: #fbfaf7;
+            --warm-sand: #D9D2C3;
+            --soft-gold: #B79B62;
+            --gold-dark: #8A7144;
+            --gold-light: #D4BC8E;
+            --charcoal: #1E1E1E;
+            --sage: #B7B7A4;
+            --sage-dark: #7A7A6A;
+            --line: rgba(30, 30, 30, 0.10);
+            --transition: 500ms cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background: var(--white);
+            color: var(--charcoal);
+            overflow-x: hidden;
+        }
+
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 300;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 1.15rem 3rem;
+            background: rgba(255, 255, 255, 0.94);
+            backdrop-filter: blur(12px);
+            border-bottom: 1px solid rgba(183, 155, 98, 0.18);
+        }
+
+
+        nav-logo {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 0.95rem;
+            font-weight: 400;
+            letter-spacing: 0.35em;
+            color: var(--charcoal);
+            text-transform: uppercase;
+        }
+
+        .nav-right {
+            display: flex;
+            align-items: center;
+            gap: 1.2rem;
+        }
+
+        .nav-link {
+            font-size: 0.58rem;
+            letter-spacing: 0.18em;
+            text-transform: uppercase;
+            color: rgba(30, 30, 30, 0.55);
+            text-decoration: none;
+            transition: var(--transition);
+        }
+
+        .nav-link:hover {
+            color: var(--soft-gold);
+        }
+
+        .nav-book {
+            font-size: 0.6rem;
+            letter-spacing: 0.22em;
+            text-transform: uppercase;
+            color: var(--white);
+            background: var(--charcoal);
+            padding: 0.55rem 1.2rem;
+            text-decoration: none;
+            transition: var(--transition);
+        }
+
+        .nav-book:hover {
+            background: var(--soft-gold);
+        }
+
+        section {
+            position: relative;
+            width: 100%;
+            background: var(--white);
+        }
+
+        .hero {
+            min-height: 100vh;
+            display: grid;
+            grid-template-columns: 1.1fr 0.9fr;
+            align-items: stretch;
+            padding-top: 4.2rem;
+        }
+
+        .hero-image,
+        .section-image {
+            position: relative;
+            min-height: 100%;
+            overflow: hidden;
+            background: var(--ivory);
+        }
+
+        .slide {
+            position: absolute;
+            inset: 0;
+            background-size: cover;
+            background-position: center;
+            opacity: 0;
+            transition: opacity 1.1s ease;
+        }
+
+        .slide.active {
+            opacity: 1;
+        }
+
+        /* White image filter/overlay removed: images now display clean and unfiltered. */
+        .hero-content {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            padding: 5rem 4rem;
+            background: var(--white);
+        }
+
+        .eyebrow {
+            font-size: 0.58rem;
+            letter-spacing: 0.32em;
+            text-transform: uppercase;
+            color: var(--soft-gold);
+            margin-bottom: 1rem;
+        }
+
+        h1,
+        h2,
+        h3 {
+            font-family: 'Cormorant Garamond', serif;
+            font-weight: 300;
+            color: var(--charcoal);
+        }
+
+        h1 {
+            font-size: clamp(3.2rem, 7vw, 6.2rem);
+            line-height: 0.95;
+            margin-bottom: 1rem;
+        }
+
+        h1 em,
+        h2 em,
+        h3 em {
+            font-style: italic;
+            color: var(--soft-gold);
+        }
+
+        .hero-sub {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: clamp(1.1rem, 2vw, 1.45rem);
+            font-style: italic;
+            color: var(--sage-dark);
+            margin-bottom: 1.4rem;
+        }
+
+        .gold-rule {
+            width: 52px;
+            height: 1px;
+            background: var(--soft-gold);
+            margin-bottom: 1.25rem;
+        }
+
+        p {
+            font-size: 0.82rem;
+            line-height: 1.9;
+            color: rgba(30, 30, 30, 0.66);
+            font-weight: 300;
+        }
+
+        .hero-desc {
+            max-width: 570px;
+            margin-bottom: 1rem;
+        }
+
+        .btn-row {
+            display: flex;
+            gap: 0.8rem;
+            flex-wrap: wrap;
+            margin-top: 1.4rem;
+        }
+
+        .btn-dark,
+        .btn-outline {
+            font-size: 0.62rem;
+            letter-spacing: 0.18em;
+            text-transform: uppercase;
+            padding: 0.9rem 1.7rem;
+            text-decoration: none;
+            transition: var(--transition);
+            display: inline-block;
+        }
+
+        .btn-dark {
+            color: var(--white);
+            background: var(--charcoal);
+        }
+
+        .btn-dark:hover {
+            background: var(--soft-gold);
+        }
+
+        .btn-outline {
+            color: var(--charcoal);
+            border: 1px solid rgba(30, 30, 30, 0.26);
+            background: transparent;
+        }
+
+        .btn-outline:hover {
+            color: var(--soft-gold);
+            border-color: var(--soft-gold);
+        }
+
+        .photo-nav {
+            position: absolute;
+            top: 50%;
+            left: 0;
+            right: 0;
+            transform: translateY(-50%);
+            z-index: 10;
+            display: flex;
+            justify-content: space-between;
+            padding: 0 1.2rem;
+            pointer-events: none;
+        }
+
+        .photo-btn {
+            pointer-events: all;
+            width: 42px;
+            height: 42px;
+            border-radius: 50%;
+            border: 1px solid rgba(255, 255, 255, 0.65);
+            background: rgba(255, 255, 255, 0.36);
+            color: var(--charcoal);
+            cursor: pointer;
+            backdrop-filter: blur(6px);
+            transition: var(--transition);
+        }
+
+        .photo-btn:hover {
+            background: var(--white);
+            border-color: var(--white);
+        }
+
+        .photo-dots {
+            position: absolute;
+            bottom: 1rem;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 10;
+            display: flex;
+            gap: 7px;
+        }
+
+        .photo-dot {
+            width: 5px;
+            height: 5px;
+            border-radius: 5px;
+            background: rgba(255, 255, 255, 0.6);
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .photo-dot.active {
+            width: 24px;
+            background: var(--white);
+        }
+
+        .photo-counter {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            z-index: 10;
+            font-size: 0.62rem;
+            letter-spacing: 0.18em;
+            color: var(--white);
+            background: rgba(30, 30, 30, 0.32);
+            padding: 0.35rem 0.55rem;
+        }
+
+        .intro {
+            padding: 6rem 3rem;
+            background: var(--white);
+            border-top: 1px solid var(--line);
+        }
+
+        .intro-inner {
+            max-width: 880px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .intro h2 {
+            font-size: clamp(2.2rem, 4vw, 3.7rem);
+            line-height: 1.1;
+            margin-bottom: 1.2rem;
+        }
+
+        .intro p {
+            max-width: 720px;
+            margin: 0 auto 1rem;
+        }
+
+        .signature {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.25rem;
+            font-style: italic;
+            color: var(--soft-gold);
+            margin-top: 1.4rem;
+        }
+
+        .experience {
+            padding: 5rem 0;
+            background: var(--white);
+            border-top: 1px solid var(--line);
+        }
+
+        .experience-inner {
+            max-width: 1120px;
+            margin: 0 auto;
+            padding: 0 3rem;
+        }
+
+        .section-image {
+            height: 58vh;
+            min-height: 420px;
+            margin-bottom: 2.4rem;
+        }
+
+        .section-copy {
+            display: grid;
+            grid-template-columns: 0.72fr 1.28fr;
+            gap: 3rem;
+            align-items: start;
+        }
+
+        .sticky-heading {
+            position: sticky;
+            top: 6rem;
+        }
+
+        .number {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 5rem;
+            line-height: 0.8;
+            color: rgba(183, 155, 98, 0.14);
+            margin-bottom: 0.4rem;
+        }
+
+        .tag {
+            display: inline-block;
+            font-size: 0.58rem;
+            letter-spacing: 0.28em;
+            text-transform: uppercase;
+            color: var(--soft-gold);
+            border: 1px solid rgba(183, 155, 98, 0.32);
+            padding: 0.32rem 0.8rem;
+            margin-bottom: 1rem;
+        }
+
+        .experience h2 {
+            font-size: clamp(2.1rem, 4vw, 3.3rem);
+            line-height: 1.03;
+            margin-bottom: 1rem;
+        }
+
+        .meta {
+            display: flex;
+            flex-direction: column;
+            gap: 0.55rem;
+            margin: 1.2rem 0;
+        }
+
+        .meta span {
+            font-size: 0.68rem;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            color: var(--sage-dark);
+        }
+
+        .award {
+            display: inline-flex;
+            color: var(--gold-dark);
+            border: 1px solid rgba(183, 155, 98, 0.26);
+            background: rgba(183, 155, 98, 0.06);
+            padding: 0.45rem 0.7rem;
+            font-size: 0.62rem;
+            letter-spacing: 0.12em;
+            margin-top: 0.6rem;
+        }
+
+        .content-block {
+            padding: 1.2rem 0;
+            border-bottom: 1px solid var(--line);
+        }
+
+        .content-block:first-child {
+            padding-top: 0;
+        }
+
+        .content-block h3 {
+            font-size: 1.45rem;
+            margin-bottom: 0.45rem;
+        }
+
+        .content-block h4 {
+            font-size: 0.68rem;
+            letter-spacing: 0.16em;
+            text-transform: uppercase;
+            color: var(--soft-gold);
+            margin: 1rem 0 0.45rem;
+            font-weight: 500;
+        }
+
+        .price {
+            font-size: 0.68rem;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            color: var(--gold-dark);
+            background: rgba(183, 155, 98, 0.08);
+            padding: 0.5rem 0.65rem;
+            display: inline-block;
+            margin: 0.4rem 0 0.8rem;
+        }
+
+        .two-col {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
+        }
+
+        .info-card {
+            border: 1px solid var(--line);
+            padding: 1rem;
+            background: var(--ivory);
+        }
+
+        .info-card h4 {
+            margin-top: 0;
+            color: var(--charcoal);
+        }
+
+        .list {
+            margin-top: 0.8rem;
+            display: grid;
+            gap: 0.45rem;
+        }
+
+        .list div {
+            font-size: 0.74rem;
+            line-height: 1.65;
+            color: rgba(30, 30, 30, 0.64);
+            padding-left: 1rem;
+            position: relative;
+        }
+
+        .list div::before {
+            content: '';
+            width: 4px;
+            height: 4px;
+            background: var(--soft-gold);
+            border-radius: 50%;
+            position: absolute;
+            left: 0;
+            top: 0.72rem;
+        }
+
+        .shopping-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+
+        .shopping-card {
+            border: 1px solid var(--line);
+            padding: 1.1rem;
+            background: var(--white);
+        }
+
+        .shopping-card h3 {
+            font-size: 1.35rem;
+        }
+
+        .giving {
+            background: var(--charcoal);
+            color: var(--white);
+            padding: 6rem 3rem;
+        }
+
+        .giving-inner {
+            max-width: 1050px;
+            margin: 0 auto;
+        }
+
+        .giving h2 {
+            color: var(--white);
+            font-size: clamp(2.2rem, 4vw, 3.5rem);
+            margin-bottom: 1.2rem;
+        }
+
+        .giving p {
+            color: rgba(255, 255, 255, 0.66);
+        }
+
+        .giving-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .giving-card {
+            border: 1px solid rgba(183, 155, 98, 0.25);
+            padding: 1.5rem;
+            background: rgba(255, 255, 255, 0.04);
+        }
+
+        .giving-card h3 {
+            color: var(--gold-light);
+            margin-bottom: 0.8rem;
+        }
+
+        .contact {
+            padding: 5rem 3rem;
+            background: var(--white);
+            border-top: 1px solid var(--line);
+        }
+
+        .contact-inner {
+            max-width: 920px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .contact h2 {
+            font-size: clamp(2rem, 3vw, 3rem);
+            margin-bottom: 0.8rem;
+        }
+
+        @media (max-width: 900px) {
+            nav {
+                padding: 1rem 1.2rem;
+            }
+
+            .nav-link {
+                display: none;
+            }
+
+            .nav-book {
+                display: none;
+            }
+
+            .hero {
+                grid-template-columns: 1fr;
+                padding-top: 3.8rem;
+            }
+
+            .hero-image {
+                min-height: 55vh;
+                order: 1;
+            }
+
+            .hero-content {
+                padding: 2.5rem 1.25rem 3rem;
+                order: 2;
+            }
+
+            .intro {
+                padding: 4rem 1.25rem;
+            }
+
+            .experience {
+                padding: 3.5rem 0;
+            }
+
+            .experience-inner {
+                padding: 0 1.25rem;
+            }
+
+            .section-image {
+                height: 44vh;
+                min-height: 310px;
+                margin-bottom: 1.6rem;
+            }
+
+            .section-copy {
+                grid-template-columns: 1fr;
+                gap: 1rem;
+            }
+
+            .sticky-heading {
+                position: static;
+            }
+
+            .two-col,
+            .shopping-grid,
+            .giving-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .giving {
+                padding: 4rem 1.25rem;
+            }
+
+            .contact {
+                padding: 4rem 1.25rem;
+            }
+        }
+
+
+        /* ─── UPDATED LAYOUT: FULL-WIDTH IMAGES + HERO TEXT OVER IMAGE ─── */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: flex-end;
+            padding-top: 0;
+            overflow: hidden;
+        }
+
+        .hero-image {
+            position: absolute;
+            inset: 0;
+            width: 100%;
+            min-height: 100vh;
+            z-index: 0;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 5;
+            width: 100%;
+            max-width: 780px;
+            min-height: 100vh;
+            justify-content: flex-end;
+            padding: 9rem 3rem 5rem;
+            background: linear-gradient(to right, rgba(30, 30, 30, 0.62), rgba(30, 30, 30, 0.26) 58%, rgba(30, 30, 30, 0));
+        }
+
+        .hero h1,
+        .hero h1 em {
+            color: var(--white);
+            text-shadow: 0 2px 18px rgba(0, 0, 0, 0.25);
+        }
+
+        .hero .eyebrow,
+        .hero .hero-sub,
+        .hero .hero-desc {
+            color: rgba(255, 255, 255, 0.82);
+            text-shadow: 0 1px 12px rgba(0, 0, 0, 0.22);
+        }
+
+        .hero .eyebrow {
+            color: var(--gold-light);
+        }
+
+        .hero .gold-rule {
+            background: var(--gold-light);
+        }
+
+        .hero .btn-outline {
+            color: var(--white);
+            border-color: rgba(255, 255, 255, 0.62);
+        }
+
+        .hero .btn-outline:hover {
+            color: var(--gold-light);
+            border-color: var(--gold-light);
+        }
+
+        .experience-inner {
+            max-width: none;
+            padding: 0;
+        }
+
+        .section-image {
+            width: 100%;
+            height: 72vh;
+            min-height: 520px;
+            margin-bottom: 3rem;
+        }
+
+        .section-copy {
+            max-width: 1120px;
+            margin: 0 auto;
+            padding: 0 3rem;
+        }
+
+        @media (max-width: 900px) {
+            .hero {
+                min-height: 100vh;
+                display: flex;
+                padding-top: 0;
+            }
+
+            .hero-image {
+                min-height: 100vh;
+                order: initial;
+            }
+
+            .hero-content {
+                min-height: 100vh;
+                max-width: none;
+                padding: 8rem 1.25rem 3.5rem;
+                order: initial;
+                background: linear-gradient(to top, rgba(30, 30, 30, 0.72), rgba(30, 30, 30, 0.24) 62%, rgba(30, 30, 30, 0.02));
+            }
+
+            .section-image {
+                height: 58vh;
+                min-height: 380px;
+                margin-bottom: 2rem;
+            }
+
+            .section-copy {
+                padding: 0 1.25rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <nav>
+        <div class="nav-logo">Shimansky · Iconic by Design</div>
+        <div class="nav-right">
+            <a class="nav-link" href="#diamond-journey">Diamond Journey</a>
+            <a class="nav-link" href="#museum">Museum</a>
+            <a class="nav-link" href="#shopping">Shopping</a>
+            <a class="nav-link" href="#giving-back">Giving Back</a>
+            <a href="mailto:tours@shimansky.com" class="nav-book">Book Now</a>
+        </div>
+    </nav>
+
+    <header class="hero" id="top">
+        <div class="hero-image" id="heroSlider">
+            <div class="slide active"
+                style="background-image:url('https://drive.google.com/thumbnail?id=1StiCKiUWBqD2o91FnRakDtfwOYGlPB_s&sz=s1800')">
+            </div>
+            <div class="slide"
+                style="background-image:url('https://drive.google.com/thumbnail?id=1R_CeYTeLjCLDRQaMUWsoufR1Hn8kcC5B&sz=s1800')">
+            </div>
+            <div class="slide"
+                style="background-image:url('https://drive.google.com/thumbnail?id=1uLIY--WcwiHJPnN26csy2xVd41CQdkjs&sz=s1800')">
+            </div>
+
+            <div class="slide"
+                style="background-image:url('https://drive.google.com/thumbnail?id=1qFpAoJz7HmhyRHJaZ1l7895Pduy0W6oc&sz=s1800')">
+            </div>
+
+
+            <div class="photo-nav"><button class="photo-btn" onclick="prev('heroSlider')">&#8592;</button><button
+                    class="photo-btn" onclick="next('heroSlider')">&#8594;</button></div>
+            <div class="photo-dots"></div>
+            <div class="photo-counter">1 / 3</div>
+        </div>
+        <div class="hero-content">
+            <div class="eyebrow">The Shimansky Diamond Journey</div>
+            <h1><em>From Mine</em><br>to Finger</h1>
+            <p class="hero-sub">One of South Africa's most captivating luxury experiences</p>
+            <div class="gold-rule"></div>
+            <p class="hero-desc">Invite your guests to discover one of South Africa’s most captivating luxury
+                experiences, Shimansky’s iconic “Mine to Finger” diamond journey. Step inside a world where
+                hand-selected rough diamonds are masterly crafted on-site in the heart of Cape Town — a rare glimpse
+                into the world of uncompromising craftsmanship, ethical sourcing, and enduring luxury.</p>
+            <p class="hero-desc">This immersive, deeply memorable, and proudly South African experience weaves together
+                heritage, artistry, and sophistication — an exclusive encounter that leaves travellers with a story they
+                will treasure long after their journey ends.</p>
+            <div class="btn-row"><a href="#diamond-journey" class="btn-dark">Begin the Journey</a><a
+                    href="mailto:tours@shimansky.com" class="btn-outline">Book Your Experience</a></div>
+        </div>
+    </header>
+    <section class="intro" id="our-story">
+        <div class="intro-inner">
+            <div class="eyebrow">Our Story</div>
+            <h2><em>A Singular Journey</em><br>from Mine to Finger</h2>
+            <p>Founded in South Africa, a land enriched by diamonds, gold, and platinum — Shimansky is renowned as the
+                foremost premium jewellery brand, celebrated for iconic design and exceptional craftsmanship. Our
+                singular involvement in every stage of a diamond’s journey from mine to finger ensures that only the
+                most exceptional stones are selected and polished in-house for our jewellery collections.</p>
+            <p>Over 25 remarkable years, Shimansky has pioneered the use of platinum in fine jewellery, while also
+                developing internationally patented diamond cuts and jewellery designs, setting the brand apart on the
+                global stage. We have had the privilege of hosting guests from every corner of the world, offering a
+                truly distinctive South African luxury experience and honouring significant moments with a unique
+                Shimansky creation.</p>
+            <p class="signature">We look forward to delivering an exceptional, memorable experience for your guests.</p>
+        </div>
+    </section>
+    <section class="experience" id="diamond-journey">
+        <div class="experience-inner">
+            <div class="section-image" id="slider1">
+                <div class="slide active"
+                    style="background-image:url('https://drive.google.com/thumbnail?id=1tM4gturAf5SgHZRtXPQ_KedTa9yu8zTc&sz=s1800')">
+                </div>
+                <div class="slide"
+                    style="background-image:url('https://drive.google.com/thumbnail?id=1Ah--V14YFSeu47o5k9eG0KZcvj9987zu&sz=s1800')">
+                </div>
+                <div class="slide"
+                    style="background-image:url('https://drive.google.com/thumbnail?id=1O593Z691oLKpk2Q8MFsMOo51b2z3sXBf&sz=s1800')">
+                </div>
+
+                <div class="slide"
+                    style="background-image:url('https://drive.google.com/thumbnail?id=1d5j-e8ibgRF7uI8ohmXHOPI4e8VioIf9&sz=s1800')">
+                </div>
+
+
+                <div class="slide"
+                    style="background-image:url('https://drive.google.com/thumbnail?id=157zf-ttnP9KIU8VgLRjL9AcMJMxf6qhZ&sz=s1800')">
+                </div>
+                <div class="photo-nav"><button class="photo-btn" onclick="prev('slider1')">&#8592;</button><button
+                        class="photo-btn" onclick="next('slider1')">&#8594;</button></div>
+                <div class="photo-dots"></div>
+                <div class="photo-counter">1 / 4</div>
+            </div>
+            <div class="section-copy">
+                <aside class="sticky-heading">
+                    <div class="number">01</div>
+                    <div class="tag">Experience 1</div>
+                    <h2>The Rockwell<br><em>Diamond Experience</em></h2>
+                    <div class="meta"><span>Location: Corner of Alfred & Prestwich Street, Greenpoint, Cape
+                            Town</span><span>Duration: 45-minute guided tour</span><span>Reservations: By appointment
+                            only</span><span>Bus parking available on-site</span></div>
+                    <div class="award">TripAdvisor Travellers’ Choice 2024</div>
+                </aside>
+                <div>
+                    <div class="content-block">
+                        <h3>Polish-A-Diamond</h3>
+                        <div class="price">Priced at R 1 900 per person, approximately USD $100</div>
+                        <p>An intimate, hands-on encounter unlike any other — guests are invited to step into our
+                            working factory and take hold of something extraordinary; to personally polish a diamond in
+                            its rough, uncut state. A unique experience connecting guests to one of nature’s most
+                            coveted treasures.</p>
+                        <p>This bespoke experience encompasses a 45-minute guided factory tour, access to the Secret
+                            Chamber, a 30-minute artisanal gin tasting, and a 30-minute polishing session at the heart
+                            of our diamond workshop. Each guest departs with a personalised certificate, signed by our
+                            CEO Yair Shimansky, and a commemorative photograph printed on-site — a treasured memento of
+                            an extraordinary day.</p>
+                        <div class="list">
+                            <div>Recommended group size: maximum 12 guests, divided into intimate groups of 4.</div>
+                            <div>Walk-ins are not accepted — ensuring every experience is exclusively private.</div>
+                            <div>Visual note: add the 9-step diamond cutting process from the presentation.</div>
+                        </div>
+                    </div>
+                    <div class="content-block">
+                        <h3>The Rockwell Experience Tour</h3>
+                        <div class="price">Priced at R 500 per person, approximately USD $30</div>
+                        <p>An unrivalled diamond encounter, elevated with a carefully curated South African pairing of
+                            fine gin, whisky, or wine. Our carefully chosen partnerships with South Africa's finest
+                            distillers and wine estates ensure that every Diamond Experience is accompanied by a tasting
+                            as memorable as the diamonds themselves.</p>
+                        <div class="two-col">
+                            <div class="info-card">
+                                <h4>Workshop</h4>
+                                <p>Witness the extraordinary skill of our craftsmen on a guided jewellery and diamond
+                                    manufacturing tour, where precision comes to life before your eyes.</p>
+                            </div>
+                            <div class="info-card">
+                                <h4>Showroom</h4>
+                                <p>Offered in a selection of languages, the Rockwell Experience is thoughtfully tailored
+                                    to each group of guests.</p>
+                            </div>
+                            <div class="info-card">
+                                <h4>Secret Chamber</h4>
+                                <p>Venture into our private chamber to encounter replicas of the world’s most celebrated
+                                    diamonds and gain rare insight into the journey from ancient mine to polished
+                                    perfection.</p>
+                            </div>
+                            <div class="info-card">
+                                <h4>Capacity</h4>
+                                <p>Maximum 45 guests. Larger groups can be accommodated by arrangement.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="content-block">
+                        <h3>Additional Experiences</h3>
+                        <div class="list">
+                            <div>Groups of 35 or more receive an elevated lucky draw — a premium pendant gifted during
+                                the tour.</div>
+                            <div>Bespoke Diamond Surprise Activities available by prior arrangement.</div>
+                            <div>Personalised voucher options, including branded and custom-name designs.</div>
+                            <div>Exclusive gift-with-purchase offer: the iconic Southern Cross pendant.</div>
+                        </div>
+                    </div>
+                    <div class="content-block">
+                        <h3>Operating Hours</h3>
+                        <div class="list">
+                            <div>Showroom: Monday to Sunday, 10:00 – 19:00, by appointment only.</div>
+                            <div>Factory: Monday to Thursday, 10:00 – 16:00, Friday, 09:00 – 15:00.</div>
+                            <div>Polish-A-Diamond: Monday to Thursday, 10:00 – 16:00, last tour 15:00. Friday, 10:00 –
+                                15:00, last tour 14:00.</div>
+                            <div>Closed on 25 December.</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="experience" id="museum">
+        <div class="experience-inner">
+            <div class="section-image" id="slider2">
+                <div class="slide active"
+                    style="background-image:url('https://drive.google.com/thumbnail?id=16z5b1JQTqjNDA18uQ1xZN0rbPn-LsU4o&sz=s1800')">
+                </div>
+                <div class="slide"
+                    style="background-image:url('https://drive.google.com/thumbnail?id=1zFZRfmwwcoakHhB76ab9acWY3ADrdN_F&sz=s1800')">
+                </div>
+                <div class="slide"
+                    style="background-image:url('https://drive.google.com/thumbnail?id=1KLGPrq1yeWWXGYqK1acs0WDQtVuztyxF&sz=s1800')">
+                </div>
+                <div class="slide"
+                    style="background-image:url('https://drive.google.com/thumbnail?id=1JAJzyNFKp88H-zABJP-eT9YHJyUD8qoc&sz=s1800')">
+                </div>
+
+                <div class="slide"
+                    style="background-image:url('https://drive.google.com/thumbnail?id=157zf-ttnP9KIU8VgLRjL9AcMJMxf6qhZ&sz=s1800')">
+                </div>
+                <div class="photo-nav"><button class="photo-btn" onclick="prev('slider2')">&#8592;</button><button
+                        class="photo-btn" onclick="next('slider2')">&#8594;</button></div>
+                <div class="photo-dots"></div>
+                <div class="photo-counter">1 / 3</div>
+            </div>
+            <div class="section-copy">
+                <aside class="sticky-heading">
+                    <div class="number">02</div>
+                    <div class="tag">Experience 2</div>
+                    <h2>Cape Town<br><em>Diamond Museum</em></h2>
+                    <div class="meta"><span>Location: V&A Waterfront Clock Tower, Level 1, Cape
+                            Town</span><span>Duration: 45-minute guided tour</span><span>Reservations: Essential,
+                            bookings required</span><span>Maximum 25 guests</span></div>
+                    <div class="award">TripAdvisor Travellers’ Best of the Best 2024</div>
+                </aside>
+                <div>
+                    <div class="content-block">
+                        <p>The Cape Town Diamond Museum invites guests into a world of rare beauty, storied heritage,
+                            and exceptional craftsmanship. Nestled within the elegant Clock Tower at the iconic V&A
+                            Waterfront, with the dramatic silhouette of Table Mountain as its backdrop, this is an
+                            intimate, exclusive, and quietly spectacular highlight for the discerning visitor.</p>
+                        <p>Far more than a museum visit, this is a refined odyssey into the story of South African
+                            diamonds — from their ancient geological origins to their transformation into extraordinary
+                            Shimansky creations. It is one seamless destination: museum, factory, and showroom, united
+                            under one distinguished roof.</p>
+                    </div>
+                    <div class="content-block">
+                        <h3>The Journey</h3>
+                        <div class="two-col">
+                            <div class="info-card">
+                                <h4>Explore</h4>
+                                <p>Traverse 3.3 billion years of diamond history. Uncover the legacy of the Kimberley
+                                    Diamond Rush and the moment that changed the course of South Africa forever.</p>
+                            </div>
+                            <div class="info-card">
+                                <h4>Discover</h4>
+                                <p>Follow the fascinating mine-to-finger journey firsthand, witnessing rough diamonds
+                                    transformed in our workshop into brilliant, handcrafted masterpieces.</p>
+                            </div>
+                            <div class="info-card">
+                                <h4>Learn</h4>
+                                <p>Deepen your understanding of what a diamond truly is — where it originates, how it
+                                    forms, and why no two are alike.</p>
+                            </div>
+                            <div class="info-card">
+                                <h4>Luxury Showroom</h4>
+                                <p>Conclude your visit in our exquisitely appointed showroom, where exceptional pieces
+                                    await the most discerning eye.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="content-block">
+                        <h3>Factory & Workshop</h3>
+                        <h4>Diamond Cutting & Polishing Factory</h4>
+                        <p>The art of polishing and shaping diamonds is both precise science and rare gift — a skill
+                            refined over years of devoted practice. Watch first-hand as our skilled craftsmen coax
+                            extraordinary fire and brilliance from rough stone, transforming nature’s raw material into
+                            something luminous and enduring.</p>
+                        <h4>Shimansky Jewellery Manufacturing Workshop</h4>
+                        <p>Watch as master craftsmen hand-craft stunning jewellery creations before your eyes, unveiling
+                            the meticulous techniques that define every Shimansky signature design.</p>
+                    </div>
+                    <div class="content-block">
+                        <h3>Additional Experiences</h3>
+                        <div class="list">
+                            <div>Entrance fee of R400 per person is graciously waived for all pre-booked groups.</div>
+                            <div>Luxurious complimentary transfers from Cape Town accommodation, available on request.
+                            </div>
+                            <div>Bespoke Diamond Surprise Activities available by prior arrangement.</div>
+                            <div>Personalised voucher options, including branded and custom-name designs.</div>
+                            <div>Exclusive gift-with-purchase offer: the iconic Southern Cross pendant.</div>
+                        </div>
+                    </div>
+                    <div class="content-block">
+                        <h3>Operating Hours</h3>
+                        <div class="list">
+                            <div>Museum & Showroom: Monday to Sunday, 09:00 – 20:00, last tour at 19:15.</div>
+                            <div>Factory: Monday to Thursday, 09:00 – 16:00, Friday, 09:00 – 12:00.</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="experience" id="shopping">
+        <div class="experience-inner">
+            <div class="section-image" id="slider3">
+                <div class="slide active"
+                    style="background-image:url('https://drive.google.com/thumbnail?id=1eK_-x16Z3kGAxJI2HkILQlWKj3c1zG9O&sz=s1800')">
+                </div>
+
+                <div class="slide"
+                    style="background-image:url('https://drive.google.com/thumbnail?id=18c35_tp0uC17JfJWL3Xw3WU7lSht99Tv&sz=s1800')">
+                </div>
+
+                <div class="slide"
+                    style="background-image:url('https://drive.google.com/thumbnail?id=1C9ocWA4_wXs7MkyRgGWFQUNaSPtZDaZ6&sz=s1800')">
+                </div>
+                <div class="slide"
+                    style="background-image:url('https://drive.google.com/thumbnail?id=1X8JbyxnjI9aemA-JQoB7GVB9Vq4dDp6a&sz=s1800')">
+                </div>
+                <div class="photo-nav"><button class="photo-btn" onclick="prev('slider3')">&#8592;</button><button
+                        class="photo-btn" onclick="next('slider3')">&#8594;</button></div>
+                <div class="photo-dots"></div>
+                <div class="photo-counter">1 / 3</div>
+            </div>
+            <div class="section-copy">
+                <aside class="sticky-heading">
+                    <div class="number">03</div>
+                    <div class="tag">Experience 3</div>
+                    <h2>Shimansky<br><em>Shopping Experience</em></h2>
+                    <div class="meta"><span>Location: Shop 7228, Upper Level, Victoria & Alfred Waterfront, Cape
+                            Town</span><span>Boutique: Monday to Sunday, 09:00 – 21:00</span><span>Closed on 25
+                            December</span></div>
+                </aside>
+                <div>
+                    <div class="content-block">
+                        <h3>Shimansky Boutique</h3>
+                        <p>For those seeking the pinnacle of private jewellery discovery in Cape Town, the Shimansky
+                            Boutique at Victoria Wharf offers an experience of unhurried refinement. Guests are welcomed
+                            with a glass of South African wine and guided through an immersive, one-on-one consultation
+                            with our knowledgeable team — a rare opportunity to explore the world’s finest diamonds and
+                            tanzanite at leisure.</p>
+                        <p>From breathtaking ready-to-wear designs to entirely bespoke commissions, this is a
+                            destination for those who believe that the most precious things in life are crafted with
+                            intention.</p>
+                    </div>
+                    <div class="content-block">
+                        <h3>Bespoke Design</h3>
+                        <p>Capture the moments that define you. Shimansky’s bespoke service invites guests to
+                            collaborate with our in-house jewellery designers and master craftsmen to create a wholly
+                            personal creation — one that reflects a unique personality, story, and style.</p>
+                        <div class="list">
+                            <div>South African orders: 5–7 business days.</div>
+                            <div>International delivery: 7–14 business days.</div>
+                            <div>A 14-day delivery is guaranteed on the majority of orders.</div>
+                        </div>
+                    </div>
+                    <div class="content-block">
+                        <h3>Tanzanite — One Thousand Times Rarer Than a Diamond</h3>
+                        <div class="shopping-grid">
+                            <div class="shopping-card">
+                                <h3>Ayanda® — The Queen of Tanzanite</h3>
+                                <p>The combination of a Shimansky design, craftsmanship and the finest tanzanite creates
+                                    a breathtaking collection, as showcased in the Ayanda™ Tanzanite & Diamond
+                                    Collection.
+
+                                </p>
+                            </div>
+                            <div class="shopping-card">
+                                <h3>The Tanzanite Standard</h3>
+                                <p>Tanzanite is a unique and alluring gem with a vibrant shade of colour ranging from
+                                    rich royal blues to delicate shades of violet and hues of red. As a discerning
+                                    gemstone buyer, you want to make sure that you are getting the best quality
+                                    tanzanite available on the market. Important factors to consider when buying
+                                    tanzanite include ethical sourcing, quality of the cut, and the importance of
+                                    colour.</p>
+                                <p>Orders processed in South Africa will take 5–7 business days to arrive. Overseas
+                                    deliveries can take anywhere from 7–14 days. We guarantee a 14-day delivery on most
+                                    orders.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="content-block">
+                        <h3>Iconic Jewellery Designs & Patented Diamond Cuts</h3>
+                        <div class="shopping-grid">
+                            <div class="shopping-card">
+                                <h3>Evolym® Ring</h3>
+                                <p>TThe word “My Love” written in reverse, the Evolym diamond ring is a reflection of
+                                    your love and commitment in a truly breathtaking, innovative design that allows a
+                                    360-degree exposure to light.</p>
+                            </div>
+                            <div class="shopping-card">
+                                <h3>Table Mountain Ring</h3>
+                                <p>The unique Table Mountain Ring is a precious metal and diamond creation that
+                                    harnesses the power and presence of the Cape Town phenomenon that is Table Mountain
+                                    and transforms it into a wearable piece of art.</p>
+                            </div>
+                            <div class="shopping-card">
+                                <h3>Millennium® Ring</h3>
+                                <p>The Millennium® ring is an iconic Shimansky original, and is the most sought-after
+                                    diamond engagement ring in South Africa.</p>
+                            </div>
+                            <div class="shopping-card">
+                                <h3>My Girl® Diamond</h3>
+                                <p>TBrilliance with every move you make, the My Girl is the world’s first square-cut
+                                    diamond with a diamond-shaped table, and the only internationally patented diamond
+                                    cut to originate from South Africa.</p>
+                            </div>
+                            <div class="shopping-card">
+                                <h3>Brilliant 10® Diamond</h3>
+                                <p>Born from a dream to create the world’s most brilliant cut diamond, the Brilliant 10
+                                    has been tested to be 25% more brilliant than any other diamond cut in the world.
+
+                                    Shimansky’s signature diamond cuts and jewellery designs are protected by
+                                    international copyright laws.
+                                </p>
+                            </div>
+                            <div class="shopping-card">
+                                <h3>Protected Originals</h3>
+                                <p>All Shimansky signature diamond cuts and jewellery designs are protected under
+                                    international copyright law — a reflection of the originality and innovation that
+                                    defines everything we create.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="giving" id="giving-back">
+        <div class="giving-inner">
+            <div class="eyebrow">Giving Back</div>
+            <h2>The Shimansky Diamond Foundation</h2>
+            <p>TThe Shimansky Diamond Foundation is a nonprofit organisation focused on providing food and education to
+                women and children in need, creating better opportunities and contributing to a brighter tomorrow. We
+                welcome any donations you wish to make, with no administrative fees. 100% of funds are used for their
+                intended purpose.</p>
+            <p>If you wish to support our initiatives, please consider purchasing our “My Africa, My Shimansky”
+                bracelets. All proceeds go directly to the Shimansky Foundation.</p>
+            <div class="giving-grid">
+                <div class="giving-card">
+                    <h3>Giving Back</h3>
+                    <p>We warmly invite you to support our work by acquiring our My Africa, My Shimansky bracelets —
+                        with all proceeds flowing directly to the Foundation.</p>
+                </div>
+                <div class="giving-card">
+                    <h3>Sustainability & Ethical Sourcing</h3>
+                    <p>At the heart of every Shimansky jewellery creation — across diamonds, gemstones, and corporate
+                        governance — we strive to act in a sustainable way to reduce any negative impact on the world,
+                        from our choice of light source, recycling of waste, and packaging material, to low and
+                        efficient energy processes and the careful selection of our service providers.
+                    </p>
+                    <p>Our diamonds originate mainly from alluvial diamond mines where the old riverbed is mined with a
+                        strict code of rehabilitation after every digging takes place, filling back the land. The same
+                        applies to responsible gold and platinum mining.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="contact" id="book">
+        <div class="contact-inner">
+            <div class="eyebrow">Book Your Experience</div>
+            <h2>Plan a memorable Shimansky visit for your guests</h2>
+            <p>Use this section for all booking details, links, and testimonials once finalised by the team.</p>
+            <div class="btn-row" style="justify-content:center"><a href="mailto:tours@shimansky.com"
+                    class="btn-dark">Email Tours</a><a href="mailto:kelly@shimansky.com" class="btn-outline">Email
+                    Kelly</a></div>
+        </div>
+    </section>
+    <script>
+        const sliders = {};
+        document.querySelectorAll('.hero-image, .section-image').forEach((el) => {
+            const slides = [...el.querySelectorAll('.slide')];
+            if (!slides.length) return;
+            sliders[el.id] = { index: 0, slides };
+            const dots = el.querySelector('.photo-dots');
+            if (dots) {
+                slides.forEach((_, i) => {
+                    const dot = document.createElement('div');
+                    dot.className = 'photo-dot' + (i === 0 ? ' active' : '');
+                    dot.onclick = () => go(el.id, i);
+                    dots.appendChild(dot);
+                });
+            }
+        });
+        function go(id, index) {
+            const slider = sliders[id];
+            if (!slider) return;
+            slider.slides[slider.index].classList.remove('active');
+            slider.index = (index + slider.slides.length) % slider.slides.length;
+            slider.slides[slider.index].classList.add('active');
+            const root = document.getElementById(id);
+            root.querySelectorAll('.photo-dot').forEach((dot, i) => dot.classList.toggle('active', i === slider.index));
+            const counter = root.querySelector('.photo-counter');
+            if (counter) counter.textContent = (slider.index + 1) + ' / ' + slider.slides.length;
+        }
+        function next(id) { const s = sliders[id]; if (s) go(id, s.index + 1); }
+        function prev(id) { const s = sliders[id]; if (s) go(id, s.index - 1); }
+        setInterval(() => Object.keys(sliders).forEach(id => next(id)), 6500);
+    </script>
+</body>
+
+</html>
